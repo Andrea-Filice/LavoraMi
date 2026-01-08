@@ -1,7 +1,4 @@
-# This workflow will build a Swift project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
-
-name: Swift
+name: Xcode Build
 
 on:
   push:
@@ -11,12 +8,63 @@ on:
 
 jobs:
   build:
-
     runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Detect Xcode project or workspace and scheme
+      id: detect
+      run: |
+        set -e
+        # Prefer workspace if present
+        if ls *.xcworkspace 1> /dev/null 2>&1; then
+          WORKSPACE=$(ls *.xcworkspace | head -n1)
+          echo "workspace=$WORKSPACE" >> $GITHUB_OUTPUT
+          # Try json list first (safer), fallback to plain text
+          SCHEME=$(xcodebuild -workspace "$WORKSPACE" -list -json 2>/dev/null | jq -r '.schemes[0]' || true)
+          if [ -z "$SCHEME" ] || [ "$SCHEME" = "null" ]; then
+            SCHEME=$(xcodebuild -workspace "$WORKSPACE" -list | sed -n '/Schemes:/,/^$/p' | sed -n '2p' | tr -d ' \t')
+          fi
+          echo "scheme=$SCHEME" >> $GITHUB_OUTPUT
+        elif ls *.xcodeproj 1> /dev/null 2>&1; then
+          PROJECT=$(ls *.xcodeproj | head -n1)
+          echo "project=$PROJECT" >> $GITHUB_OUTPUT
+          SCHEME=$(xcodebuild -project "$PROJECT" -list -json 2>/dev/null | jq -r '.schemes[0]' || true)
+          if [ -z "$SCHEME" ] || [ "$SCHEME" = "null" ]; then
+            SCHEME=$(xcodebuild -project "$PROJECT" -list | sed -n '/Schemes:/,/^$/p' | sed -n '2p' | tr -d ' \t')
+          fi
+          echo "scheme=$SCHEME" >> $GITHUB_OUTPUT
+        else
+          echo "No Xcode project (.xcodeproj) or workspace (.xcworkspace) found in repository." >&2
+          exit 1
+        fi
+
     - name: Build
-      run: swift build -v
+      run: |
+        set -e
+        DEST='platform=iOS Simulator,name=iPhone 14'
+        if [ -n "${{ steps.detect.outputs.workspace }}" ]; then
+          echo "Building workspace ${{ steps.detect.outputs.workspace }} scheme ${{ steps.detect.outputs.scheme }}"
+          xcodebuild clean build -workspace "${{ steps.detect.outputs.workspace }}" -scheme "${{ steps.detect.outputs.scheme }}" -sdk iphonesimulator -destination "$DEST" ONLY_ACTIVE_ARCH=NO
+        else
+          echo "Building project ${{ steps.detect.outputs.project }} scheme ${{ steps.detect.outputs.scheme }}"
+          xcodebuild clean build -project "${{ steps.detect.outputs.project }}" -scheme "${{ steps.detect.outputs.scheme }}" -sdk iphonesimulator -destination "$DEST" ONLY_ACTIVE_ARCH=NO
+        fi
+
     - name: Run tests
-      run: swift test -v
+      run: |
+        set -e
+        DEST='platform=iOS Simulator,name=iPhone 14'
+        if [ -n "${{ steps.detect.outputs.workspace }}" ]; then
+          xcodebuild test -workspace "${{ steps.detect.outputs.workspace }}" -scheme "${{ steps.detect.outputs.scheme }}" -destination "$DEST"
+        else
+          xcodebuild test -project "${{ steps.detect.outputs.project }}" -scheme "${{ steps.detect.outputs.scheme }}" -destination "$DEST"
+        fi
+
+    - name: Upload test results (if any)
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: xcode-test-logs
+        path: DerivedData/
