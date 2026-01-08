@@ -645,9 +645,6 @@ struct LinesView: View {
     }
 }
 
-import SwiftUI
-import MapKit // <--- FONDAMENTALE PER LA MAPPA
-
 struct LineDetailView: View {
     let lineName: String
     let typeOfTransport: String
