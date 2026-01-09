@@ -778,7 +778,7 @@ struct LineDetailView: View {
                                 
                                 let abbiategrassoBranch = [famagosta] + stations.filter { $0.branch == "Abbiategrasso" }
                                 MapPolyline(coordinates: abbiategrassoBranch.map(\.coordinate))
-                                    .stroke(Color(red: 95/255, green: 147/255, blue: 34/255)), lineWidth: 5)
+                                    .stroke(Color(red: 95/255, green: 147/255, blue: 34/255), lineWidth: 5)
 
                                 let cascinaGobba = stations.first(where: { $0.name == "Cascina Gobba" })!
                                 let colognoBranch = [cascinaGobba] + stations.filter { $0.branch == "Cologno" }
