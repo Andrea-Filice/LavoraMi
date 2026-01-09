@@ -50,7 +50,7 @@ jobs:
     - name: Build
       run: |
         set -e
-        DEST='platform=iOS Simulator,name=iPhone 14'
+        DEST='platform=iOS Simulator,name=iPhone 15,4'
         if [ -n "${{ steps.detect.outputs.workspace }}" ]; then
           echo "Building workspace ${{ steps.detect.outputs.workspace }} scheme ${{ steps.detect.outputs.scheme }}"
           xcodebuild clean build -workspace "${{ steps.detect.outputs.workspace }}" -scheme "${{ steps.detect.outputs.scheme }}" -sdk iphonesimulator -destination "$DEST" ONLY_ACTIVE_ARCH=NO
@@ -62,7 +62,7 @@ jobs:
     - name: Run tests
       run: |
         set -e
-        DEST='platform=iOS Simulator,name=iPhone 14'
+        DEST='platform=iOS Simulator,name=iPhone 15,4'
         if [ -n "${{ steps.detect.outputs.workspace }}" ]; then
           xcodebuild test -workspace "${{ steps.detect.outputs.workspace }}" -scheme "${{ steps.detect.outputs.scheme }}" -destination "$DEST"
         else
