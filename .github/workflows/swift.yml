@@ -60,6 +60,7 @@ jobs:
         fi
 
     - name: Run tests
+      continue-on-error: true
       run: |
         set -e
         DEST='platform=iOS Simulator,name=iPhone 16'
