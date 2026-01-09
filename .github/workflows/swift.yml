@@ -17,23 +17,21 @@ jobs:
       id: detect
       run: |
         set -e
-        # Prefer workspace if present
-        if ls *.xcworkspace 1> /dev/null 2>&1; then
-          WORKSPACE=$(ls *.xcworkspace | head -n1)
+        # Look for workspace first
+        if [ -d "LaboraMi.xcodeproj/project.xcworkspace" ]; then
+          WORKSPACE="LaboraMi.xcodeproj/project.xcworkspace"
           echo "workspace=$WORKSPACE" >> $GITHUB_OUTPUT
-          # Try json list first (safer), fallback to plain text
-          SCHEME=$(xcodebuild -workspace "$WORKSPACE" -list -json 2>/dev/null | jq -r '.schemes[0]' || true)
-          if [ -z "$SCHEME" ] || [ "$SCHEME" = "null" ]; then
-            SCHEME=$(xcodebuild -workspace "$WORKSPACE" -list | grep -v "^  " | grep -v "^$" | head -n1)
-          fi
+          SCHEME=$(xcodebuild -workspace "$WORKSPACE" -list -json 2>/dev/null | jq -r '.schemes[0]' 2>/dev/null || echo "LaboraMi")
+          echo "scheme=$SCHEME" >> $GITHUB_OUTPUT
+        elif ls *.xcworkspace 1> /dev/null 2>&1; then
+          WORKSPACE=$(ls -d *.xcworkspace 2>/dev/null | head -n1)
+          echo "workspace=$WORKSPACE" >> $GITHUB_OUTPUT
+          SCHEME=$(xcodebuild -workspace "$WORKSPACE" -list -json 2>/dev/null | jq -r '.schemes[0]' 2>/dev/null || echo "LaboraMi")
           echo "scheme=$SCHEME" >> $GITHUB_OUTPUT
         elif ls *.xcodeproj 1> /dev/null 2>&1; then
-          PROJECT=$(ls *.xcodeproj | head -n1)
+          PROJECT=$(ls -d *.xcodeproj 2>/dev/null | head -n1)
           echo "project=$PROJECT" >> $GITHUB_OUTPUT
-          SCHEME=$(xcodebuild -project "$PROJECT" -list -json 2>/dev/null | jq -r '.schemes[0]' || true)
-          if [ -z "$SCHEME" ] || [ "$SCHEME" = "null" ]; then
-            SCHEME=$(xcodebuild -project "$PROJECT" -list | grep -v "^  " | grep -v "^$" | head -n1)
-          fi
+          SCHEME=$(xcodebuild -project "$PROJECT" -list -json 2>/dev/null | jq -r '.schemes[0]' 2>/dev/null || echo "LaboraMi")
           echo "scheme=$SCHEME" >> $GITHUB_OUTPUT
         else
           echo "No Xcode project (.xcodeproj) or workspace (.xcworkspace) found in repository." >&2
