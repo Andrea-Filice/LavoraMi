@@ -963,6 +963,7 @@ struct LineDetailView: View {
                     .padding(.bottom, 100)
                     .mapStyle(.standard(elevation: .flat, pointsOfInterest: .excludingAll))
                     .ignoresSafeArea(edges: .bottom)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
                 
             }
