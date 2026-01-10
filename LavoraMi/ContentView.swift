@@ -574,6 +574,7 @@ struct InfoView: View {
                     Text("Questa applicazione aggrega dati pubblici, accessibili a tutti, per facilitarne la consultazione.")
                         .padding(.horizontal, 18)
                         .padding(.top, 10)
+                        .italic()
                     Text("""
                     LavoraMi è un'applicazione indipendente sviluppata da terze parti e NON è in alcun modo affiliata, supportata, autorizzata o sponsorizzata da ATM S.p.A., Trenord S.r.l., Gruppo FNM, RFI o altri enti di trasporto citati.
 
@@ -625,7 +626,8 @@ struct InfoView: View {
                         Label("Segnala un bug", systemImage: "ladybug.fill")
                             .font(.system(size: 20))
                     }
-                    .padding(.top, 5)
+                    .padding(.bottom, 10)
+                    Spacer()
                 }
             }
         }
@@ -678,12 +680,11 @@ struct LineRow: View {
     let typeOfTransport: String
     let branches: String
     let waitMinutes: String
-    let workingNow: Int
-    let workScheduled: Int
     let stations: [MetroStation]
+    @ObservedObject var viewModel: WorkViewModel
     
     var body: some View {
-        NavigationLink(destination: LineDetailView(lineName: line, typeOfTransport: typeOfTransport, branches: branches, waitMinutes: waitMinutes, workScheduled: workScheduled, workNow: workingNow, stations: stations)){
+        NavigationLink(destination: LineDetailView(lineName: line, typeOfTransport: typeOfTransport, branches: branches, waitMinutes: waitMinutes, workScheduled: getWorkScheduled(line: line, viewModel: viewModel), workNow: getWorkNow(line: line, viewModel: viewModel), stations: stations)){
             HStack(spacing: 12) {
                 Text(line)
                     .foregroundStyle(.white)
@@ -707,28 +708,46 @@ struct LinesView: View {
     
     var metros: [LineInfo] {
         [
-            LineInfo(name: "M1", branches: "Sesto F.S. - Rho Fiera / Bisceglie", type: "Metro", waitMinutes: "Sesto FS: 3 min | Rho/Bisceglie: 7-8 min.", workingNow: getWorkNow(line: "M1", viewModel: viewModel), workScheduled: getWorkScheduled(line: "M1", viewModel: viewModel), stations: StationsDB.stationsM1),
-            LineInfo(name: "M2", branches: "Gessate / Cologno - Assago / Abbiategrasso", type: "Metro", waitMinutes: "Gessate / Cologno: 12-15 min | Assago / Abbiategrasso: 9-10 min", workingNow: getWorkNow(line: "M2", viewModel: viewModel), workScheduled: getWorkScheduled(line: "M2", viewModel: viewModel), stations: StationsDB.stationsM2),
-            LineInfo(name: "M3", branches: "Comasina - San Donato", type: "Metro", waitMinutes: "4-5 min.", workingNow: getWorkNow(line: "M3", viewModel: viewModel), workScheduled: getWorkScheduled(line: "M3", viewModel: viewModel), stations: StationsDB.stationsM3),
-            LineInfo(name: "M4", branches: "Linate - San Cristoforo", type: "Metro", waitMinutes: "2-3 min.", workingNow: getWorkNow(line: "M4", viewModel: viewModel), workScheduled: getWorkScheduled(line: "M4", viewModel: viewModel), stations: StationsDB.stationsM4),
-            LineInfo(name: "M5", branches: "Bignami - San Siro Stadio", type: "Metro", waitMinutes: "4 min.", workingNow: getWorkNow(line: "M5", viewModel: viewModel), workScheduled: getWorkScheduled(line: "M5", viewModel: viewModel), stations: StationsDB.stationsM5)
+            LineInfo(name: "M1", branches: "Sesto F.S. - Rho Fiera / Bisceglie", type: "Metro", waitMinutes: "Sesto FS: 3 min | Rho/Bisceglie: 7-8 min.", stations: StationsDB.stationsM1),
+            LineInfo(name: "M2", branches: "Gessate / Cologno - Assago / Abbiategrasso", type: "Metro", waitMinutes: "Gessate / Cologno: 12-15 min | Assago / Abbiategrasso: 9-10 min", stations: StationsDB.stationsM2),
+            LineInfo(name: "M3", branches: "Comasina - San Donato", type: "Metro", waitMinutes: "4-5 min.", stations: StationsDB.stationsM3),
+            LineInfo(name: "M4", branches: "Linate - San Cristoforo", type: "Metro", waitMinutes: "2-3 min.",stations: StationsDB.stationsM4),
+            LineInfo(name: "M5", branches: "Bignami - San Siro Stadio", type: "Metro", waitMinutes: "4 min.", stations: StationsDB.stationsM5)
         ]
     }
-    let trams = ["1", "2", "3", "4", "5", "7", "9", "10", "12", "14", "15", "16", "19", "24", "27", "31", "33"]
+    
+    var suburban: [LineInfo] {
+        [
+            LineInfo(name: "S1", branches: "Saronno - Lodi", type: "Suburbano", waitMinutes: "30 min.", stations: StationsDB.stationsS1),
+            LineInfo(name: "S2", branches: "Mariano Comense - Milano Rogoredo", type: "Suburbano", waitMinutes: "30 min.", stations: StationsDB.stationsS2),
+            LineInfo(name: "S3", branches: "Saronno - Milano Cadorna", type: "Suburbano", waitMinutes: "30 min.", stations: StationsDB.stationsS3),
+            LineInfo(name: "S4", branches: "Camnago - Milano Cadorna", type: "Suburbano", waitMinutes: "30 min.", stations: StationsDB.stationsS4),
+            LineInfo(name: "S5", branches: "Varese - Treviglio", type: "Suburbano", waitMinutes: "30 min.", stations: StationsDB.stationsS5),
+            LineInfo(name: "S6", branches: "Novara - Pioltello Limito/Treviglio", type: "Suburbano", waitMinutes: "30 min.", stations: StationsDB.stationsS6),
+            LineInfo(name: "S7", branches: "Lecco - Milano Pta Garibaldi", type: "Suburbano", waitMinutes: "1 ora - 30 min.", stations: StationsDB.stationsS7),
+            LineInfo(name: "S8", branches: "Lecco - Carnate - Milano Pta Garibaldi", type: "Suburbano", waitMinutes: "30 min.", stations: StationsDB.stationsS8),
+            LineInfo(name: "S9", branches: "Saronno - Albairate Vermezzo", type: "Suburbano", waitMinutes: "30 min.", stations: StationsDB.stationsS9),
+            LineInfo(name: "S11", branches: "Rho - Como S. Giovanni", type: "Suburbano", waitMinutes: "30 min.", stations: StationsDB.stationsS11),
+            LineInfo(name: "S12", branches: "Melegnano - Cormano", type: "Suburbano", waitMinutes: "30 min (solo in settimana il servizio è attivo).", stations: StationsDB.stationsS12),
+            LineInfo(name: "S13", branches: "Pavia - Milano Bovisa", type: "Suburbano", waitMinutes: "30 min.", stations: StationsDB.stationsS13),
+            LineInfo(name: "S19", branches: "Albairate Vermezzo - Milano Rogoredo", type: "Suburbano", waitMinutes: "30 min.", stations: StationsDB.stationsS19),
+            LineInfo(name: "S31", branches: "Brecia - Iseo", type: "Suburbano", waitMinutes: "1 ora.", stations: StationsDB.stationsS31)
+        ]
+    }
     
     var body: some View {
         NavigationStack{
             List{
                 Section("Linee Metropolitane"){
                     ForEach(metros, id: \.id) { line in
-                        LineRow(line: line.name, typeOfTransport: line.type, branches: line.branches, waitMinutes: line.waitMinutes, workingNow: line.workingNow, workScheduled: line.workScheduled, stations: line.stations)
+                        LineRow(line: line.name, typeOfTransport: line.type, branches: line.branches, waitMinutes: line.waitMinutes, stations: line.stations, viewModel: viewModel)
                     }
                 }
-                /*Section("Linee Tram"){
-                    ForEach(trams, id: \.self) {tramLine in
-                        LineRow(line: tramLine, typeOfTransport: "Tram")
+                Section("Linee Suburbane"){
+                    ForEach(suburban, id: \.id) { line in
+                        LineRow(line: line.name, typeOfTransport: line.type, branches: line.branches, waitMinutes: line.waitMinutes, stations: line.stations, viewModel: viewModel)
                     }
-                }*/
+                }
             }
             .navigationTitle("Linee")
         }
@@ -759,14 +778,21 @@ struct LineDetailView: View {
     
     let stations: [MetroStation]
     
-    let lombardyBounds = MapCameraBounds(
-        centerCoordinateBounds: MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 45.46443, longitude: 9.18927),
-            span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
-        ),
-        minimumDistance: 1000,
-        maximumDistance: 100000
-    )
+    private var centerIndex: Int { max(0, stations.count / 2) }
+    private var centerCoordinate: CLLocationCoordinate2D {
+        stations.isEmpty ? CLLocationCoordinate2D(latitude: 45.46443, longitude: 9.18927) : stations[centerIndex].coordinate
+    }
+    
+    private var lombardyBounds: MapCameraBounds {
+        MapCameraBounds(
+            centerCoordinateBounds: MKCoordinateRegion(
+                center: CLLocationCoordinate2D(latitude: 45.46443, longitude: 9.18927),
+                span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 2.5)
+            ),
+            minimumDistance: 1000,
+            maximumDistance: 175000
+        )
+    }
     
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 45.4642, longitude: 9.1900),
@@ -815,6 +841,13 @@ struct LineDetailView: View {
                         Text(waitMinutes)
                             .font(.title3)
                             .multilineTextAlignment(.leading)
+                        
+                        if(lineName == "S2" || lineName == "S12" || lineName == "S19"){
+                            Text("LA LINEA E' ATTIVA SOLO NEI GIORNI SETTIMANALI.")
+                                .font(.system(size: 12))
+                                .foregroundStyle(.secondary)
+                                .bold()
+                        }
                     }
                     
                     VStack(alignment: .leading, spacing: 5) {
@@ -838,7 +871,7 @@ struct LineDetailView: View {
                 
                 
                 Map(initialPosition: .region(MKCoordinateRegion(
-                        center: CLLocationCoordinate2D(latitude: 45.4850, longitude: 9.1600),
+                        center: centerCoordinate,
                         span: MKCoordinateSpan(latitudeDelta: 0.15, longitudeDelta: 0.15)
                     )),
                     bounds: lombardyBounds
@@ -959,8 +992,6 @@ struct LineInfo: Identifiable {
     let branches: String
     let type: String
     let waitMinutes: String
-    let workingNow: Int
-    let workScheduled: Int
     let stations: [MetroStation]
 }
 
@@ -984,8 +1015,10 @@ func getColor(for line: String) -> Color {
         case "S8": return Color(red: 246/255, green: 182/255, blue: 182/255)
         case "S9": return Color(red: 162/255, green: 51/255, blue: 138/255)
         case "S11": return Color(red: 165/255, green: 147/255, blue: 198/255)
-        case "S12": return Color(red: 44/255, green: 83/255, blue: 52/255)
+        case "S12": return .black
         case "S13": return Color(red: 167/255, green: 109/255, blue: 17/255)
+        case "S19": return Color(red: 102/255, green: 13/255, blue: 54/255)
+        case "S31": return .gray
         
         //TILO LINES
         case "S10": return Color(red: 228/255, green: 35/255, blue: 19/255)
