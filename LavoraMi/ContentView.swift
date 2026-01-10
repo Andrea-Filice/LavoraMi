@@ -36,13 +36,15 @@ struct WorkItem: Identifiable, Hashable, Codable {
 }
 
 struct ContentView: View {
+    @StateObject private var viewModel = WorkViewModel()
+    
     var body: some View {
         TabView{
-            MainView()
+            MainView(viewModel: viewModel)
                 .tabItem{
                     Label("Home", systemImage: "house")
                 }
-            LinesView()
+            LinesView(viewModel: viewModel)
                 .tabItem{
                     Label("Linee", systemImage: "arrow.branch")
                 }
@@ -58,10 +60,11 @@ struct MainView: View{
     @State private var closedStrike: Bool = false
     @State private var selectedFilter: FilterBy = .all
     @State private var searchInput: String = ""
-    @StateObject private var viewModel = WorkViewModel()
+    @ObservedObject var viewModel: WorkViewModel
     @FocusState private var isSearchFocused: Bool
     
-    init() {
+    init(viewModel: WorkViewModel) {
+        self._viewModel = ObservedObject(wrappedValue: viewModel)
         _preferredFilter = AppStorage(wrappedValue: .all, "preferredFilter")
         _selectedFilter = State(initialValue: _preferredFilter.wrappedValue)
     }
@@ -95,7 +98,7 @@ struct MainView: View{
             case .scheduled:
                 categoryFiltered = items.filter { $0.startDate > now }
             case .working:
-                categoryFiltered = items.filter { $0.startDate <= now || $0.endDate <= now }
+                categoryFiltered = items.filter { $0.startDate <= now && $0.endDate >= now }
         }
         
         if searchInput.isEmpty {
@@ -675,10 +678,12 @@ struct LineRow: View {
     let typeOfTransport: String
     let branches: String
     let waitMinutes: String
+    let workingNow: Int
+    let workScheduled: Int
     let stations: [MetroStation]
     
     var body: some View {
-        NavigationLink(destination: LineDetailView(lineName: line, typeOfTransport: typeOfTransport, branches: branches, waitMinutes: waitMinutes, workScheduled: 0, workNow: 0, stations: stations)){
+        NavigationLink(destination: LineDetailView(lineName: line, typeOfTransport: typeOfTransport, branches: branches, waitMinutes: waitMinutes, workScheduled: workScheduled, workNow: workingNow, stations: stations)){
             HStack(spacing: 12) {
                 Text(line)
                     .foregroundStyle(.white)
@@ -698,13 +703,17 @@ struct LineRow: View {
 }
 
 struct LinesView: View {
-    let metros: [LineInfo] = [
-            LineInfo(name: "M1", branches: "Sesto F.S. - Rho Fiera / Bisceglie", type: "Metro", waitMinutes: "Sesto FS: 3 min | Rho/Bisceglie: 7-8 min.", stations: StationsDB.stationsM1),
-            LineInfo(name: "M2", branches: "Gessate / Cologno - Assago / Abbiategrasso", type: "Metro", waitMinutes: "Gessate / Cologno: 12-15 min | Assago / Abbiategrasso: 9-10 min", stations: StationsDB.stationsM2),
-            LineInfo(name: "M3", branches: "Comasina - San Donato", type: "Metro", waitMinutes: "4-5 min.", stations: StationsDB.stationsM3),
-            LineInfo(name: "M4", branches: "Linate - San Cristoforo", type: "Metro", waitMinutes: "2-3 min.", stations: StationsDB.stationsM4),
-            LineInfo(name: "M5", branches: "Bignami - San Siro Stadio", type: "Metro", waitMinutes: "4 min.", stations: StationsDB.stationsM5)
+    @ObservedObject var viewModel: WorkViewModel
+    
+    var metros: [LineInfo] {
+        [
+            LineInfo(name: "M1", branches: "Sesto F.S. - Rho Fiera / Bisceglie", type: "Metro", waitMinutes: "Sesto FS: 3 min | Rho/Bisceglie: 7-8 min.", workingNow: getWorkNow(line: "M1", viewModel: viewModel), workScheduled: getWorkScheduled(line: "M1", viewModel: viewModel), stations: StationsDB.stationsM1),
+            LineInfo(name: "M2", branches: "Gessate / Cologno - Assago / Abbiategrasso", type: "Metro", waitMinutes: "Gessate / Cologno: 12-15 min | Assago / Abbiategrasso: 9-10 min", workingNow: getWorkNow(line: "M2", viewModel: viewModel), workScheduled: getWorkScheduled(line: "M2", viewModel: viewModel), stations: StationsDB.stationsM2),
+            LineInfo(name: "M3", branches: "Comasina - San Donato", type: "Metro", waitMinutes: "4-5 min.", workingNow: getWorkNow(line: "M3", viewModel: viewModel), workScheduled: getWorkScheduled(line: "M3", viewModel: viewModel), stations: StationsDB.stationsM3),
+            LineInfo(name: "M4", branches: "Linate - San Cristoforo", type: "Metro", waitMinutes: "2-3 min.", workingNow: getWorkNow(line: "M4", viewModel: viewModel), workScheduled: getWorkScheduled(line: "M4", viewModel: viewModel), stations: StationsDB.stationsM4),
+            LineInfo(name: "M5", branches: "Bignami - San Siro Stadio", type: "Metro", waitMinutes: "4 min.", workingNow: getWorkNow(line: "M5", viewModel: viewModel), workScheduled: getWorkScheduled(line: "M5", viewModel: viewModel), stations: StationsDB.stationsM5)
         ]
+    }
     let trams = ["1", "2", "3", "4", "5", "7", "9", "10", "12", "14", "15", "16", "19", "24", "27", "31", "33"]
     
     var body: some View {
@@ -712,7 +721,7 @@ struct LinesView: View {
             List{
                 Section("Linee Metropolitane"){
                     ForEach(metros, id: \.id) { line in
-                        LineRow(line: line.name, typeOfTransport: line.type, branches: line.branches, waitMinutes: line.waitMinutes, stations: line.stations)
+                        LineRow(line: line.name, typeOfTransport: line.type, branches: line.branches, waitMinutes: line.waitMinutes, workingNow: line.workingNow, workScheduled: line.workScheduled, stations: line.stations)
                     }
                 }
                 /*Section("Linee Tram"){
@@ -724,6 +733,19 @@ struct LinesView: View {
             .navigationTitle("Linee")
         }
     }
+}
+
+func getWorkNow(line: String, viewModel: WorkViewModel) -> Int{
+    let now = Date()
+    
+    return viewModel.items.filter {
+        ($0.startDate <= now && $0.endDate >= now) && $0.lines.contains(line)}.count
+}
+
+func getWorkScheduled(line: String, viewModel: WorkViewModel) -> Int{
+    let now = Date()
+    
+    return viewModel.items.filter{($0.startDate > now) && $0.lines.contains(line)}.count
 }
 
 struct LineDetailView: View {
@@ -973,6 +995,8 @@ struct LineInfo: Identifiable {
     let branches: String
     let type: String
     let waitMinutes: String
+    let workingNow: Int
+    let workScheduled: Int
     let stations: [MetroStation]
 }
 
