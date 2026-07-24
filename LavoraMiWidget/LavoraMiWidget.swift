@@ -161,15 +161,30 @@ struct LavoraMiWidget: Widget {
             if #available(iOS 17.0, *) {
                 LavoraMiWidgetEntryView(entry: entry)
                     .containerBackground(.fill.tertiary, for: .widget)
+                    .widgetURL(deepLinkURL(for: entry))
             } else {
                 LavoraMiWidgetEntryView(entry: entry)
                     .padding()
                     .background()
+                    .widgetURL(deepLinkURL(for: entry))
             }
         }
         .configurationDisplayName("Stato Linea")
         .description("Mostra lo stato della linea selezionata.")
         .supportedFamilies([.systemSmall, .systemMedium])
+    }
+
+    private func deepLinkURL(for entry: WorkEntry) -> URL? {
+        guard entry.stato != "empty", let name = entry.linea?.name, !name.isEmpty else {
+            return nil
+        }
+        
+        var components = URLComponents()
+        components.scheme = "lavorami"
+        components.host = "linea"
+        components.queryItems = [URLQueryItem(name: "nome", value: name)]
+        
+        return components.url
     }
 }
 

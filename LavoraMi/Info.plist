@@ -2,9 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AdUnitID</key>
+	<string>ca-app-pub-1768959234616789/6091166551</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string>iconNew</string>
 			<key>CFBundleURLName</key>
 			<string>it.andreafilice.lavorami</string>
 			<key>CFBundleURLSchemes</key>
@@ -15,6 +21,8 @@
 	</array>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-1768959234616789~9514999727</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>TitilliumWeb-Bold.ttf</string>
@@ -23,9 +31,5 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
-	<key>GADApplicationIdentifier</key>
-	<string>ca-app-pub-1768959234616789~9514999727</string>
-	<key>AdUnitID</key>
-	<string>ca-app-pub-1768959234616789/6091166551</string>
 </dict>
 </plist>

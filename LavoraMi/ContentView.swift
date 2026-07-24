@@ -59,10 +59,11 @@ struct ContentView: View {
     @Binding var showSetupScreen: Bool
     @State private var showUpdatePopUp: Bool = false
     @State private var selectedTab: Int = 0
+    @State private var deepLinkedLine: DeepLinkLine? = nil
     @AppStorage("hasNotCompletedSetup") private var hasNotCompletedSetup = true
     @AppStorage("feedbacksEnabled") var feedbacksEnabled: Bool = true
     @AppStorage("showWhatsNewScreen") var showWhatsNewScreenToggle: Bool = true
-    
+
     @Environment(\.openURL) private var openURLAction
 
     var body: some View {
@@ -85,6 +86,14 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showSetupScreen){
             SetupView()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .openLineDetailFromWidget)) { notification in
+            guard let nome = notification.object as? String else { return }
+            selectedTab = 1
+            deepLinkedLine = DeepLinkLine(name: nome)
+        }
+        .fullScreenCover(item: $deepLinkedLine) { link in
+            DeepLinkLineDetailWrapper(lineName: link.name, viewModel: viewModel)
         }
     }
 }
@@ -8045,6 +8054,7 @@ func getIconForFilter(for filterName: String) -> String{
 // MARK: DEEP LINK
 extension Notification.Name {
     static let openLetueLinkInfo = Notification.Name("openLetueLinkInfo")
+    static let openLineDetailFromWidget = Notification.Name("openLineDetailFromWidget") // nuovo
 }
 
 //EXTENSION: Save files also with arrays
@@ -8220,6 +8230,69 @@ struct HapticManager {
 
 func isLineTILO(lineName: String) -> Bool {
     return (lineName == "S10" || lineName == "S20" || lineName == "S30" || lineName == "S40" || lineName == "S50" || lineName == "S90" || lineName == "RE80")
+}
+
+///URL Types
+///In this section we create the code for open the URLs of Widgets
+struct DeepLinkLine: Identifiable {
+    let id = UUID()
+    let name: String
+}
+
+struct DeepLinkLineDetailWrapper: View {
+    let lineName: String
+    @ObservedObject var viewModel: WorkViewModel
+    @Environment(\.dismiss) private var dismiss
+
+    private var lineInfo: LineInfo? {
+        LinesView(viewModel: viewModel).fullLineInfo(for: lineName)
+    }
+
+    var body: some View {
+        ZStack(alignment: .topTrailing) {
+            if let info = lineInfo {
+                LineDetailView(
+                    lineName: info.name,
+                    typeOfTransport: info.type,
+                    branches: info.branches,
+                    waitMinutes: info.waitMinutes,
+                    workScheduled: getWorkScheduled(line: info.name, viewModel: viewModel),
+                    workNow: getWorkNow(line: info.name, viewModel: viewModel),
+                    viewModel: viewModel,
+                    stations: info.stations,
+                    accessibilityStatus: info.accessibilityStatus
+                )
+            } else {
+                VStack(spacing: 12) {
+                    Image(systemName: "exclamationmark.triangle")
+                        .font(.largeTitle)
+                        .foregroundColor(.secondary)
+                    Text("Linea non trovata")
+                        .font(.headline)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+
+            Button {
+                dismiss()
+            } label: {
+                ZStack {
+                    Circle()
+                        .fill(.ultraThinMaterial)
+                        .frame(width: 36, height: 36)
+                        .overlay(
+                            Circle()
+                                .stroke(.quaternary, lineWidth: 0.5)
+                        )
+                        .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
+                    Image(systemName: "xmark")
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                }
+            }
+            .padding()
+        }
+    }
 }
 
 #Preview{

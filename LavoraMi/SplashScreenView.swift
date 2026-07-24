@@ -125,8 +125,16 @@ struct SplashScreenView: View {
 
     private func handleDeepLink(_ url: URL) {
         guard url.scheme == "lavorami" else { return }
+
         if url.host == "letueline" {
             NotificationCenter.default.post(name: .openLetueLinkInfo, object: nil)
+        }
+
+        if url.host == "linea" {
+            guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
+                  let nome = components.queryItems?.first(where: { $0.name == "nome" })?.value
+            else { return }
+            NotificationCenter.default.post(name: .openLineDetailFromWidget, object: nome)
         }
     }
 }
