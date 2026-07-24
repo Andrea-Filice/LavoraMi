@@ -4581,7 +4581,7 @@ struct LibrariesView: View {
         ),
         LibraryDetailView(
             name: "swift-concurrency-extras",
-            version: "1.4.0",
+            version: "1.4.1",
             license: "MIT License",
             copyright: "Copyright (c) 2023 Point-Free, Inc.",
             licenseText: """
