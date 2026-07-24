@@ -3150,12 +3150,18 @@ struct AccountView: View {
                     return
                 }
                 
-                let name = credential.fullName?.givenName ?? "User"
-                let surname = credential.fullName?.familyName ?? ""
-                let composed = "\(name) \(surname)".trimmingCharacters(in: .whitespaces)
-                fullName = !auth.getFullName().isEmpty ? auth.getFullName() : composed
+                var newNameFromApple: String? = nil
+                if let personName = credential.fullName {
+                    let given = personName.givenName ?? ""
+                    let family = personName.familyName ?? ""
+                    let composed = "\(given) \(family)".trimmingCharacters(in: .whitespaces)
+                    if !composed.isEmpty {
+                        newNameFromApple = composed
+                    }
+                }
                 
-                await auth.signInWithApple(nonce: nonce, idToken: idToken, fullName: fullName)
+                await auth.signInWithApple(nonce: nonce, idToken: idToken, fullName: newNameFromApple)
+                fullName = auth.getFullName()
                 loggedIn = auth.isLoggedIn()
                 logginIn = false
                 tabTitle = "Account"
