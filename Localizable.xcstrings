@@ -3303,7 +3303,20 @@
       }
     },
     "Linea non trovata" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Line Not Found"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se ha encontrado la línea"
+          }
+        }
+      }
     },
     "Linea salvata" : {
       "localizations" : {

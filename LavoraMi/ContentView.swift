@@ -5885,7 +5885,7 @@ struct LineDetailView: View {
         
         switch status {
             case "Regolare":
-                return ("Regolare", getColor(for: "M2"), "checkmark.circle.fill")
+                return ("Regolare", getColor(for: "M2"), "checkmark")
             case "Tratta Sospesa":
                 return ("Tratta Sospesa", .orange, "exclamationmark.triangle.fill")
             case "Fermata Sospesa":
