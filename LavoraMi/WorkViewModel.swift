@@ -33,9 +33,14 @@ class WorkViewModel: ObservableObject {
     @Published var suburbanInterruptionLinks: [String] = [""]
     @Published var regionalWithInterruptions: [String] = [""]
     @Published var regionalInterruptionLinks: [String] = [""]
+    @Published var metroStatus: [String] = [""]
+    @Published var orariChiusura: [String] = [""]
+    @Published var orariApertura: [String] = [""]
+    @Published var orariAperturaFestivi: [String] = [""]
     @Published var isStrikeToday: Bool = false
     
     private let urlString = "https://cdn.lavorami.it/lavoriAttuali.json"
+    private let urlGTFS = "https://cdn.lavorami.it/_gtfsStatus.json"
     private let urlVariables = "https://cdn.lavorami.it/_vars.json"
     private let requirements = "https://cdn.lavorami.it/requirements.json"
     
@@ -215,6 +220,45 @@ class WorkViewModel: ObservableObject {
             }
         }.resume()
     }
+    
+    func fetchMetroStatus(completion: (() -> Void)? = nil) {
+        guard let url = URL(string: urlGTFS) else {
+            self.errorMessage = "URL non valido"
+            completion?()
+            return
+        }
+        
+        self.isLoading = true
+        self.errorMessage = nil
+        
+        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            DispatchQueue.main.async { self?.isLoading = false }
+            
+            guard let data = data, error == nil else {
+                DispatchQueue.main.async {
+                    self?.errorMessage = error?.localizedDescription ?? "Nessun dato trovato."
+                    completion?()
+                }
+                return
+            }
+            
+            do {
+                let result = try JSONDecoder().decode(MetroStatusData.self, from: data)
+                DispatchQueue.main.async {
+                    self?.metroStatus = result.metroStatus
+                    self?.orariChiusura = result.orariChiusura
+                    self?.orariApertura = result.orariApertura
+                    self?.orariAperturaFestivi = result.orariAperturaFestivi
+                    completion?()
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self?.errorMessage = "\(error.localizedDescription)"
+                    completion?()
+                }
+            }
+        }.resume()
+    }
 }
 
 struct RemoteConfigData: Codable {
@@ -241,4 +285,11 @@ struct RequirementsData: Codable {
     let maintenanceDepsEn: String
     let maintenanceDepsEs: String
     let minVersioniOS: String
+}
+
+struct MetroStatusData: Codable {
+    let metroStatus: [String]
+    let orariChiusura: [String]
+    let orariApertura: [String]
+    let orariAperturaFestivi: [String]
 }

@@ -5863,6 +5863,73 @@ struct LineDetailView: View {
     }
     
     @State private var branchData: [(coords: [CLLocationCoordinate2D], isPlanned: Bool)] = []
+    
+    private var metroLineIndex: Int? {
+        switch lineName {
+            case "M1": return 0
+            case "M2": return 1
+            case "M3": return 2
+            case "M4": return 3
+            case "M5": return 4
+            default: return nil
+        }
+    }
+    
+    private var metroStatusInfo: (text: String, color: Color, icon: String)? {
+        guard let index = metroLineIndex,viewModel.orariChiusura.indices.contains(index),viewModel.orariApertura.indices.contains(index), viewModel.orariAperturaFestivi.indices.contains(index), viewModel.metroStatus.indices.contains(index) else { return nil }
+        
+        let closingTime = viewModel.orariChiusura[index]
+        let openingTime = isGiornoFestivo() ? viewModel.orariAperturaFestivi[index] : viewModel.orariApertura[index]
+        
+        let status = isMetroChiusaOra(closingTime: closingTime, openingTime: openingTime) ? "Chiusa" : viewModel.metroStatus[index]
+        
+        switch status {
+            case "Regolare":
+                return ("Regolare", getColor(for: "M2"), "checkmark.circle.fill")
+            case "Tratta Sospesa":
+                return ("Tratta Sospesa", .orange, "exclamationmark.triangle.fill")
+            case "Fermata Sospesa":
+                return ("Fermata Sospesa", .orange, "exclamationmark.triangle.fill")
+            case "Fermate Sospese":
+                return ("Fermate Sospese", .orange, "exclamationmark.triangle.fill")
+            case "Interrotta":
+                return ("Interrotta", .red, "xmark.circle.fill")
+            case "Chiusa":
+                return ("Chiusa", getColor(for: "S12"), "moon.fill")
+            default:
+                return nil
+        }
+    }
+    
+    private func isGiornoFestivo() -> Bool {
+        Calendar.current.component(.weekday, from: Date()) == 1
+    }
+    
+    private func isMetroChiusaOra(closingTime: String, openingTime: String) -> Bool {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        formatter.locale = Locale(identifier: "it_IT")
+        
+        guard let parsedClosing = formatter.date(from: closingTime),
+              let parsedOpening = formatter.date(from: openingTime) else { return false }
+        
+        let now = Date()
+        let calendar = Calendar.current
+        
+        func todayTime(from date: Date) -> Date {
+            let components = calendar.dateComponents([.hour, .minute], from: date)
+            return calendar.date(bySettingHour: components.hour ?? 0, minute: components.minute ?? 0, second: 0, of: now) ?? now
+        }
+        
+        let closing = todayTime(from: parsedClosing)
+        let opening = todayTime(from: parsedOpening)
+        
+        let isAfterOrEqualClosing = now >= closing
+        let isBeforeOpening = now < opening
+        
+        if closing < opening {return isAfterOrEqualClosing && isBeforeOpening}
+        else {return isAfterOrEqualClosing || isBeforeOpening}
+    }
 
     private func computeBranchData() -> [(coords: [CLLocationCoordinate2D], isPlanned: Bool)] {
         let branchGroups = Dictionary(grouping: stations.filter { $0.branch != "Main" }, by: \.branch)
@@ -6341,9 +6408,26 @@ extension LineDetailView {
             .mapStyle(.standard(elevation: .flat, pointsOfInterest: .excludingAll))
             .mapControls {
                 MapUserLocationButton()
+                MapCompass()
             }
             .tint(getColor(for: lineName))
             .clipShape(RoundedRectangle(cornerRadius: 12))
+            .overlay(alignment: .topLeading) {
+                if let status = metroStatusInfo {
+                    HStack(spacing: 6) {
+                        Image(systemName: status.icon)
+                            .font(.system(size: 13, weight: .bold))
+                        Text(status.text)
+                            .font(.system(size: 14, weight: .semibold))
+                    }
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .background(Capsule().fill(status.color))
+                    .shadow(color: .black.opacity(0.15), radius: 4, x: 0, y: 2)
+                    .padding(12)
+                }
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.bottom, 10)
@@ -6351,6 +6435,9 @@ extension LineDetailView {
             locationManager.requestPermission()
             if branchData.isEmpty {
                 branchData = computeBranchData()
+            }
+            if metroLineIndex != nil {
+                viewModel.fetchMetroStatus()
             }
         }
     }
