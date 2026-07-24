@@ -3064,6 +3064,7 @@ struct AccountView: View {
                 
                 do {
                     linesFavorites = try await auth.fetchUserFavorites()
+                    linesSelected = try await auth.fetchUserLines()
                     currentSyncStatus = String(localized: .sincronizzato)
                     currentSyncStatusIcon = "cloudSynced"
                 }
