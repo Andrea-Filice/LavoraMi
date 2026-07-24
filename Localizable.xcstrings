@@ -175,6 +175,7 @@
       }
     },
     "%lld attuali, %lld programmati." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3051,6 +3052,7 @@
       }
     },
     "LAVORI SULLA LINEA:" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

@@ -6858,11 +6858,20 @@ struct LineSmallDetailedView: View {
                         }
                     }
 
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text("LAVORI SULLA LINEA:")
-                            .font(.caption).foregroundStyle(.secondary).bold()
-                        Text("\(workNow) attuali, \(workScheduled) programmati.")
-                            .font(.title3).multilineTextAlignment(.leading)
+                    HStack(spacing: 8) {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .font(.system(size: 22))
+                            .foregroundColor(.gray)
+                        
+                        VStack(alignment: .leading, spacing: 0) {
+                            Text("\(workNow) attuali,")
+                                .font(.system(size: 14))
+                                .foregroundColor(.secondary)
+                            
+                            Text("\(workScheduled) programmati.")
+                                .font(.system(size: 14))
+                                .foregroundColor(.secondary)
+                        }
                     }
                 }
                 .padding()
