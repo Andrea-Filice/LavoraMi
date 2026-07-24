@@ -614,6 +614,7 @@ struct MainView: View {
                         viewModel.isLoading = true
                         viewModel.fetchWorks()
                         viewModel.fetchVariables()
+                        viewModel.fetchMetroStatus()
                         viewModel.fetchRequirements{
                             showMaintenanceMode = viewModel.maintenanceModeEnabled
                         }
@@ -1035,6 +1036,7 @@ struct MainView: View {
                 if(!alreadyRefreshed) {
                     viewModel.fetchWorks()
                     viewModel.fetchVariables()
+                    viewModel.fetchMetroStatus()
                     viewModel.fetchRequirements {
                         showMaintenanceMode = viewModel.maintenanceModeEnabled
                     }
@@ -1070,6 +1072,7 @@ struct MainView: View {
             .refreshable {
                 viewModel.fetchWorks()
                 viewModel.fetchVariables()
+                viewModel.fetchMetroStatus()
                 viewModel.fetchRequirements {
                     showMaintenanceMode = viewModel.maintenanceModeEnabled
                 }
