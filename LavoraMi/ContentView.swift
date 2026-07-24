@@ -6238,6 +6238,7 @@ extension LineDetailView {
                             .foregroundColor(.secondary)
                     }
                 }
+                Spacer()
                 Divider()
                     .frame(height: 36)
                 HStack(spacing: 6) {
