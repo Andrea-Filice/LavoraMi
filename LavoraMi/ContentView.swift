@@ -5885,17 +5885,17 @@ struct LineDetailView: View {
         
         switch status {
             case "Regolare":
-                return ("Regolare", getColor(for: "M2"), "checkmark")
+                return (String(localized: .statoMetroRegolare), getColor(for: "M2"), "checkmark")
             case "Tratta Sospesa":
-                return ("Tratta Sospesa", .orange, "exclamationmark.triangle.fill")
+                return (String(localized: .statoMetroTrattaSospesa), .orange, "exclamationmark.triangle.fill")
             case "Fermata Sospesa":
-                return ("Fermata Sospesa", .orange, "exclamationmark.triangle.fill")
+                return (String(localized: .statoMetroFermataSospesa), .orange, "exclamationmark.triangle.fill")
             case "Fermate Sospese":
-                return ("Fermate Sospese", .orange, "exclamationmark.triangle.fill")
+                return (String(localized: .statoMetroFermateSospese), .orange, "exclamationmark.triangle.fill")
             case "Interrotta":
-                return ("Interrotta", .red, "xmark.circle.fill")
+                return (String(localized: .statoMetroInterrotta), .red, "xmark.circle.fill")
             case "Chiusa":
-                return ("Chiusa", getColor(for: "S12"), "moon.fill")
+                return (String(localized: .statoMetroChiusa), getColor(for: "S12"), "moon.fill")
             default:
                 return nil
         }
