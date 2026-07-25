@@ -5901,6 +5901,8 @@ struct LineDetailView: View {
                 return (String(localized: .statoMetroFermataSospesa), .orange, "exclamationmark.triangle.fill")
             case "Fermate Sospese":
                 return (String(localized: .statoMetroFermateSospese), .orange, "exclamationmark.triangle.fill")
+            case "Rallentata":
+                return (String(localized: .statoMetroRallentata), .orange, "clock.badge.exclamationmark.fill")
             case "Interrotta":
                 return (String(localized: .statoMetroInterrotta), .red, "xmark.circle.fill")
             case "Chiusa":

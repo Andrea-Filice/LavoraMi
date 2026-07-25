@@ -174,29 +174,6 @@
         }
       }
     },
-    "%lld attuali, %lld programmati." : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$lld current, %2$lld scheduled."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$lld actuales, %2$lld programadas."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld attuali, %2$lld programmati."
-          }
-        }
-      }
-    },
     "%lld min" : {
       "localizations" : {
         "en" : {
@@ -3047,23 +3024,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Obras en línea"
-          }
-        }
-      }
-    },
-    "LAVORI SULLA LINEA:" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "WORK ON THE LINE:"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OBRAS EN LA LÍNEA:"
           }
         }
       }
@@ -6351,6 +6311,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Interrotta"
+          }
+        }
+      }
+    },
+    "statoMetroRallentata" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delayed"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Servicio Reducido"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rallentata"
           }
         }
       }
