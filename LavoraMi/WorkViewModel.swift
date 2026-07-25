@@ -37,6 +37,7 @@ class WorkViewModel: ObservableObject {
     @Published var orariChiusura: [String] = [""]
     @Published var orariApertura: [String] = [""]
     @Published var orariAperturaFestivi: [String] = [""]
+    @Published var messageCurrentStatus: String = ""
     @Published var isStrikeToday: Bool = false
     
     private let urlString = "https://cdn.lavorami.it/lavoriAttuali.json"
@@ -249,6 +250,7 @@ class WorkViewModel: ObservableObject {
                     self?.orariChiusura = result.orariChiusura
                     self?.orariApertura = result.orariApertura
                     self?.orariAperturaFestivi = result.orariAperturaFestivi
+                    self?.messageCurrentStatus = result.messageCurrentStatus
                     completion?()
                 }
             } catch {
@@ -292,4 +294,5 @@ struct MetroStatusData: Codable {
     let orariChiusura: [String]
     let orariApertura: [String]
     let orariAperturaFestivi: [String]
+    let messageCurrentStatus: String
 }

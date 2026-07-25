@@ -5840,6 +5840,7 @@ struct LineDetailView: View {
     @State private var openPopUpLines: Bool = false
     @State private var openInfoAccessibility: Bool = false
     @State private var openInfoBusOperation: Bool = false
+    @State private var openPopUpInfoStatus: Bool = false
     @State private var selectedBranch: String? = nil
     @State private var tramLinesSupported: [String] = ["1", "3", "5", "7", "9", "10", "15", "16", "19", "24", "27", "31", "33"]
     @State private var linesWithBlackText: [String] = ["M3", "M5", "S5", "S6", "S8", "S11", "S12"]
@@ -6426,20 +6427,46 @@ extension LineDetailView {
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .overlay(alignment: .topLeading) {
                 if let status = metroStatusInfo {
-                    HStack(spacing: 6) {
-                        Image(systemName: status.icon)
-                            .font(.system(size: 13, weight: .bold))
-                        Text(status.text)
-                            .font(.system(size: 14, weight: .semibold))
+                    if status.text == String(localized: .statoMetroRegolare) {
+                        HStack(spacing: 6) {
+                            Image(systemName: status.icon)
+                                .font(.system(size: 13, weight: .bold))
+                            Text(status.text)
+                                .font(.system(size: 14, weight: .semibold))
+                        }
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 8)
+                        .background(Capsule().fill(status.color))
+                        .shadow(color: .black.opacity(0.15), radius: 4, x: 0, y: 2)
+                        .padding(12)
+                    } else {
+                        Button {
+                            openPopUpInfoStatus = true
+                        } label: {
+                            HStack(spacing: 6) {
+                                Image(systemName: status.icon)
+                                    .font(.system(size: 13, weight: .bold))
+                                Text(status.text)
+                                    .font(.system(size: 14, weight: .semibold))
+                                Image(systemName: "info.circle.fill")
+                                    .font(.system(size: 13, weight: .bold))
+                            }
+                            .foregroundStyle(.white)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 8)
+                            .background(Capsule().fill(status.color))
+                            .shadow(color: .black.opacity(0.15), radius: 4, x: 0, y: 2)
+                        }
+                        .padding(12)
                     }
-                    .foregroundStyle(.white)
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 8)
-                    .background(Capsule().fill(status.color))
-                    .shadow(color: .black.opacity(0.15), radius: 4, x: 0, y: 2)
-                    .padding(12)
                 }
             }
+        }
+        .alert("Stato Attuale Metro", isPresented: $openPopUpInfoStatus) {
+            Button("Chiudi", role: .cancel) {}
+        } message: {
+            Text(viewModel.messageCurrentStatus)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.bottom, 10)
