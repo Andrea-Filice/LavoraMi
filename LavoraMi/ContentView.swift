@@ -6527,7 +6527,10 @@ extension LineDetailView {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
                         ForEach(availableBranches, id: \.self) { branch in
-                            Button(action: { selectedBranch = branch }) {
+                            Button(action: {
+                                selectedBranch = branch
+                                HapticManager.shared.trigger()
+                            }) {
                                 Text(branch)
                                     .font(.system(size: 15))
                                     .foregroundStyle(selectedBranch == branch ? .white : Color("TextColor"))
