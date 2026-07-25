@@ -6208,7 +6208,20 @@
       }
     },
     "Stato Attuale Metro" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Current Status Metro"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estado Actual Metro"
+          }
+        }
+      }
     },
     "Stato Linea" : {
       "localizations" : {
