@@ -3420,19 +3420,6 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.49867, longitude: 9.21992), branch: "Garibaldi"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.49816, longitude: 9.22081), branch: "Garibaldi"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.4975, longitude: 9.22257), branch: "Garibaldi"),
-
-        .init(name: "Milano Greco Pirelli", coordinate: .init(latitude: 45.51288, longitude: 9.21416), branch: "Greco"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.51196, longitude: 9.21381), branch: "Greco"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.50982, longitude: 9.21247), branch: "Greco"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.50826, longitude: 9.21182), branch: "Greco"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.50778, longitude: 9.21169), branch: "Greco"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.50646, longitude: 9.21172), branch: "Greco"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.50532, longitude: 9.21237), branch: "Greco"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.50235, longitude: 9.21553), branch: "Greco"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.50027, longitude: 9.21794), branch: "Greco"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.49855, longitude: 9.22023), branch: "Greco"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.4975, longitude: 9.22257), branch: "Greco"),
-
         .init(name: "Milano Centrale", coordinate: .init(latitude: 45.48713, longitude: 9.20482), branch: "Centrale"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.49464, longitude: 9.2133), branch: "Centrale"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.49613, longitude: 9.21519), branch: "Centrale"),
@@ -3441,7 +3428,6 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.49697, longitude: 9.2209), branch: "Centrale"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.49676, longitude: 9.22364), branch: "Centrale"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.49619, longitude: 9.2259), branch: "Centrale"),
-
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.49594, longitude: 9.22696), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.49521, longitude: 9.22802), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.49442, longitude: 9.22881), branch: "Main"),
@@ -3461,7 +3447,7 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.47172, longitude: 9.24412), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.4716, longitude: 9.24529), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.4716, longitude: 9.24619), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.47188, longitude: 9.24732), branch: "Main"),
+        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.47168, longitude: 9.24732), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.47352, longitude: 9.25856), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.48075, longitude: 9.29859), branch: "Main"),
         .init(name: "Pioltello Limito", coordinate: .init(latitude: 45.48611, longitude: 9.32949), branch: "Main"),
@@ -3503,7 +3489,7 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.68322, longitude: 9.65726), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.68402, longitude: 9.65822), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.68495, longitude: 9.65967), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.6851, longitude: 9.66109), branch: "Main"),
+        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.68561, longitude: 9.66109), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.68629, longitude: 9.66306), branch: "Main"),
         .init(name: "Bergamo", coordinate: .init(latitude: 45.69043, longitude: 9.67504), branch: "Main")
     ]
