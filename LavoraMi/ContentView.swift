@@ -5794,6 +5794,9 @@ func getInterchanges(line: String) -> [InterchangeInfo] {
     else if line.starts(with: "R") && !line.starts(with: "RE") {
         return InterchangesDB.getRLinesInterchanges(line: line)
     }
+    else if line.starts(with: "RE") {
+        return InterchangesDB.getRELinesInterchanges(line: line)
+    }
     else if isLineTILO(lineName: line) {
         return InterchangesDB.getTILOInterchanges (line: line)
     }
@@ -6514,9 +6517,10 @@ extension LineDetailView {
         let isSuburban = lineName.starts(with: "S") && !isLineTILO(lineName: lineName)
         let isTilo = isLineTILO(lineName: lineName)
         let isRegional = lineName.starts(with: "R") && !lineName.starts(with: "RE")
+        let isRegioExpress = lineName.starts(with: "RE")
         let isFilobus = lineName == "90" || lineName == "91" || lineName == "92" || lineName == "93"
         
-        let isAvailable = (isMetro || isMalpensaExpress || isSuburban || isTilo || isRegional || isFilobus)
+        let isAvailable = (isMetro || isMalpensaExpress || isSuburban || isTilo || isRegional || isFilobus || isRegioExpress)
         
         let allInterchanges = getInterchanges(line: lineName)
         let mainItems = allInterchanges.filter { $0.branch == "Main" }
