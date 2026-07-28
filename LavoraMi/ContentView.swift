@@ -6202,7 +6202,7 @@ extension LineDetailView {
                 }
                 if(viewModel.lineeSospeseInteramente.contains(lineName)) {
                     WarningBanner(
-                        text: "LINEA INTERAMENTE SOSPESA",
+                        text: String(localized: .lineSuspendedUppercased),
                         action: {
                             openInfoLineSuspended = true
                         }

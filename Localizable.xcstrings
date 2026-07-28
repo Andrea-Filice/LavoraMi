@@ -3265,7 +3265,20 @@
       }
     },
     "Linea Interamente Sospesa" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Line Completely Suspended"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Línea Totalmente Suspendida"
+          }
+        }
+      }
     },
     "Linea non trovata" : {
       "localizations" : {
@@ -3723,6 +3736,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "LINEA SOSTITUITA DA BUS."
+          }
+        }
+      }
+    },
+    "lineSuspendedUppercased" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LINE COMPLETELY SUSPENDED."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LÍNEA TOTALMENTE SUSPENDIDA."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LINEA INTERAMENTE SOSPESA."
           }
         }
       }
@@ -5123,7 +5159,20 @@
       }
     },
     "Questa linea è stata interrotta per tutto il suo tragitto per via di lavori sulla tratta o rimodulazioni di orario. Per saperne di più, vai nella sezione \"Lavori\" della linea." : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This line has been suspended along its entire route due to engineering works or timetable changes. For more information, please go to the “Works” section for this line."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta línea ha quedado interrumpida en todo su recorrido debido a obras en el tramo o a modificaciones en los horarios. Para obtener más información, consulta la sección «Obras» de la línea."
+          }
+        }
+      }
     },
     "Qui puoi gestire il tuo Account e le tue informazioni." : {
       "localizations" : {
