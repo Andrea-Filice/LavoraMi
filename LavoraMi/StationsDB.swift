@@ -19566,8 +19566,7 @@ struct StationsDB {
       .init(name: "NO_DRAW", coordinate: .init(latitude: 45.49495, longitude: 9.2169), branch: "Main"),
       .init(name: "NO_DRAW", coordinate: .init(latitude: 45.49495, longitude: 9.21681), branch: "Main"),
       .init(name: "NO_DRAW", coordinate: .init(latitude: 45.49495, longitude: 9.21667), branch: "Main"),
-      .init(name: "Greco Rovereto", coordinate: .init(latitude: 45.49495, longitude: 9.21625), branch: "Main"),
-      .init(name: "NO_DRAW", coordinate: .init(latitude: 45.49495, longitude: 9.21626), branch: "Main")
+      .init(name: "Greco Rovereto", coordinate: .init(latitude: 45.49495, longitude: 9.21625), branch: "Main")
     ]
     
     static let tram3: [MetroStation] = [
