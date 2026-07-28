@@ -6524,7 +6524,7 @@ extension LineDetailView {
         
         let allInterchanges = getInterchanges(line: lineName)
         let mainItems = allInterchanges.filter { $0.branch == "Main" }
-        let branchMap = Dictionary(grouping: allInterchanges.filter { $0.branch != "Main" }, by: \.branch)
+        let branchMap = Dictionary(grouping: allInterchanges.filter { $0.branch != "Main" && $0.lines.first == lineName },by: \.branch)
         let availableBranches = branchMap.keys.sorted()
 
         VStack(spacing: 0) {
