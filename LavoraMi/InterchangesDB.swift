@@ -650,7 +650,7 @@ struct InterchangesDB {
         .init(name: "Castegnato", lines: ["S31", "R3"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 3),
         .init(name: "Paderno Franciacorta", lines: ["S31", "R3"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 4),
         .init(name: "Passirano", lines: ["S31", "R3"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 5),
-        .init(name: "Bornato Calino", lines: ["S31", "R3", "R9"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 6),
+        .init(name: "Bornato Calino", lines: ["S31", "R3", "R9", "RE3], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 6),
         .init(name: "Borgonato Adro", lines: ["S31", "R3", "R9"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 7),
         .init(name: "Provaglio Timoline", lines: ["S31", "R3", "R9"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 8),
         .init(name: "Iseo", lines: ["S31", "R3", "R9", "RE3"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 9),
