@@ -1167,13 +1167,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fully accessible"
+            "value" : "Accessible"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completamente accesible"
+            "value" : "Accesible"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accessibile"
           }
         }
       }
@@ -2975,6 +2981,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "LavoraMi obtiene esta información de fuentes fidedignas y fiables; las posibles desviaciones en el recorrido se indican en los itinerarios que se muestran a continuación; puede consultar las posibles alternativas de viaje en la sección correspondiente."
+          }
+        }
+      }
+    },
+    "Lavori" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Works"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obras"
           }
         }
       }
