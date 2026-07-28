@@ -8140,7 +8140,7 @@ func getColor(for line: String) -> Color {
         case _ where line.starts(with: "N"): return Color(red: 2/255, green: 27/255, blue: 129/255)
         
         ///FALLBACK CASE
-        default: return Color(red: 101/255, green: 179/255, blue: 46/255)
+        default: return Color(red: 90/255, green: 180/255, blue: 85/255)
     }
 }
 
