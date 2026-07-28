@@ -5103,18 +5103,18 @@
         }
       }
     },
-    "Questa linea è attualmente sostituita interamente da Bus e non c'è alcun treno a servire questa tratta. É prevista una riapertura da Settembre 2026 per via dei lavori collegati alla linea Suburbana S7 (Pedemontana). Consulta maggiori info andando su Linee > S7 > Lavori." : {
+    "Questa linea è attualmente sostituita interamente da Autobus e non c'è alcun treno a servire questa tratta. Il servizio è comunque garantito tra tutte le stazioni della linea." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This line is currently served entirely by buses, and there are no trains running on this route. It is scheduled to reopen in September 2026 due to engineering works on the Suburban S7 (Pedemontana) line. For more information, go to: Lines > S7 > Works."
+            "value" : "This line is currently served entirely by buses, and there are no trains running on this route. However, the service is guaranteed between all stations on the line."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Actualmente, esta línea ha sido sustituida íntegramente por autobuses y no hay ningún tren que preste servicio en este tramo. Está prevista una reapertura a partir de septiembre de 2026 debido a las obras relacionadas con la línea S7 (Pedemontana). Consulta más información en: Líneas > S7 > Obras."
+            "value" : "Actualmente, esta línea ha sido sustituida íntegramente por autobuses y no hay ningún tren que preste servicio en este tramo. No obstante, el servicio está garantizado entre todas las estaciones de la línea."
           }
         }
       }

@@ -6191,7 +6191,7 @@ extension LineDetailView {
                         }
                     )
                 }
-                if(lineName == "R15") {
+                if(lineName == "R15" || lineName == "R24") {
                     WarningBanner(
                         text: String(localized: .lineSubWithBus),
                         action: {
@@ -6285,7 +6285,7 @@ extension LineDetailView {
         .alert("Linea sostituita da Bus", isPresented: $openInfoBusOperation) {
             Button("OK", role: .cancel) {}
         } message: {
-            Text("Questa linea è attualmente sostituita interamente da Bus e non c'è alcun treno a servire questa tratta. É prevista una riapertura da Settembre 2026 per via dei lavori collegati alla linea Suburbana S7 (Pedemontana). Consulta maggiori info andando su Linee > S7 > Lavori.")
+            Text("Questa linea è attualmente sostituita interamente da Autobus e non c'è alcun treno a servire questa tratta. Il servizio è comunque garantito tra tutte le stazioni della linea.")
         }
     }
     
