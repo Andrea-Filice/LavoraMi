@@ -8130,6 +8130,7 @@ func getColor(for line: String) -> Color {
         case "MXP": return Color(red: 140/255, green: 0, blue: 118/255)
         case "MXP1": return Color(red: 140/255, green: 0, blue: 118/255)
         case "MXP2": return Color(red: 140/255, green: 0, blue: 118/255)
+        case "SFM 6": return Color(red: 139/255, green: 35/255, blue: 29/255)
         case "AV": return .red
         case "RV": return .red
         case String(localized: .aereoporto): return .cyan
