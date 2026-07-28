@@ -3264,6 +3264,9 @@
         }
       }
     },
+    "Linea Interamente Sospesa" : {
+
+    },
     "Linea non trovata" : {
       "localizations" : {
         "en" : {
@@ -5118,6 +5121,9 @@
           }
         }
       }
+    },
+    "Questa linea è stata interrotta per tutto il suo tragitto per via di lavori sulla tratta o rimodulazioni di orario. Per saperne di più, vai nella sezione \"Lavori\" della linea." : {
+
     },
     "Qui puoi gestire il tuo Account e le tue informazioni." : {
       "localizations" : {

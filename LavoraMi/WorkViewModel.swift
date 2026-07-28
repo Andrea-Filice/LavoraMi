@@ -37,6 +37,7 @@ class WorkViewModel: ObservableObject {
     @Published var orariChiusura: [String] = [""]
     @Published var orariApertura: [String] = [""]
     @Published var orariAperturaFestivi: [String] = [""]
+    @Published var lineeSospeseInteramente: [String] = [""]
     @Published var messageCurrentStatus: String = ""
     @Published var isStrikeToday: Bool = false
     
@@ -162,6 +163,7 @@ class WorkViewModel: ObservableObject {
                     self?.enablePassanteWork = (result.enablePassanteWork == "true")
                     self?.strikeUpdateLive = result.strikeUpdateLive
                     self?.updateStrikeTodayStatus()
+                    self?.lineeSospeseInteramente = result.lineeSospeseInteramente
                     
                     if self?.strikeEnabled == true {
                             NotificationManager.shared.scheduleStrikeNotifications(
@@ -278,6 +280,7 @@ struct RemoteConfigData: Codable {
     let suburbanInterruptionLinks: [String]
     let regionalLinesWithDeviations: [String]
     let regionalLinesDeviationLinks: [String]
+    let lineeSospeseInteramente: [String]
 }
 
 struct RequirementsData: Codable {

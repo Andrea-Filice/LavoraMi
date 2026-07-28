@@ -5843,6 +5843,7 @@ struct LineDetailView: View {
     @State private var openPopUpLines: Bool = false
     @State private var openInfoAccessibility: Bool = false
     @State private var openInfoBusOperation: Bool = false
+    @State private var openInfoLineSuspended: Bool = false
     @State private var openPopUpInfoStatus: Bool = false
     @State private var selectedBranch: String? = nil
     @State private var tramLinesSupported: [String] = ["1", "3", "5", "7", "9", "10", "15", "16", "19", "24", "27", "31", "33"]
@@ -6199,6 +6200,14 @@ extension LineDetailView {
                         }
                     )
                 }
+                if(viewModel.lineeSospeseInteramente.contains(lineName)) {
+                    WarningBanner(
+                        text: "LINEA INTERAMENTE SOSPESA",
+                        action: {
+                            openInfoLineSuspended = true
+                        }
+                    )
+                }
                 if(viewModel.linesDeviated.contains(lineName)){
                     WarningBanner(
                         text: String(localized: .tramDeviations),
@@ -6286,6 +6295,11 @@ extension LineDetailView {
             Button("OK", role: .cancel) {}
         } message: {
             Text("Questa linea è attualmente sostituita interamente da Autobus e non c'è alcun treno a servire questa tratta. Il servizio è comunque garantito tra tutte le stazioni della linea.")
+        }
+        .alert("Linea Interamente Sospesa", isPresented: $openInfoLineSuspended) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("Questa linea è stata interrotta per tutto il suo tragitto per via di lavori sulla tratta o rimodulazioni di orario. Per saperne di più, vai nella sezione \"Lavori\" della linea.")
         }
     }
     
