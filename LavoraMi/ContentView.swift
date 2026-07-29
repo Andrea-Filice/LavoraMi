@@ -4367,7 +4367,7 @@ struct LibrariesView: View {
         ),
         LibraryDetailView(
             name: "Firebase",
-            version: "12.16.0",
+            version: "12.17.0",
             license: "Apache License 2.0",
             copyright: "Copyright (c) 2016 Google LLC",
             licenseText: """
@@ -4393,7 +4393,7 @@ struct LibrariesView: View {
         ),
         LibraryDetailView(
             name: "GoogleAppMeasurement",
-            version: "12.16.0",
+            version: "12.17.0",
             license: "Apache License 2.0",
             copyright: "Copyright (c) 2016 Google LLC",
             licenseText: """
