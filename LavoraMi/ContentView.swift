@@ -6444,7 +6444,7 @@ extension LineDetailView {
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .overlay(alignment: .topLeading) {
                 if let status = metroStatusInfo {
-                    if status.text == String(localized: .statoMetroRegolare) {
+                    if status.text == String(localized: .statoMetroRegolare) || status.text == String(localized: .statoMetroChiusa) {
                         HStack(spacing: 6) {
                             Image(systemName: status.icon)
                                 .font(.system(size: 13, weight: .bold))
