@@ -4406,7 +4406,7 @@ struct LibrariesView: View {
         ),
         LibraryDetailView(
             name: "GoogleDataTransport",
-            version: "10.1.0",
+            version: "10.1.1",
             license: "Apache License 2.0",
             copyright: "Copyright (c) 2019 Google LLC",
             licenseText: """
