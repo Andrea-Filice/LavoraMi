@@ -5901,7 +5901,7 @@ struct LineDetailView: View {
             case "Regolare":
                 return (String(localized: .statoMetroRegolare), getColor(for: "M2"), "checkmark")
             case "Tratta Sospesa":
-                return (String(localized: .statoMetroTrattaSospesa), .orange, "exclamationmark.triangle.fill")
+                return (String(localized: .statoMetroTrattaSospesa), .red, "exclamationmark.triangle.fill")
             case "Fermata Sospesa":
                 return (String(localized: .statoMetroFermataSospesa), .orange, "exclamationmark.triangle.fill")
             case "Fermate Sospese":
