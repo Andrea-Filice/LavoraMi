@@ -5078,7 +5078,7 @@ struct LinesView: View {
             LineInfo(name: "z602", branches: "Legnano - Milano Cadorna FN", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z603", branches: "Vittore Olona / Nerviano - Milano Cadorna FN", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z6C3", branches: "Vittore Olona - Cerro Maggiore - Milano Cadorna FN", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z606", branches: "Cerro Maggiore - Rho - Molino Dorino M1", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z606", branches: "Cerro Maggiore - Rho/Europa", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z611", branches: "Legnano - Canegrate - Parabiago", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z612", branches: "Legnano - Cerro Maggiore - Arese", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z616", branches: "Pregnana Milanese - Rho", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
@@ -6716,9 +6716,10 @@ struct LineSmallDetailedView: View {
     @State private var openPopUpLines: Bool = false
 
     let interchanges: [InterchangeStation] = [
-        .init(key: "Molino Dorino", displayName: "Molino Dorino MM", lines: ["M1", "NM1", "35", "69", "80", "424", "528", "z601", "z606", "z617", "z620", "z621", "z649"], typeOfInterchange: "tram.fill.tunnel"),
+        .init(key: "Molino Dorino", displayName: "Molino Dorino MM", lines: ["M1", "NM1", "35", "69", "80", "424", "528", "z601", "z617", "z620", "z621", "z649"], typeOfInterchange: "tram.fill.tunnel"),
         .init(key: "Cadorna FN", displayName: "Milano Cadorna FN", lines: ["M1", "NM1", "M2", "NM2", "S3", "S4", "R22", "R27", "RE1", "RE7", "MXP2", "1", "2", "50", "96", "97", "z602", "z603", "z6C3", "N25", "N26"], typeOfInterchange: "lightrail"),
         .init(key: "Parabiago", displayName: "Parabiago", lines: ["z611", "z644", "z643"], typeOfInterchange: "bus.fill"),
+        .init(key: "Rho/Europa", displayName: "Rho, Corso Europa", lines: ["S5", "S6", "S11", "z601", "z606", "z618"], typeOfInterchange: "train.side.front.car"),
         .init(key: "Rho", displayName: "Rho FS", lines: ["S5", "S6", "S11", "z616", "z618"], typeOfInterchange: "train.side.front.car"),
         .init(key: "Busto Garolfo", displayName: "Busto Garolfo", lines: ["z625", "z627", "z644", "z647", "z649"], typeOfInterchange: "bus.fill"),
         .init(key: "Legnano", displayName: "Legnano", lines: ["z601", "z602", "z611", "z612", "z642", "z627"], typeOfInterchange: "bus.fill"),
