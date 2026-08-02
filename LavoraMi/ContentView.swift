@@ -2185,13 +2185,13 @@ struct SettingsView: View{
                 Section() {} footer: {
                     HStack(spacing: 30) {
                             Spacer()
-                            Link(destination: URL(string: "https://www.instagram.com/lavoramiapp_official")!) {
+                            Link(destination: URL(string: "https://www.instagram.com/lavoramiapp/")!) {
                                 Image("instagram")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 24, height: 24)
                             }
-                            Link(destination: URL(string: "https://www.tiktok.com/@applavorami.official")!) {
+                            Link(destination: URL(string: "https://www.tiktok.com/@lavoramiapp")!) {
                                 Image("tiktok")
                                     .resizable()
                                     .scaledToFit()
