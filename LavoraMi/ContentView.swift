@@ -6874,17 +6874,19 @@ struct LineSmallDetailedView: View {
                             .font(.title3).multilineTextAlignment(.leading)
 
                         if viewModel.linesDeviated.contains(lineName) {
-                            HStack {
-                                Text("QUESTA LINEA DI TRAM É SOGGETTA A DEVIAZIONI.")
-                                    .font(.system(size: 12)).foregroundStyle(.secondary).bold()
-                                Button(action: {
+                            WarningBanner(
+                                text: String(localized: .tramDeviations),
+                                action: {
                                     let url = getLineDeviationLink(line: lineName, viewModel: viewModel)
-                                    if howToOpenLinks == .inApp { selectedURL = url }
-                                    else { openURLAction(url) }
-                                }) {
-                                    Image(systemName: "info.circle.fill").foregroundColor(.gray)
+                                    
+                                    if(howToOpenLinks == .inApp) {
+                                        selectedURL = url
+                                    }
+                                    else {
+                                        openURLAction(url)
+                                    }
                                 }
-                            }
+                            )
                         }
                     }
 

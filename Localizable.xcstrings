@@ -5149,6 +5149,7 @@
       }
     },
     "QUESTA LINEA DI TRAM É SOGGETTA A DEVIAZIONI." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
