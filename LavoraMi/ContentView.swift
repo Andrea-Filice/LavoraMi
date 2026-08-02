@@ -3884,7 +3884,7 @@ struct InfoView: View {
                         .bold()
                         .padding(.top, 20)
                     Button {
-                        let url = URL(string: "https://www.instagram.com/lavoramiapp_official")!
+                        let url = URL(string: "https://www.instagram.com/lavoramiapp/")!
                         openURLAction(url)
                     } label: {
                         HStack{
@@ -3899,7 +3899,7 @@ struct InfoView: View {
                     .padding(.top, 5)
                     .padding(.bottom, 20)
                     Button {
-                        let url = URL(string: "https://www.tiktok.com/@applavorami.official")!
+                        let url = URL(string: "https://www.tiktok.com/@lavoramiapp")!
                         openURLAction(url)
                     } label: {
                         HStack{
