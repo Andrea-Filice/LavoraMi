@@ -682,7 +682,7 @@ struct StationsDB {
     ]
     
     static let stationsS4: [MetroStation] = [
-        /* MODIFICHE CIRCOLAZIONE: Per via dei lavori nel Nodo di Seveso, corse tra Palazzolo Milanese e Cadorna FN Triennale
+        /* MODIFICHE CIRCOLAZIONE: Circola tra Seveso e Cadorna FN fino al 23 Agosto
         .init(name: "Camnago - Lentate", coordinate: .init(latitude: 45.66837, longitude: 9.13328), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.66643, longitude: 9.13467), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.66412, longitude: 9.13586), branch: "Main"),
@@ -690,7 +690,7 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.66083, longitude: 9.13779), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.65788, longitude: 9.13916), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.65668, longitude: 9.13972), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.65555, longitude: 9.13989), branch: "Main"),
+        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.65555, longitude: 9.13989), branch: "Main"),*/
         .init(name: "Seveso", coordinate: .init(latitude: 45.6483, longitude: 9.14018), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.64507, longitude: 9.14113), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.64208, longitude: 9.14166), branch: "Main"),
@@ -704,7 +704,7 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.60795, longitude: 9.1435), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.59736, longitude: 9.15218), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.5963, longitude: 9.1528), branch: "Main"),
-        .init(name: "Varedo", coordinate: .init(latitude: 45.59555, longitude: 9.15341), branch: "Main"),*/
+        .init(name: "Varedo", coordinate: .init(latitude: 45.59555, longitude: 9.15341), branch: "Main"),
         .init(name: "Palazzolo Milanese", coordinate: .init(latitude: 45.58107, longitude: 9.15667), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.57158, longitude: 9.15773), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.57054, longitude: 9.15782), branch: "Main"),
