@@ -5148,23 +5148,6 @@
         }
       }
     },
-    "QUESTA LINEA DI TRAM É SOGGETTA A DEVIAZIONI." : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "THIS TRAM LINE IS SUBJECT TO ROUTE CHANGES."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ESTA LÍNEA DE TRAM ESTÁ SUJETA A DESVÍOS."
-          }
-        }
-      }
-    },
     "Questa linea è attualmente sostituita interamente da Autobus e non c'è alcun treno a servire questa tratta. Il servizio è comunque garantito tra tutte le stazioni della linea." : {
       "localizations" : {
         "en" : {
@@ -5489,7 +5472,7 @@
         }
       }
     },
-    "Ripristina impostazioni" : {
+    "Ripristina Impostazioni" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -5500,7 +5483,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Restablecer ajustes"
+            "value" : "Restablecer Ajustes"
           }
         }
       }

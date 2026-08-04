@@ -2180,7 +2180,7 @@ struct SettingsView: View{
                         }
                         presentedAlertReset = true
                     } label: {
-                        Label("Ripristina impostazioni", systemImage: "arrow.counterclockwise")
+                        Label("Ripristina Impostazioni", systemImage: "arrow.counterclockwise")
                     }
                 }
                 Section() {} footer: {
