@@ -7658,7 +7658,6 @@ struct LineDeviationInfoView: View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(spacing: 10) {
                 HStack(spacing: 4) {
-                    Image(systemName: "arrow.branch")
                     Image(systemName: icon)
                         .foregroundColor(color)
                 }
