@@ -1330,6 +1330,7 @@ struct StationsDB {
     ]
     
     static let stationsS7: [MetroStation] = [
+        /* MODIFICHE CIRCOLAZIONE: Fino al 30 Agosto, la linea S7 circola tra Monza a Lecco
         .init(name: "Milano Porta Garibaldi", coordinate: .init(latitude: 45.48449, longitude: 9.18737), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.48375, longitude: 9.18921), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.48347, longitude: 9.19092), branch: "Main"),
@@ -1366,7 +1367,7 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.56757, longitude: 9.26606), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.56854, longitude: 9.26685), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.57071, longitude: 9.26853), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.57532, longitude: 9.27155), branch: "Main"),
+        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.57532, longitude: 9.27155), branch: "Main"),*/
         .init(name: "Monza", coordinate: .init(latitude: 45.57797, longitude: 9.27289), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.57939, longitude: 9.27469), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.57979, longitude: 9.27518), branch: "Main"),
