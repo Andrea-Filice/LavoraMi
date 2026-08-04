@@ -914,7 +914,6 @@ struct MainView: View {
                 }
             }
             .scrollDismissesKeyboard(.immediately)
-            .animation(.default, value: filteredItems)
             .padding(.bottom, 8)
             VStack(alignment: .leading, spacing: 16){
                 ScrollViewReader { proxy in
@@ -954,8 +953,9 @@ struct MainView: View {
                                 .padding()
                                 .offset(y: -50)
                             } else {
+                                let currentFilteredItems = filteredItems
                                 VStack(spacing: 12) {
-                                    if filteredItems.isEmpty && searchInput.isEmpty {
+                                    if currentFilteredItems.isEmpty && searchInput.isEmpty {
                                         if selectedFilter == .suggested {
                                             Button {
                                                 showInfoFavoriteLines = true
@@ -975,7 +975,7 @@ struct MainView: View {
                                             .multilineTextAlignment(.center)
                                             .foregroundStyle(.secondary)
                                     }
-                                    else if filteredItems.isEmpty && !searchInput.isEmpty {
+                                    else if currentFilteredItems.isEmpty && !searchInput.isEmpty {
                                         Text("Nessun lavoro trovato per: \"\(searchInput)\".")
                                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                                             .containerRelativeFrame(.vertical)
@@ -996,7 +996,7 @@ struct MainView: View {
                                                     .clipShape(Capsule())
                                             }
                                         }
-                                        let itemsToShow = filteredItems.filter { !$0.isFinishedMoreThanOneDayAgo }
+                                        let itemsToShow = currentFilteredItems.filter { !$0.isFinishedMoreThanOneDayAgo }
                                         let itemsWithAds = itemsToShow.withAdsInserted(adCount: adMobManager.nativeAds.count)
                                         
                                         ForEach(itemsWithAds, id: \.index) { entry in
@@ -1012,6 +1012,7 @@ struct MainView: View {
                                                 }
                                             }
                                         }
+                                        .transaction { $0.animation = nil }
                                         .padding(.top, 5)
                                     }
                                 }
@@ -5889,17 +5890,6 @@ struct LineDetailView: View {
         }
     }
     
-    private func isStationClosed(_ stationName: String) -> Bool {
-        viewModel.stazioniChiuse.contains { entry in
-            let parts = entry.split(separator: ":", maxSplits: 1)
-            guard parts.count == 2 else { return false }
-            let entryName = parts[0].trimmingCharacters(in: .whitespaces)
-            let entryLine = parts[1].trimmingCharacters(in: .whitespaces)
-            return entryName.caseInsensitiveCompare(stationName) == .orderedSame
-                && entryLine.caseInsensitiveCompare(lineName) == .orderedSame
-        }
-    }
-    
     private var metroStatusInfo: (text: String, color: Color, icon: String)? {
         guard let index = metroLineIndex,viewModel.orariChiusura.indices.contains(index),viewModel.orariApertura.indices.contains(index), viewModel.orariAperturaFestivi.indices.contains(index), viewModel.metroStatus.indices.contains(index) else { return nil }
         
@@ -6432,22 +6422,14 @@ extension LineDetailView {
                                 EmptyView()
                             }
                         } else {
-                            let closed = isStationClosed(station.name)
-                            
                             Annotation(station.name, coordinate: station.coordinate) {
                                 ZStack {
                                     Circle()
-                                        .fill(closed ? Color.red : .white)
-                                        .frame(width: closed ? 16 : 12, height: closed ? 16 : 12)
+                                        .fill(.white)
+                                        .frame(width: 12, height: 12)
                                     Circle()
-                                        .stroke(closed ? Color.red : lineColor, lineWidth: 3)
-                                        .frame(width: closed ? 16 : 12, height: closed ? 16 : 12)
-                                    
-                                    if closed {
-                                        Image(systemName: "xmark")
-                                            .font(.system(size: 9, weight: .bold))
-                                            .foregroundStyle(.white)
-                                    }
+                                        .stroke(lineColor, lineWidth: 3)
+                                        .frame(width: 12, height: 12)
                                 }
                             }
                         }
