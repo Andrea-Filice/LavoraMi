@@ -4770,7 +4770,7 @@ struct LineRow: View {
     let waitMinutes: String
     let accessibilityStatus: String
     let stations: [MetroStation]
-    @State private var supportedLines: [String] = ["1", "4", "5", "7", "9", "10", "15", "16", "19", "24", "27", "31", "33"]
+    @State private var supportedLines: [String] = ["1", "3", "4", "5", "7", "9", "10", "15", "16", "19", "24", "27", "31", "33"]
     @ObservedObject var viewModel: WorkViewModel
     var onTap: (() -> Void)? = nil
 
@@ -5046,7 +5046,7 @@ struct LinesView: View {
         [
             LineInfo(name: "1", branches: "Roserio - Greco", type: String(localized: .tram), waitMinutes: "5-20 min.", stations: StationsDB.tram1, accessibilityStatus: String(localized: .lineaNonAccessibile)),
             LineInfo(name: "2", branches: "P.Le Negrelli - P.Za Bausan", type: String(localized: .tram), waitMinutes: "5-20 min.", stations: [], accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
-            LineInfo(name: "3", branches: "Duomo M1 M3 - Gratosoglio", type: String(localized: .tram), waitMinutes: "5-20 min.", stations: [], accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
+            LineInfo(name: "3", branches: "Duomo M1 M3 - Gratosoglio", type: String(localized: .tram), waitMinutes: "5-20 min.", stations: StationsDB.tram3, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "4", branches: "Cairoli M1 - Niguarda (Parco Nord)", type: String(localized: .tram), waitMinutes: "5-20 min.", stations: StationsDB.tram4, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "5", branches: "Niguarda (Ospedale) - Ortica", type: String(localized: .tram), waitMinutes: "5-20 min.", stations: StationsDB.tram5, accessibilityStatus: String(localized: .lineaNonAccessibile)),
             LineInfo(name: "7", branches: "P.Le Lagosta - Q.Re Adriano", type: String(localized: .tram), waitMinutes: "5-20 min.", stations: StationsDB.tram7, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
@@ -5847,7 +5847,7 @@ struct LineDetailView: View {
     @State private var openInfoLineSuspended: Bool = false
     @State private var openPopUpInfoStatus: Bool = false
     @State private var selectedBranch: String? = nil
-    @State private var tramLinesSupported: [String] = ["1", "4", "5", "7", "9", "10", "15", "16", "19", "24", "27", "31", "33"]
+    @State private var tramLinesSupported: [String] = ["1", "3", "4", "5", "7", "9", "10", "15", "16", "19", "24", "27", "31", "33"]
     @State private var linesWithBlackText: [String] = ["M3", "M5", "S5", "S6", "S8", "S11", "S12"]
     
     private var centerIndex: Int { max(0, stations.count / 2) }
