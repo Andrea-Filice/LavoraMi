@@ -4472,7 +4472,7 @@ struct LibrariesView: View {
         ),
         LibraryDetailView(
             name: "GTMSessionFetcher",
-            version: "5.3.0",
+            version: "5.3.1",
             license: "Apache License 2.0",
             copyright: "Copyright (c) 2014 Google LLC",
             licenseText: """
