@@ -4866,13 +4866,13 @@ struct LinesView: View {
                 }
             } header: {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Sostieni LavoraMi")
+                    Text("Supporta LavoraMi")
                         .font(.title3)
                         .bold()
                         .foregroundStyle(.primary)
                         .textCase(nil)
 
-                    Text("Guarda gli annunci per supportare lo sviluppo dell'app")
+                    Text("Aiutaci a sostenere LavoraMi!")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .textCase(nil)
