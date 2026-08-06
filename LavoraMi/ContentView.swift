@@ -4845,7 +4845,6 @@ struct LinesView: View {
     @State private var showDeletePopUp: Bool = false
     @FocusState private var isSearchFocused: Bool
 
-    // MARK: - Support LavoraMi ads
     @StateObject private var adMobManager = AdMobManager(totalDesired: 2)
     @ObservedObject private var consentManager = ConsentManager.shared
     @State private var adsRequested: Bool = false
@@ -5927,6 +5926,17 @@ struct LineDetailView: View {
         )
     }
     
+    private func isStationClosed(_ stationName: String) -> Bool {
+        viewModel.stazioniChiuse.contains { entry in
+            let parts = entry.split(separator: ":", maxSplits: 1)
+            guard parts.count == 2 else { return false }
+            let entryName = parts[0].trimmingCharacters(in: .whitespaces)
+            let entryLine = parts[1].trimmingCharacters(in: .whitespaces)
+            return entryName.caseInsensitiveCompare(stationName) == .orderedSame
+                && entryLine.caseInsensitiveCompare(lineName) == .orderedSame
+        }
+    }
+    
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 45.4642, longitude: 9.1900),
         span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
@@ -6482,15 +6492,24 @@ extension LineDetailView {
                             Annotation("", coordinate: station.coordinate) {
                                 EmptyView()
                             }
-                        } else {
+                        }
+                        else {
+                            let closed = isStationClosed(station.name)
+                            
                             Annotation(station.name, coordinate: station.coordinate) {
                                 ZStack {
                                     Circle()
-                                        .fill(.white)
-                                        .frame(width: 12, height: 12)
+                                        .fill(closed ? .red : .white)
+                                        .frame(width: closed ? 16 : 12, height: closed ? 16 : 12)
                                     Circle()
-                                        .stroke(lineColor, lineWidth: 3)
-                                        .frame(width: 12, height: 12)
+                                        .stroke(closed ? Color.red : lineColor, lineWidth: 3)
+                                        .frame(width: closed ? 16 : 12, height: closed ? 16 : 12)
+                                                                            
+                                    if closed {
+                                        Image(systemName: "xmark")
+                                            .font(.system(size: 9, weight: .bold))
+                                            .foregroundStyle(.white)
+                                    }
                                 }
                             }
                         }
