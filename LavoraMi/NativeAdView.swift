@@ -146,6 +146,116 @@ struct NativeAdView: UIViewControllerRepresentable {
     }
 }
 
+struct CompactNativeAdView: UIViewControllerRepresentable {
+    let nativeAd: NativeAd
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        let controller = UIViewController()
+        let adView = createCompactAdView(nativeAd: nativeAd)
+        controller.view.addSubview(adView)
+        adView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            adView.topAnchor.constraint(equalTo: controller.view.topAnchor),
+            adView.bottomAnchor.constraint(equalTo: controller.view.bottomAnchor),
+            adView.leadingAnchor.constraint(equalTo: controller.view.leadingAnchor),
+            adView.trailingAnchor.constraint(equalTo: controller.view.trailingAnchor)
+        ])
+        return controller
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+
+    private func createCompactAdView(nativeAd: NativeAd) -> GoogleMobileAds.NativeAdView {
+        let adView = GoogleMobileAds.NativeAdView()
+        adView.backgroundColor = .clear
+
+        let contentStack = UIStackView()
+        contentStack.axis = .horizontal
+        contentStack.spacing = 12
+        contentStack.alignment = .center
+        contentStack.layoutMargins = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 12)
+        contentStack.isLayoutMarginsRelativeArrangement = true
+        adView.addSubview(contentStack)
+
+        contentStack.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            contentStack.topAnchor.constraint(equalTo: adView.topAnchor),
+            contentStack.bottomAnchor.constraint(equalTo: adView.bottomAnchor),
+            contentStack.leadingAnchor.constraint(equalTo: adView.leadingAnchor),
+            contentStack.trailingAnchor.constraint(equalTo: adView.trailingAnchor)
+        ])
+
+        let iconView = UIImageView(image: nativeAd.icon?.image)
+        iconView.translatesAutoresizingMaskIntoConstraints = false
+        iconView.widthAnchor.constraint(equalToConstant: 36).isActive = true
+        iconView.heightAnchor.constraint(equalToConstant: 36).isActive = true
+        iconView.layer.cornerRadius = 8
+        iconView.clipsToBounds = true
+        iconView.contentMode = .scaleAspectFit
+        contentStack.addArrangedSubview(iconView)
+
+        let titleStack = UIStackView()
+        titleStack.axis = .vertical
+        titleStack.spacing = 2
+        titleStack.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+
+        let headlineLabel = UILabel()
+        headlineLabel.text = nativeAd.headline
+        headlineLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        headlineLabel.textColor = UIColor { $0.userInterfaceStyle == .dark ? UIColor.white : UIColor.black }
+        headlineLabel.numberOfLines = 1
+        headlineLabel.lineBreakMode = .byTruncatingTail
+        titleStack.addArrangedSubview(headlineLabel)
+
+        let bodyLabel = UILabel()
+        bodyLabel.text = nativeAd.body
+        bodyLabel.font = UIFont.systemFont(ofSize: 12)
+        bodyLabel.textColor = UIColor.gray
+        bodyLabel.numberOfLines = 1
+        bodyLabel.lineBreakMode = .byTruncatingTail
+        titleStack.addArrangedSubview(bodyLabel)
+
+        contentStack.addArrangedSubview(titleStack)
+
+        let ctaButton = UIButton(type: .system)
+        ctaButton.setTitle(nativeAd.callToAction ?? String(localized: .installa), for: .normal)
+        ctaButton.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
+        ctaButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        ctaButton.titleLabel?.minimumScaleFactor = 0.8
+        ctaButton.backgroundColor = UIColor.red
+        ctaButton.setTitleColor(.white, for: .normal)
+        ctaButton.layer.cornerRadius = 6
+        ctaButton.clipsToBounds = true
+        ctaButton.contentEdgeInsets = UIEdgeInsets(top: 6, left: 12, bottom: 6, right: 12)
+        ctaButton.isUserInteractionEnabled = false
+        ctaButton.setContentHuggingPriority(.required, for: .horizontal)
+        ctaButton.setContentCompressionResistancePriority(.required, for: .horizontal)
+        contentStack.addArrangedSubview(ctaButton)
+
+        let adBadge = UILabel()
+        adBadge.text = "AD"
+        adBadge.font = UIFont.systemFont(ofSize: 10, weight: .bold)
+        adBadge.textColor = UIColor.gray
+        adView.addSubview(adBadge)
+        adBadge.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            adBadge.topAnchor.constraint(equalTo: adView.topAnchor, constant: 6),
+            adBadge.trailingAnchor.constraint(equalTo: adView.trailingAnchor, constant: -10)
+        ])
+
+        adView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60).isActive = true
+
+        adView.iconView = iconView
+        adView.headlineView = headlineLabel
+        adView.bodyView = bodyLabel
+        adView.callToActionView = ctaButton
+
+        adView.nativeAd = nativeAd
+
+        return adView
+    }
+}
+
 struct NativeAdPreviewView: View {
     @ObservedObject var adManager: AdMobManager
     

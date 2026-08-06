@@ -4858,10 +4858,8 @@ struct LinesView: View {
         if !adMobManager.nativeAds.isEmpty {
             Section {
                 ForEach(Array(adMobManager.nativeAds.enumerated()), id: \.offset) { _, ad in
-                    NativeAdView(nativeAd: ad)
-                        .frame(height: 160)
-                        .listRowInsets(EdgeInsets())
-                        .listRowBackground(Color.clear)
+                    CompactNativeAdView(nativeAd: ad)
+                        .frame(height: 60)
                 }
             } header: {
                 VStack(alignment: .leading, spacing: 2) {
