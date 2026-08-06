@@ -2082,6 +2082,9 @@
         }
       }
     },
+    "Guarda gli annunci per supportare lo sviluppo dell'app" : {
+
+    },
     "Guarda se una linea è completamente, parzialmente o per nulla accessibile. Tutto a colpo d'occhio." : {
       "localizations" : {
         "en" : {
@@ -6196,6 +6199,9 @@
           }
         }
       }
+    },
+    "Sostieni LavoraMi" : {
+
     },
     "stadio" : {
       "extractionState" : "manual",

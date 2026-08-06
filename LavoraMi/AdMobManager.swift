@@ -16,11 +16,13 @@ class AdMobManager: NSObject, ObservableObject {
     
     private var adLoader: AdLoader?
     private var loadedCount = 0
-    private let totalDesired = 15
-    private let batchSize = 5
+    private let totalDesired: Int
+    private let batchSize: Int
     private var adUnitIDInUse: String = ""
     
-    override init() {
+    init(totalDesired: Int = 15, batchSize: Int = 5) {
+        self.totalDesired = totalDesired
+        self.batchSize = batchSize
         super.init()
         initializeMobileAds()
     }
@@ -83,8 +85,10 @@ extension AdMobManager: AdLoaderDelegate {
     func adLoader(_ adLoader: AdLoader, didFailToReceiveAdWithError error: Error) {}
     
     func adLoaderDidFinishLoading(_ adLoader: AdLoader) {
-        if loadedCount < totalDesired {loadNextBatch()}
-        else {isLoading = false}
+        DispatchQueue.main.async {
+            if self.loadedCount < self.totalDesired {self.loadNextBatch()}
+            else {self.isLoading = false}
+        }
     }
 }
 

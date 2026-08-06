@@ -4845,6 +4845,50 @@ struct LinesView: View {
     @State private var showDeletePopUp: Bool = false
     @FocusState private var isSearchFocused: Bool
 
+    // MARK: - Support LavoraMi ads
+    @StateObject private var adMobManager = AdMobManager(totalDesired: 2)
+    @ObservedObject private var consentManager = ConsentManager.shared
+    @State private var adsRequested: Bool = false
+
+    private var shouldShowAdsAfterRecent: Bool {
+        showRecentSearches && recentlySearchedLines.count >= 3
+    }
+
+    @ViewBuilder
+    private var supportLavoraMiSection: some View {
+        if !adMobManager.nativeAds.isEmpty {
+            Section {
+                ForEach(Array(adMobManager.nativeAds.enumerated()), id: \.offset) { _, ad in
+                    NativeAdView(nativeAd: ad)
+                        .frame(height: 160)
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(Color.clear)
+                }
+            } header: {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Sostieni LavoraMi")
+                        .font(.title3)
+                        .bold()
+                        .foregroundStyle(.primary)
+                        .textCase(nil)
+
+                    Text("Guarda gli annunci per supportare lo sviluppo dell'app")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .textCase(nil)
+                }
+            }
+        }
+    }
+
+    private func requestLinesAdsIfNeeded() {
+        guard consentManager.isReady, !adsRequested else { return }
+        if let adUnitID = Bundle.main.infoDictionary?["AdUnitID"] as? String {
+            adsRequested = true
+            adMobManager.loadNativeAds(adUnitID: adUnitID)
+        }
+    }
+
     // MARK: - Search helpers
     private func matches(_ line: LineInfo, query: String) -> Bool {
         let q = query.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
@@ -5248,6 +5292,10 @@ struct LinesView: View {
                         }
                     }
                     .listRowBackground(Color(uiColor: .secondarySystemBackground))
+
+                    if searchInput.isEmpty && shouldShowAdsAfterRecent {
+                        supportLavoraMiSection
+                    }
                 }
                 Section(){
                     if(!filteredMetros.isEmpty){
@@ -5288,6 +5336,11 @@ struct LinesView: View {
                     }
                 }
                 .listRowBackground(Color(uiColor: .secondarySystemBackground))
+
+                if searchInput.isEmpty && !shouldShowAdsAfterRecent {
+                    supportLavoraMiSection
+                }
+
                 Section(){
                     if(!filteredSuburban.isEmpty){
                         ForEach(filteredSuburban, id: \.id) { line in
@@ -5736,6 +5789,14 @@ struct LinesView: View {
                 Button("Continua"){recentlySearchedLinesData = Data()}
             } message: {
                 Text("Sei sicuro di voler cancellare le ricerche recenti?")
+            }
+            .onAppear {
+                requestLinesAdsIfNeeded()
+            }
+            .onChange(of: consentManager.isReady) { _, ready in
+                if ready {
+                    requestLinesAdsIfNeeded()
+                }
             }
         }
     }
