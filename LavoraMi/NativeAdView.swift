@@ -232,17 +232,6 @@ struct CompactNativeAdView: UIViewControllerRepresentable {
         ctaButton.setContentCompressionResistancePriority(.required, for: .horizontal)
         contentStack.addArrangedSubview(ctaButton)
 
-        let adBadge = UILabel()
-        adBadge.text = "AD"
-        adBadge.font = UIFont.systemFont(ofSize: 10, weight: .bold)
-        adBadge.textColor = UIColor.gray
-        adView.addSubview(adBadge)
-        adBadge.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            adBadge.topAnchor.constraint(equalTo: adView.topAnchor, constant: 6),
-            adBadge.trailingAnchor.constraint(equalTo: adView.trailingAnchor, constant: -10)
-        ])
-
         adView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60).isActive = true
 
         adView.iconView = iconView
