@@ -515,6 +515,22 @@
         }
       }
     },
+    "Aiutaci a sostenere LavoraMi!" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Help us support LavoraMi!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Ayúdanos a apoyar a LavoraMi!"
+          }
+        }
+      }
+    },
     "Aiuto" : {
       "localizations" : {
         "en" : {
@@ -2081,9 +2097,6 @@
           }
         }
       }
-    },
-    "Guarda gli annunci per supportare lo sviluppo dell'app" : {
-
     },
     "Guarda se una linea è completamente, parzialmente o per nulla accessibile. Tutto a colpo d'occhio." : {
       "localizations" : {
@@ -6200,9 +6213,6 @@
         }
       }
     },
-    "Sostieni LavoraMi" : {
-
-    },
     "stadio" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -6502,6 +6512,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Suburbano"
+          }
+        }
+      }
+    },
+    "Supporta LavoraMi" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Support LavoraMi"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apoya a LavoraMi"
           }
         }
       }
