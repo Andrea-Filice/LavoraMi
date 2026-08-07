@@ -3072,19 +3072,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The map shows the original route; see the diversions in the ‘Line Works’ section!"
+            "value" : "The map shows the original route of the line; see the diversions in the “Works” section."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El mapa muestra el trazado original del tramo; consulta los desvíos en la sección: \\”Obras en línea\\”."
+            "value" : "El mapa muestra el trazado original del tramo; consulta los desvíos en la sección “Obras”."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La mappa contiene il percorso originale della tratta, guarda le deviazioni di essa nella sezione: \\\"Lavori Linea\\\"."
+            "value" : "La mappa contiene il percorso originale della tratta, guarda le deviazioni di essa nella sezione: \"Lavori\"."
           }
         }
       }
