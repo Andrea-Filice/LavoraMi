@@ -914,6 +914,7 @@ struct MainView: View {
                 }
             }
             .scrollDismissesKeyboard(.immediately)
+            .animation(.default, value: filteredItems)
             .padding(.bottom, 8)
             VStack(alignment: .leading, spacing: 16){
                 ScrollViewReader { proxy in
@@ -1012,7 +1013,6 @@ struct MainView: View {
                                                 }
                                             }
                                         }
-                                        .transaction { $0.animation = nil }
                                         .padding(.top, 5)
                                     }
                                 }
