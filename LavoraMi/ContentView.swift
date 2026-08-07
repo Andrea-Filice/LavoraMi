@@ -6306,7 +6306,7 @@ extension LineDetailView {
                     .multilineTextAlignment(.leading)
                 
                 if(lineName == "S2" || lineName == "S12" || lineName == "S19"){
-                    Text("LA LINEA E' ATTIVA SOLO NEI GIORNI LAVORATIVI.")
+                    Text("LA LINEA È ATTIVA SOLO NEI GIORNI LAVORATIVI.")
                         .font(.system(size: 12))
                         .foregroundStyle(.secondary)
                         .bold()
@@ -7240,7 +7240,7 @@ struct LineSmallDetailedView: View {
                                     Text("Nessuna corsa prevista per oggi.")
                                         .font(.system(size: 16, weight: .bold))
                                         .foregroundStyle(.primary)
-                                    Text("Per oggi non c'è nessuna corsa programmata per questa fermata, prova a sceglierne un altra.")
+                                    Text("Per oggi non c'è nessuna corsa programmata per questa fermata, prova a sceglierne un' altra.")
                                         .font(.system(size: 12))
                                         .padding(.horizontal, 10)
                                         .foregroundStyle(.secondary)
@@ -7674,7 +7674,7 @@ struct LineDeviationInfoView: View {
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
 
-                    Text("LavoraMi potrebbe non mostrare il percorso attuale di questa linea, poichè sono in corso deviazioni, interruzioni di tratte del percorso o di stazioni non accessibili. Consultate gli avvisi nella sezione \"Lavori Linea\"!")
+                    Text("LavoraMi potrebbe non mostrare il percorso attuale di questa linea, poiché sono in corso deviazioni, interruzioni di tratte del percorso o di stazioni non accessibili. Consultate gli avvisi nella sezione \"Lavori Linea\"!")
                         .font(.headline)
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)

@@ -2889,7 +2889,7 @@
         }
       }
     },
-    "LA LINEA E' ATTIVA SOLO NEI GIORNI LAVORATIVI." : {
+    "LA LINEA È ATTIVA SOLO NEI GIORNI LAVORATIVI." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2953,7 +2953,7 @@
         }
       }
     },
-    "LavoraMi potrebbe non mostrare il percorso attuale di questa linea, poichè sono in corso deviazioni, interruzioni di tratte del percorso o di stazioni non accessibili. Consultate gli avvisi nella sezione \"Lavori Linea\"!" : {
+    "LavoraMi potrebbe non mostrare il percorso attuale di questa linea, poiché sono in corso deviazioni, interruzioni di tratte del percorso o di stazioni non accessibili. Consultate gli avvisi nella sezione \"Lavori Linea\"!" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4877,7 +4877,7 @@
         }
       }
     },
-    "Per oggi non c'è nessuna corsa programmata per questa fermata, prova a sceglierne un altra." : {
+    "Per oggi non c'è nessuna corsa programmata per questa fermata, prova a sceglierne un' altra." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
