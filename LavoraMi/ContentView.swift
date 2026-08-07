@@ -4179,7 +4179,7 @@ struct HowAppWorksView: View {
                     }
                     .padding(.horizontal, 16)
                     .frame(height: 56)
-                    .background(Color(uiColor: .secondarySystemGroupedBackground))
+                    .background(Color(.secondarySystemBackground))
                 }
                 
                 Text("Oppure salva una linea nella sezione \"Le tue Linee\" per vedere, tramite l'apposito filtro, solo i lavori che interessano a te.")
@@ -4207,7 +4207,7 @@ struct HowAppWorksView: View {
                     }
                     .padding(.horizontal, 16)
                     .frame(height: 56)
-                    .background(Color(uiColor: .secondarySystemGroupedBackground))
+                    .background(Color(.secondarySystemBackground))
                 }
 
                 SectionDivider()
