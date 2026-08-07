@@ -2668,6 +2668,17 @@ struct AccountView: View {
                                         .foregroundColor(.gray)
                                 }
                             }
+                            
+                            if(currentSyncStatus.contains(String(localized: .erroreSincronizzato))) {
+                                Button(action: {
+                                    currentSyncStatus = String(localized: .sincronizzazione)
+                                    currentSyncStatusIcon = "cloudSyncing"
+                                    handleOnAppear()
+                                }) {
+                                    Image(systemName: "arrow.clockwise")
+                                        .foregroundColor(.red)
+                                }
+                            }
                         }
                         
                         if auth.isLoggedInWithApple() {
@@ -3053,6 +3064,9 @@ struct AccountView: View {
                     linesFavorites = try await auth.fetchUserFavorites()
                     linesSelected = try await auth.fetchUserLines()
                     try await auth.saveUserPreferences(enableFavorites: saveFavoritesData, enableYourLines: saveYourLinesData)
+                    
+                    currentSyncStatus = String(localized: .sincronizzato)
+                    currentSyncStatusIcon = "cloudSynced"
                 }
                 catch {
                     currentSyncStatus = String(localized: .erroreSincronizzato)
