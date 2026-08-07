@@ -9886,7 +9886,6 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.86574, longitude: 8.97455), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.86629, longitude: 8.97524), branch: "Main"),
         .init(name: "Mendrisio", coordinate: .init(latitude: 45.8691, longitude: 8.97878), branch: "Main"),
-        /* MODIFICHE CIRCOLAZIONE: Fino al 7 agosto
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.87217, longitude: 8.98214), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.87298, longitude: 8.9827), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.87399, longitude: 8.983), branch: "Main"),
@@ -10447,11 +10446,10 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.34592, longitude: 8.97628), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.34609, longitude: 8.97628), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.3464, longitude: 8.97619), branch: "Main"),
-        .init(name: "Biasca", coordinate: .init(latitude: 46.35198, longitude: 8.97416), branch: "Main")*/
+        .init(name: "Biasca", coordinate: .init(latitude: 46.35198, longitude: 8.97416), branch: "Main")
     ]
     
     static let tiloS90: [MetroStation] = [
-        /* MODIFICHE CIRCOLAZIONE: Fino al 7 agosto
         .init(name: "Mendrisio", coordinate: .init(latitude: 45.8691, longitude: 8.97878), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.87217, longitude: 8.98214), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.87298, longitude: 8.9827), branch: "Main"),
@@ -10624,7 +10622,7 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.00177, longitude: 8.94748), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.00225, longitude: 8.9475), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.00264, longitude: 8.94743), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 46.00409, longitude: 8.94705), branch: "Main"),*/
+        .init(name: "NO_DRAW", coordinate: .init(latitude: 46.00409, longitude: 8.94705), branch: "Main"),
         .init(name: "Lugano", coordinate: .init(latitude: 46.00501, longitude: 8.94695), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.00636, longitude: 8.94638), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.00814, longitude: 8.94576), branch: "Main"),
