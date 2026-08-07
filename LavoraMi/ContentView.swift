@@ -4219,7 +4219,7 @@ struct HowAppWorksView: View {
                     .padding(.horizontal, 20)
                     .padding(.top, 10)
                 
-                InterchangeView(item: interchangeInfo, currentLine: "M2")
+                InterchangeRow(interchange: interchangeInfo, currentLine: "M1", isFirst: false, isLast: false)
                     .padding(.top, 20)
                 SectionDivider()
                 SectionHeader(icon: "hand.raised.fill", title: String(localized: .fermataCantiere))
