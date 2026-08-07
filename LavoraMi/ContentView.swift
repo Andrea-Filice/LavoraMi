@@ -5821,7 +5821,7 @@ func getLineDeviationLink(line: String, viewModel: WorkViewModel) -> URL {
         return URL(string: viewModel.linesDeviatedLink[i])!
     }
     
-    return URL(string: "www.lavorami.it/404")!
+    return URL(string: "https://www.lavorami.it/404")!
 }
 
 func getSuburbanDeviationLink(line: String, viewModel: WorkViewModel) -> URL {
@@ -5829,7 +5829,7 @@ func getSuburbanDeviationLink(line: String, viewModel: WorkViewModel) -> URL {
         return URL(string: viewModel.suburbanInterruptionLinks[i])!
     }
     
-    return URL(string: "www.lavorami.it/404")!
+    return URL(string: "https://www.lavorami.it/404")!
 }
 
 func getRegionalDeviationLink(line: String, viewModel: WorkViewModel) -> URL {
@@ -5837,7 +5837,7 @@ func getRegionalDeviationLink(line: String, viewModel: WorkViewModel) -> URL {
         return URL(string: viewModel.regionalInterruptionLinks[i])!
     }
     
-    return URL(string: "www.lavorami.it/404")!
+    return URL(string: "https://www.lavorami.it/404")!
 }
 
 func getInterchanges(line: String) -> [InterchangeInfo] {
@@ -8327,7 +8327,7 @@ extension WorkItem {
             let isRubberTire = transport.contains("bus") || transport.contains("autobus")
             let isMovibus = transport.contains("movibus") || linesLower.contains { $0.hasPrefix("z6") }
             let isStav = transport.contains("stav") || linesLower.contains { $0.hasPrefix("z5") }
-            let isAutoguidovie = transport.contains("Autoguidovie") || linesLower.contains {
+            let isAutoguidovie = transport.contains("autoguidovie") || linesLower.contains {
                 $0.hasPrefix("z4") || $0.hasPrefix("z2")
             }
             
@@ -8352,7 +8352,7 @@ extension WorkItem {
         }
         
         if favorites.contains("Autoguidovie") {
-            if transport.contains("Autoguidovie") { return true }
+            if transport.contains("autoguidovie") { return true }
             if linesLower.contains(where: {
                 $0.hasPrefix("z4") || $0.hasPrefix("z2")
             }) {
