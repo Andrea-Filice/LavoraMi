@@ -44,7 +44,7 @@ struct StationsDB {
         .init(name: "San Leonardo", coordinate: .init(latitude: 45.50116, longitude: 9.10149), branch: "Rho"),
         .init(name: "Molino Dorino", coordinate: .init(latitude: 45.50516, longitude: 9.09323), branch: "Rho"),
         .init(name: "Pero", coordinate: .init(latitude: 45.50869, longitude: 9.08581), branch: "Rho"),
-        .init(name: "Rho Fiera", coordinate: .init(latitude: 45.51797, longitude: 9.08564), branch: "Rho"),
+        .init(name: "Rho Fiera-Milano", coordinate: .init(latitude: 45.51797, longitude: 9.08564), branch: "Rho"),
         
         .init(name: "Wagner", coordinate: .init(latitude: 45.46784, longitude: 9.15529), branch: "Bisceglie"),
         .init(name: "De Angeli", coordinate: .init(latitude: 45.46656, longitude: 9.14987), branch: "Bisceglie"),
@@ -21052,7 +21052,7 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.45095, longitude: 9.19672), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.45093, longitude: 9.19553), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.45095, longitude: 9.19499), branch: "Main"),
-        .init(name: "V.Le Bigny", coordinate: .init(latitude: 45.45098, longitude: 9.1944), branch: "Main"),
+        .init(name: "V.Le Bligny", coordinate: .init(latitude: 45.45098, longitude: 9.1944), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.45095, longitude: 9.19397), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.45095, longitude: 9.19293), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.45096, longitude: 9.19124), branch: "Main"),
