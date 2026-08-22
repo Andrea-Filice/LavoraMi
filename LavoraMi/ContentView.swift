@@ -6277,7 +6277,7 @@ extension LineDetailView {
                         }
                     )
                 }
-                if(lineName == "R15" || lineName == "R24") {
+                if(viewModel.lineeSostituiteBus.contains(lineName)) {
                     WarningBanner(
                         text: String(localized: .lineSubWithBus),
                         action: {
