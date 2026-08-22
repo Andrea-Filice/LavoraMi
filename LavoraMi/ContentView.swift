@@ -5009,7 +5009,7 @@ struct LinesView: View {
     var suburban: [LineInfo] {
         [
             LineInfo(name: "S1", branches: ((viewModel.enablePassanteWork) ? "Milano Bovisa - Lodi" : "Saronno - Lodi"), type: String(localized: .suburbano), waitMinutes: "30 min.", stations: StationsDB.getStationS1(isPassanteClosed: viewModel.enablePassanteWork), accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
-            LineInfo(name: "S2", branches: "Seveso - Milano Rogoredo", type: String(localized: .suburbano), waitMinutes: "30 min.", stations: StationsDB.stationsS2,  accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
+            LineInfo(name: "S2", branches: "Mariano Comense - Milano Rogoredo", type: String(localized: .suburbano), waitMinutes: "30 min.", stations: StationsDB.stationsS2,  accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "S3", branches: "Saronno - Milano Cadorna", type: String(localized: .suburbano), waitMinutes: "30 min.", stations: StationsDB.stationsS3, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "S4", branches: "Cormano - Milano Cadorna", type: String(localized: .suburbano), waitMinutes: "30 min.", stations: StationsDB.stationsS4, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "S5", branches: ((viewModel.enablePassanteWork) ? "Varese - Milano Lambrate - Pioltello" : "Varese - Treviglio"), type: String(localized: .suburbano), waitMinutes: "30 min.", stations: StationsDB.getStationS5(isPassanteClosed: viewModel.enablePassanteWork), accessibilityStatus: String(localized: .lineaAccessibile)),

@@ -538,7 +538,6 @@ struct StationsDB {
     ]
     
     static let stationsS2: [MetroStation] = [
-        /* MODIFICHE CIRCOLAZIONE: I treni circolano tra Seveso e Rogoredo
         .init(name: "Mariano Comense", coordinate: .init(latitude: 45.69358, longitude: 9.18141), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.67783, longitude: 9.17024), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.67703, longitude: 9.16952), branch: "Main"),
@@ -556,7 +555,7 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.65177, longitude: 9.14074), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.65083, longitude: 9.14018), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.65019, longitude: 9.14008), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.64966, longitude: 9.14011), branch: "Main"),*/
+        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.64966, longitude: 9.14011), branch: "Main"),
         .init(name: "Seveso", coordinate: .init(latitude: 45.6483, longitude: 9.14018), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.64507, longitude: 9.14113), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.64208, longitude: 9.14166), branch: "Main"),
