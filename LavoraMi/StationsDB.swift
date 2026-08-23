@@ -118,7 +118,6 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.51042, longitude: 9.25554), branch: "Main"),
         .init(name: "Cascina Gobba", coordinate: .init(latitude: 45.51114, longitude: 9.26052), branch: "Main"),
         
-        /* MODIFICHE ALLA CIRCOLAZIONE: M2 chiude tra Cascina Gobba e Cologno fino al 30 agosto.
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.5116, longitude: 9.26272), branch: "Cologno"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.51213, longitude: 9.26382), branch: "Cologno"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.51251, longitude: 9.26428), branch: "Cologno"),
@@ -143,7 +142,7 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.52838, longitude: 9.28392), branch: "Cologno"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.52887, longitude: 9.28446), branch: "Cologno"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.52966, longitude: 9.28539), branch: "Cologno"),
-        .init(name: "Cologno Nord", coordinate: .init(latitude: 45.53426, longitude: 9.29111), branch: "Cologno"),*/
+        .init(name: "Cologno Nord", coordinate: .init(latitude: 45.53426, longitude: 9.29111), branch: "Cologno"),
         
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.51143, longitude: 9.26254), branch: "Gessate"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.51169, longitude: 9.26333), branch: "Gessate"),

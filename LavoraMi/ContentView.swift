@@ -4999,7 +4999,7 @@ struct LinesView: View {
     var metros: [LineInfo] {
         [
             LineInfo(name: "M1", branches: "Sesto F.S. - Rho Fiera / Bisceglie", type: "Metro", waitMinutes: "Sesto FS: 3 min | Rho/Bisceglie: 7-8 min.", stations: StationsDB.stationsM1, accessibilityStatus: String(localized: .lineaAccessibile)),
-            LineInfo(name: "M2", branches: "Gessate - Assago / Abbiategrasso", type: "Metro", waitMinutes: "Gessate: 12-15 min | Assago: 9-10 min", stations: StationsDB.stationsM2, accessibilityStatus: String(localized: .lineaAccessibile)),
+            LineInfo(name: "M2", branches: "Gessate / Cologno - Assago / Abbiategrasso", type: "Metro", waitMinutes: "Gessate: 12-15 min | Assago: 9-10 min", stations: StationsDB.stationsM2, accessibilityStatus: String(localized: .lineaAccessibile)),
             LineInfo(name: "M3", branches: "Comasina - San Donato", type: "Metro", waitMinutes: "4-5 min.", stations: StationsDB.stationsM3, accessibilityStatus: String(localized: .lineaAccessibile)),
             LineInfo(name: "M4", branches: "Linate Aereoporto - San Cristoforo", type: "Metro", waitMinutes: "2-3 min.",stations: StationsDB.stationsM4, accessibilityStatus: String(localized: .lineaAccessibile)),
             LineInfo(name: "M5", branches: "Bignami - San Siro Stadio", type: "Metro", waitMinutes: "4 min.", stations: StationsDB.stationsM5, accessibilityStatus: String(localized: .lineaAccessibile))
