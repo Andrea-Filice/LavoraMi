@@ -612,7 +612,20 @@
       }
     },
     "Apre la linea selezionata per il Widget quando ci clicchi sopra. Se disattivata, apre l'app nella schermata Home." : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clicking on the selected line opens it in the Widget. If this option is disabled, it opens the app on the Home screen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Al hacer clic en el widget, se abre la línea seleccionada. Si está desactivada, se abre la aplicación en la pantalla de inicio."
+          }
+        }
+      }
     },
     "Apri Impostazioni" : {
       "localizations" : {
@@ -631,7 +644,20 @@
       }
     },
     "Apri Linea Widget" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Line Widget"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir Widget Línea"
+          }
+        }
+      }
     },
     "Apri link:" : {
       "localizations" : {
