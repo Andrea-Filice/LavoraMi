@@ -611,6 +611,9 @@
         }
       }
     },
+    "Apre la linea selezionata per il Widget quando ci clicchi sopra. Se disattivata, apre l'app nella schermata Home." : {
+
+    },
     "Apri Impostazioni" : {
       "localizations" : {
         "en" : {
@@ -626,6 +629,9 @@
           }
         }
       }
+    },
+    "Apri Linea Widget" : {
+
     },
     "Apri link:" : {
       "localizations" : {

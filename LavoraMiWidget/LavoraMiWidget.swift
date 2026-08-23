@@ -179,12 +179,17 @@ struct LavoraMiWidget: Widget {
             return nil
         }
         
-        var components = URLComponents()
-        components.scheme = "lavorami"
-        components.host = "linea"
-        components.queryItems = [URLQueryItem(name: "nome", value: name)]
-        
-        return components.url
+        if DataManager.shared.getOpenWidgetLine() == false {
+            return nil
+        }
+        else {
+            var components = URLComponents()
+            components.scheme = "lavorami"
+            components.host = "linea"
+            components.queryItems = [URLQueryItem(name: "nome", value: name)]
+            
+            return components.url
+        }
     }
 }
 

@@ -3522,6 +3522,7 @@ struct AdvancedOptionsView: View {
     @AppStorage("feedbacksEnabled") var feedbacksEnabled: Bool = true
     @AppStorage("showTranslateButton") var showTranslateButton: Bool = false
     @AppStorage("showRecentSearches") var showRecentSearches: Bool = true
+    @State private var openWidgetLine: Bool = DataManager.shared.getOpenWidgetLine()
     private var currentDeviceBiometric: BiometricType = BiometricAuth.getBiometricType()
     @State private var presentedCacheAlert = false
     
@@ -3565,6 +3566,15 @@ struct AdvancedOptionsView: View {
                     }
                 }
                 .listRowBackground(Color(uiColor: .secondarySystemBackground))
+            }
+            Section(footer: Text("Apre la linea selezionata per il Widget quando ci clicchi sopra. Se disattivata, apre l'app nella schermata Home.")){
+                Toggle(isOn: $openWidgetLine){
+                    Label("Apri Linea Widget", systemImage: "arrow.branch")
+                }
+            }
+            .listRowBackground(Color(uiColor: .secondarySystemBackground))
+            .onChange(of: openWidgetLine) { _, newValue in
+                DataManager.shared.setOpenWidgetLine(newValue)
             }
             Section(footer: Text("Richiedi \(getBiometricTypeByEnum()) per bloccare e sbloccare la sezione del tuo Account. Per modificare questa opzione dovrai autenticarti con \(getBiometricTypeByEnum()).")){
                 Toggle(isOn: $requireFaceID){

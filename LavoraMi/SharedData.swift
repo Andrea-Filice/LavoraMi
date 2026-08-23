@@ -23,6 +23,7 @@ final class DataManager {
     static let shared = DataManager()
     private let groupName = "group.com.lavorami.lavoramiapp"
     private let key = "favouriteLine"
+    private let openWidgetLineKey = "openWidgetLine"
     
     private let defaults = UserDefaults(suiteName: "group.com.lavorami.lavoramiapp")
 
@@ -42,5 +43,19 @@ final class DataManager {
     
     func deleteSavedLine() {
         setSavedLine(.empty)
+    }
+    
+    func setOpenWidgetLine(_ value: Bool) {
+        defaults?.set(value, forKey: openWidgetLineKey)
+        defaults?.synchronize()
+        WidgetCenter.shared.reloadAllTimelines()
+    }
+
+    func getOpenWidgetLine() -> Bool {
+        defaults?.synchronize()
+        guard defaults?.object(forKey: openWidgetLineKey) != nil else {
+            return true
+        }
+        return defaults?.bool(forKey: openWidgetLineKey) ?? true
     }
 }
