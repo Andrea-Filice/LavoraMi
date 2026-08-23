@@ -3427,6 +3427,7 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.48245, longitude: 9.16047), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.48197, longitude: 9.16079), branch: "Main"),
         .init(name: "Milano Domodossola", coordinate: .init(latitude: 45.48089, longitude: 9.16224), branch: "Main"),
+        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.47308, longitude: 9.16977), branch: "Main"),
         .init(name: "Milano Cadorna", coordinate: .init(latitude: 45.46843, longitude: 9.17553), branch: "Main")
     ]
     
