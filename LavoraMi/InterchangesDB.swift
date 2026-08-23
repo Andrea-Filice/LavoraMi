@@ -697,11 +697,11 @@ struct InterchangesDB {
         .init(name: "Lugano", lines: ["S10", "S40", "S50", "S90", "RE80"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 10),
         .init(name: "Giubiasco", lines: ["S10", "S20", "S30", "S90"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 11),
         .init(name: "Bellinzona", lines: ["S10", "S20", "S30", "S50", "S90"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 12),
-        .init(name: "Arbedo - Castione", lines: ["S10", "S20", "S50", "S90"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 13),
+        .init(name: "Castione Arbedo", lines: ["S10", "S20", "S50", "S90"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 13),
         .init(name: "Biasca", lines: ["S10", "S50"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 14),
 
         /// TILO S20
-        .init(name: "Arbedo - Castione", lines: ["S20", "S10", "S50", "S90"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 0),
+        .init(name: "Castione Arbedo", lines: ["S20", "S10", "S50", "S90"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 0),
         .init(name: "Bellinzona", lines: ["S20", "S10", "S30", "S50", "S90"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 1),
         .init(name: "Giubiasco", lines: ["S20", "S10", "S30", "S90"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 2),
         .init(name: "San Antonino", lines: ["S20", "S30", "RE80"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 3),
@@ -764,7 +764,7 @@ struct InterchangesDB {
         .init(name: "Lugano Paradiso", lines: ["S50", "S10", "S40", "S90", "RE80"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 15),
         .init(name: "Lugano", lines: ["S50", "S10", "S40", "S90", "RE80"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 16),
         .init(name: "Bellinzona", lines: ["S50", "S10", "S20", "S30", "S90"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 17),
-        .init(name: "Arbedo - Castione", lines: ["S50", "S10", "S20", "S90"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 18),
+        .init(name: "Castione Arbedo", lines: ["S50", "S10", "S20", "S90"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 18),
         .init(name: "Biasca", lines: ["S50", "S10"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 19),
 
         /// TILO S90
