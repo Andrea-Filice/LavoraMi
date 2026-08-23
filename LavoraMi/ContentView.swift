@@ -5082,7 +5082,7 @@ struct LinesView: View {
     var crossBorderLines: [LineInfo] {
         [
             LineInfo(name: "S10", branches: "Biasca - Como S. Giovanni", type: "TILO", waitMinutes: "1 \(String(localized: .ora)) - 45 min.", stations: StationsDB.tiloS10, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
-            LineInfo(name: "S20", branches: "Cadenazzo - Locarno", type: "TILO", waitMinutes: "30 min.", stations: StationsDB.tiloS20, accessibilityStatus: String(localized: .lineaAccessibile)),
+            LineInfo(name: "S20", branches: "Castione Arbedo - Locarno", type: "TILO", waitMinutes: "30 min.", stations: StationsDB.tiloS20, accessibilityStatus: String(localized: .lineaAccessibile)),
             LineInfo(name: "S30", branches: "Cadenazzo - Gallarate", type: "TILO", waitMinutes: "2 \(String(localized: .ore)).", stations: StationsDB.tiloS30, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "S40", branches: "Como S. Giovanni - Varese", type: "TILO", waitMinutes: "1 \(String(localized: .ora)).", stations: StationsDB.tiloS40, accessibilityStatus: String(localized: .lineaAccessibile)),
             LineInfo(name: "S50", branches: "Biasca - Malpensa Aereoporto T2", type: "TILO", waitMinutes: "1 \(String(localized: .ora)).", stations: StationsDB.tiloS50, accessibilityStatus: String(localized: .lineaAccessibile)),
