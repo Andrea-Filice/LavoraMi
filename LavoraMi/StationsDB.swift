@@ -8121,7 +8121,6 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.19022, longitude: 9.02422), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.19365, longitude: 9.02771), branch: "Main"),
         .init(name: "Bellinzona", coordinate: .init(latitude: 46.19543, longitude: 9.02951), branch: "Main"),
-        /* MODIFICHE CIRCOLAZIONE: Fino al 30 agosto
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.19862, longitude: 9.03383), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.20095, longitude: 9.0364), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.20339, longitude: 9.03842), branch: "Main"),
@@ -8271,7 +8270,7 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.34592, longitude: 8.97628), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.34609, longitude: 8.97628), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.3464, longitude: 8.97619), branch: "Main"),
-        .init(name: "Biasca", coordinate: .init(latitude: 46.35198, longitude: 8.97416), branch: "Main")*/
+        .init(name: "Biasca", coordinate: .init(latitude: 46.35198, longitude: 8.97416), branch: "Main")
     ]
     
     static let tiloS20: [MetroStation] = [
@@ -8434,7 +8433,6 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.19247, longitude: 9.02614), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.19377, longitude: 9.0279), branch: "Main"),
         .init(name: "Bellinzona", coordinate: .init(latitude: 46.19543, longitude: 9.02951), branch: "Main"),
-        /* MODIFICHE CIRCOLAZIONE fino al 30 agosto
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.19862, longitude: 9.03383), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.20095, longitude: 9.0364), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.20339, longitude: 9.03842), branch: "Main"),
@@ -8452,7 +8450,7 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.2178, longitude: 9.04174), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.21835, longitude: 9.04184), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 46.2192, longitude: 9.04176), branch: "Main"),
-        .init(name: "Castione Arbedo", coordinate: .init(latitude: 46.22363, longitude: 9.04148), branch: "Main")*/
+        .init(name: "Castione Arbedo", coordinate: .init(latitude: 46.22363, longitude: 9.04148), branch: "Main")
     ]
     
     static let tiloS30: [MetroStation] = [
