@@ -55,7 +55,7 @@ class NotificationManager {
         let contentDayOf = UNMutableNotificationContent()
         contentDayOf.title = String(localized: .endWorksTitle)
         
-        if(roadsType.contains(where: work.roads.lowercased().contains)) {
+        if(roadsType.contains(where: work.roads.lowercased().contains) && work.roads.lowercased() != "pavia") {
             if(work.lines.count <= 1){
                 contentDayOf.body = String(localized: .fineLavoriVar1(work.roads, work.lines.joined(separator: ", "), work.company))
                 print("⚠️ CONTENUTO NOTIFICA: \(contentDayOf.body)")
@@ -94,7 +94,7 @@ class NotificationManager {
             let contentDayBefore = UNMutableNotificationContent()
             contentDayBefore.title = String(localized: .tomorrowFineLavoriTitle)
             
-            if(roadsType.contains(where: work.roads.lowercased().contains)) {
+            if(roadsType.contains(where: work.roads.lowercased().contains) && work.roads.lowercased() != "pavia") {
                 if(work.lines.count <= 1){
                     contentDayBefore.body = String(localized: .tomorrowFineLavoriVar1(work.roads, work.lines.joined(separator: ", "), work.company))
                     print("⚠️ CONTENUTO NOTIFICA: \(contentDayBefore.body)")
@@ -141,7 +141,7 @@ class NotificationManager {
         let contentDayOf = UNMutableNotificationContent()
         contentDayOf.title = String(localized: .lavoriIniziatiTitle)
         
-        if(roadsType.contains(where: work.roads.lowercased().contains)) {
+        if(roadsType.contains(where: work.roads.lowercased().contains) && work.roads.lowercased() != "pavia") {
             if(work.lines.count <= 1){
                 contentDayOf.body = String(localized: .inizioLavoriVar1(work.roads, work.lines.joined(separator: ", "), work.company))
                 print("⚠️ CONTENUTO NOTIFICA: \(contentDayOf.body)")
@@ -180,7 +180,7 @@ class NotificationManager {
             let contentDayBefore = UNMutableNotificationContent()
             contentDayBefore.title = String(localized: .lavoriInizianoDomaniTitle)
             
-            if(roadsType.contains(where: work.roads.lowercased().contains)){
+            if(roadsType.contains(where: work.roads.lowercased().contains) && work.roads.lowercased() != "pavia"){
                 if(work.lines.count <= 1){
                     contentDayBefore.body = String(localized: .tomorrowInizioLavoriVar1(work.roads, work.lines.joined(separator: ", "), work.company))
                     print("⚠️ CONTENUTO NOTIFICA: \(contentDayBefore.body)")
@@ -366,7 +366,7 @@ class NotificationManager {
             let content = UNMutableNotificationContent()
             content.title = String(localized: .endWorksTitle)
             
-            if(roadsType.contains(where: work.roads.lowercased().contains)) {
+            if(roadsType.contains(where: work.roads.lowercased().contains) && work.roads.lowercased() != "pavia") {
                 if(work.lines.count <= 1){
                     content.body = String(localized: .fineLavoriVar1(work.roads, work.lines.joined(separator: ", "), work.company))
                 }
@@ -395,7 +395,7 @@ class NotificationManager {
             let content = UNMutableNotificationContent()
             content.title = String(localized: .tomorrowFineLavoriTitle)
             
-            if(roadsType.contains(where: work.roads.lowercased().contains)) {
+            if(roadsType.contains(where: work.roads.lowercased().contains) && work.roads.lowercased() != "pavia") {
                 if(work.lines.count <= 1){
                     content.body = String(localized: .tomorrowFineLavoriVar1(work.roads, work.lines.joined(separator: ", "), work.company))
                 }
@@ -420,7 +420,7 @@ class NotificationManager {
     }
     
     private func scheduleSingleBefore(for work: WorkItem, type: String) {
-        let center   = UNUserNotificationCenter.current()
+        let center = UNUserNotificationCenter.current()
         let calendar = Calendar.current
         let preferredHour = calendar.component(.hour, from: dateSchedule)
         let preferredMin  = calendar.component(.minute, from: dateSchedule)
@@ -439,7 +439,7 @@ class NotificationManager {
             let content = UNMutableNotificationContent()
             content.title = String(localized: .lavoriIniziatiTitle)
             
-            if(roadsType.contains(where: work.roads.lowercased().contains)) {
+            if(roadsType.contains(where: work.roads.lowercased().contains) && work.roads.lowercased() != "pavia") {
                 if(work.lines.count <= 1){
                     content.body = String(localized: .inizioLavoriVar1(work.roads, work.lines.joined(separator: ", "), work.company))
                 }
@@ -468,7 +468,7 @@ class NotificationManager {
             let content = UNMutableNotificationContent()
             content.title = String(localized: .lavoriInizianoDomaniTitle)
             
-            if(roadsType.contains(where: work.roads.lowercased().contains)){
+            if(roadsType.contains(where: work.roads.lowercased().contains) && work.roads.lowercased() != "pavia"){
                 if(work.lines.count <= 1){
                     content.body = String(localized: .tomorrowFineLavoriVar1(work.roads, work.lines.joined(separator: ", "), work.company))
                 }
