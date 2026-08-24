@@ -55,7 +55,7 @@ class NotificationManager {
         let contentDayOf = UNMutableNotificationContent()
         contentDayOf.title = String(localized: .endWorksTitle)
         
-        if(roadsType.contains(where: work.roads.lowercased().contains) && work.roads.lowercased() != "pavia") {
+        if(checkForViaType(workRoads: work.roads)) {
             if(work.lines.count <= 1){
                 contentDayOf.body = String(localized: .fineLavoriVar1(work.roads, work.lines.joined(separator: ", "), work.company))
                 print("⚠️ CONTENUTO NOTIFICA: \(contentDayOf.body)")
@@ -94,7 +94,7 @@ class NotificationManager {
             let contentDayBefore = UNMutableNotificationContent()
             contentDayBefore.title = String(localized: .tomorrowFineLavoriTitle)
             
-            if(roadsType.contains(where: work.roads.lowercased().contains) && work.roads.lowercased() != "pavia") {
+            if(checkForViaType(workRoads: work.roads)) {
                 if(work.lines.count <= 1){
                     contentDayBefore.body = String(localized: .tomorrowFineLavoriVar1(work.roads, work.lines.joined(separator: ", "), work.company))
                     print("⚠️ CONTENUTO NOTIFICA: \(contentDayBefore.body)")
@@ -141,7 +141,7 @@ class NotificationManager {
         let contentDayOf = UNMutableNotificationContent()
         contentDayOf.title = String(localized: .lavoriIniziatiTitle)
         
-        if(roadsType.contains(where: work.roads.lowercased().contains) && work.roads.lowercased() != "pavia") {
+        if(checkForViaType(workRoads: work.roads)) {
             if(work.lines.count <= 1){
                 contentDayOf.body = String(localized: .inizioLavoriVar1(work.roads, work.lines.joined(separator: ", "), work.company))
                 print("⚠️ CONTENUTO NOTIFICA: \(contentDayOf.body)")
@@ -180,7 +180,7 @@ class NotificationManager {
             let contentDayBefore = UNMutableNotificationContent()
             contentDayBefore.title = String(localized: .lavoriInizianoDomaniTitle)
             
-            if(roadsType.contains(where: work.roads.lowercased().contains) && work.roads.lowercased() != "pavia"){
+            if(checkForViaType(workRoads: work.roads)){
                 if(work.lines.count <= 1){
                     contentDayBefore.body = String(localized: .tomorrowInizioLavoriVar1(work.roads, work.lines.joined(separator: ", "), work.company))
                     print("⚠️ CONTENUTO NOTIFICA: \(contentDayBefore.body)")
@@ -366,7 +366,7 @@ class NotificationManager {
             let content = UNMutableNotificationContent()
             content.title = String(localized: .endWorksTitle)
             
-            if(roadsType.contains(where: work.roads.lowercased().contains) && work.roads.lowercased() != "pavia") {
+            if(checkForViaType(workRoads: work.roads)) {
                 if(work.lines.count <= 1){
                     content.body = String(localized: .fineLavoriVar1(work.roads, work.lines.joined(separator: ", "), work.company))
                 }
@@ -395,7 +395,7 @@ class NotificationManager {
             let content = UNMutableNotificationContent()
             content.title = String(localized: .tomorrowFineLavoriTitle)
             
-            if(roadsType.contains(where: work.roads.lowercased().contains) && work.roads.lowercased() != "pavia") {
+            if(checkForViaType(workRoads: work.roads)) {
                 if(work.lines.count <= 1){
                     content.body = String(localized: .tomorrowFineLavoriVar1(work.roads, work.lines.joined(separator: ", "), work.company))
                 }
@@ -439,7 +439,7 @@ class NotificationManager {
             let content = UNMutableNotificationContent()
             content.title = String(localized: .lavoriIniziatiTitle)
             
-            if(roadsType.contains(where: work.roads.lowercased().contains) && work.roads.lowercased() != "pavia") {
+            if(checkForViaType(workRoads: work.roads)) {
                 if(work.lines.count <= 1){
                     content.body = String(localized: .inizioLavoriVar1(work.roads, work.lines.joined(separator: ", "), work.company))
                 }
@@ -468,7 +468,7 @@ class NotificationManager {
             let content = UNMutableNotificationContent()
             content.title = String(localized: .lavoriInizianoDomaniTitle)
             
-            if(roadsType.contains(where: work.roads.lowercased().contains) && work.roads.lowercased() != "pavia"){
+            if(checkForViaType(workRoads: work.roads)){
                 if(work.lines.count <= 1){
                     content.body = String(localized: .tomorrowFineLavoriVar1(work.roads, work.lines.joined(separator: ", "), work.company))
                 }
@@ -507,5 +507,12 @@ class NotificationManager {
                 }
             }
         }
+    }
+    
+    func checkForViaType(workRoads: String) -> Bool {
+        /// This is a refactoring method, checks if the notification to send is of the first type (with "in") or the second type (with "at").
+        /// - Parameter workRoads: the roads string of the work currently into the for-loop.
+        /// - Returns: a boolean value.
+        return roadsType.contains(where: workRoads.lowercased().contains) && workRoads.lowercased() != "pavia"
     }
 }
