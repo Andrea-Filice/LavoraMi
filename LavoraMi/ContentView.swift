@@ -6345,13 +6345,27 @@ extension LineDetailView {
                         .foregroundColor(.gray)
                     
                     VStack(alignment: .leading, spacing: 0) {
-                        Text("\(workNow) attuali,")
-                            .font(.system(size: 14))
-                            .foregroundColor(.secondary)
+                        if(workNow != 1) {
+                            Text("\(workNow) attuali,")
+                                .font(.system(size: 14))
+                                .foregroundColor(.secondary)
+                        }
+                        else {
+                            Text("\(workNow) attuale,")
+                                .font(.system(size: 14))
+                                .foregroundColor(.secondary)
+                        }
                         
-                        Text("\(workScheduled) programmati.")
-                            .font(.system(size: 14))
-                            .foregroundColor(.secondary)
+                        if(workScheduled != 1) {
+                            Text("\(workScheduled) programmati.")
+                                .font(.system(size: 14))
+                                .foregroundColor(.secondary)
+                        }
+                        else {
+                            Text("\(workScheduled) programmato.")
+                                .font(.system(size: 14))
+                                .foregroundColor(.secondary)
+                        }
                     }
                 }
                 Spacer()
@@ -7028,13 +7042,27 @@ struct LineSmallDetailedView: View {
                             .foregroundColor(.gray)
                         
                         VStack(alignment: .leading, spacing: 0) {
-                            Text("\(workNow) attuali,")
-                                .font(.system(size: 14))
-                                .foregroundColor(.secondary)
+                            if(workNow != 1) {
+                                Text("\(workNow) attuali,")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.secondary)
+                            }
+                            else {
+                                Text("\(workNow) attuale,")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.secondary)
+                            }
                             
-                            Text("\(workScheduled) programmati.")
-                                .font(.system(size: 14))
-                                .foregroundColor(.secondary)
+                            if(workScheduled != 1) {
+                                Text("\(workScheduled) programmati.")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.secondary)
+                            }
+                            else {
+                                Text("\(workScheduled) programmato.")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.secondary)
+                            }
                         }
                     }
                 }

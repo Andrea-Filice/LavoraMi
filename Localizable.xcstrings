@@ -158,6 +158,9 @@
         }
       }
     },
+    "%lld attuale," : {
+
+    },
     "%lld attuali," : {
       "localizations" : {
         "en" : {
@@ -205,6 +208,9 @@
           }
         }
       }
+    },
+    "%lld programmato." : {
+
     },
     "🇪🇸 Spagnolo" : {
       "localizations" : {
