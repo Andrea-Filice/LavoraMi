@@ -159,7 +159,20 @@
       }
     },
     "%lld attuale," : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld current,"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld actual,"
+          }
+        }
+      }
     },
     "%lld attuali," : {
       "localizations" : {
@@ -210,7 +223,20 @@
       }
     },
     "%lld programmato." : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld scheduled."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld programado."
+          }
+        }
+      }
     },
     "🇪🇸 Spagnolo" : {
       "localizations" : {
