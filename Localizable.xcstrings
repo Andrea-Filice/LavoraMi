@@ -5212,7 +5212,7 @@
         }
       }
     },
-    "Prova a cercarne un altra, come: %@." : {
+    "Prova a cercarne un' altra, come: %@." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
