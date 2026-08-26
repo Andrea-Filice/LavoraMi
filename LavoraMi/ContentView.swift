@@ -6073,11 +6073,11 @@ struct LineDetailView: View {
             case "Tratta Sospesa":
                 return (String(localized: .statoMetroTrattaSospesa), .red, "exclamationmark.triangle.fill")
             case "Fermata Sospesa":
-                return (String(localized: .statoMetroFermataSospesa), .orange, "exclamationmark.triangle.fill")
+                return (String(localized: .statoMetroFermataSospesa), Color(red: 237/255, green: 156/255, blue: 26/255), "exclamationmark.triangle.fill")
             case "Fermate Sospese":
-                return (String(localized: .statoMetroFermateSospese), .orange, "exclamationmark.triangle.fill")
+                return (String(localized: .statoMetroFermateSospese), Color(red: 237/255, green: 156/255, blue: 26/255), "exclamationmark.triangle.fill")
             case "Rallentata":
-            return (String(localized: .statoMetroRallentata), Color(red: 247/255, green: 196/255, blue: 27/255), "clock.badge.exclamationmark.fill")
+            return (String(localized: .statoMetroRallentata), Color(red: 237/255, green: 156/255, blue: 26/255), "clock.badge.exclamationmark.fill")
             case "Interrotta":
                 return (String(localized: .statoMetroInterrotta), .red, "xmark.circle.fill")
             case "Chiusa":
