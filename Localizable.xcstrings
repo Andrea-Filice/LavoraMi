@@ -3898,7 +3898,20 @@
       }
     },
     "Lo sapevi che, creando un Account LavoraMi, puoi salvare le tue linee preferite per ritrovarle su tutti i tuoi dispositivi? Che aspetti! Crea un Account!" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Did you know that by creating a LavoraMi Account, you can save your favourite lines so you can access them on all your devices? What are you waiting for? Create an Account!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Sabías que, al crear una Cuenta en LavoraMi, puedes guardar tus anuncios favoritos para encontrarlos en todos tus dispositivos? ¡A qué esperas! ¡Crea una Cuenta!"
+          }
+        }
+      }
     },
     "M1" : {
       "localizations" : {
@@ -5716,7 +5729,20 @@
       }
     },
     "Salva le tue linee" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save your lines"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guarda tus líneas"
+          }
+        }
+      }
     },
     "Scegli che tipologia di dati vuoi che vengano salvati nei nostri Database, per poterci accedere sempre dal tuo Account." : {
       "localizations" : {
