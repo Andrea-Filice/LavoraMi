@@ -6294,12 +6294,14 @@ extension LineDetailView {
                         linesSelected.append(lineName)
                     }
                     
-                    Task {
-                        let preferences: UserPreferencesDatas = await authManager.fetchUserPreferences()
-                        
-                        if(preferences.enable_your_lines) {
-                            let res = await authManager.saveDatasToDb(favorites: linesFavorites, yourLines: linesSelected)
-                            showErrorDBSavePopUp = !res
+                    if(authManager.isLoggedIn()) {
+                        Task {
+                            let preferences: UserPreferencesDatas = await authManager.fetchUserPreferences()
+                            
+                            if(preferences.enable_your_lines) {
+                                let res = await authManager.saveDatasToDb(favorites: linesFavorites, yourLines: linesSelected)
+                                showErrorDBSavePopUp = !res
+                            }
                         }
                     }
                 }){
@@ -7011,12 +7013,14 @@ struct LineSmallDetailedView: View {
                                 linesSelected.append(lineName)
                             }
                             
-                            Task {
-                                let preferences: UserPreferencesDatas = await authManager.fetchUserPreferences()
-                                
-                                if(preferences.enable_your_lines) {
-                                    let res = await authManager.saveDatasToDb(favorites: linesFavorites, yourLines: linesSelected)
-                                    showErrorDBSavePopUp = !res
+                            if(authManager.isLoggedIn()) {
+                                Task {
+                                    let preferences: UserPreferencesDatas = await authManager.fetchUserPreferences()
+                                    
+                                    if(preferences.enable_your_lines) {
+                                        let res = await authManager.saveDatasToDb(favorites: linesFavorites, yourLines: linesSelected)
+                                        showErrorDBSavePopUp = !res
+                                    }
                                 }
                             }
                         }){
