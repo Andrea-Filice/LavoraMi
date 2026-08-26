@@ -1071,7 +1071,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Search jobs..."
+            "value" : "Search works…"
           }
         },
         "es" : {
@@ -4295,23 +4295,6 @@
         }
       }
     },
-    "Nessun risultato per: \"%@\"." : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No results for: “%@\""
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No se han encontrado resultados para: “%@”."
-          }
-        }
-      }
-    },
     "Nessuna connessione ad Internet." : {
       "localizations" : {
         "en" : {
@@ -4392,8 +4375,21 @@
         }
       }
     },
-    "Nessuna linea trovata per: \"%@\"." : {
-
+    "Nessuna linea trovata per: \"%@\"" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No lines found for: \"%@\""
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ninguna línea para: “%@\""
+          }
+        }
+      }
     },
     "Nome utente" : {
       "localizations" : {
@@ -5201,13 +5197,52 @@
       }
     },
     "Prova a cercare qualcos'altro." : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Why not try looking for something else?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intenta buscar otra cosa."
+          }
+        }
+      }
     },
     "Prova a cercarne un altra, come: %@." : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try searching for another one, such as: %@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intenta buscar otra, como: %@."
+          }
+        }
+      }
     },
     "Prova a modificare i filtri selezionati per trovare altri lavori." : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try changing the selected filters to find other works."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intenta modificar los filtros seleccionados para encontrar otros trabajos."
+          }
+        }
+      }
     },
     "Pulisci Memoria Cache" : {
       "localizations" : {
@@ -5377,7 +5412,20 @@
       }
     },
     "Reimposta filtri" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset filters"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restablecer filtros"
+          }
+        }
+      }
     },
     "Reset Password" : {
       "localizations" : {
@@ -5717,7 +5765,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Choose the transport providers you use most often and, by adding them to your favourites, you’ll receive instant notifications of new jobs."
+            "value" : "Choose the transport providers you use most often and, by adding them to your favourites, you’ll receive instant notifications of new works."
           }
         },
         "es" : {

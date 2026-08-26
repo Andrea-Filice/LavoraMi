@@ -5852,7 +5852,7 @@ struct LinesView: View {
                             .font(.system(size: 60))
                             .foregroundStyle(.primary)
                         VStack(spacing: 8) {
-                            Text("Nessuna linea trovata per: \"\(searchInput)\".")
+                            Text("Nessuna linea trovata per: \"\(searchInput)\"")
                                 .font(.system(size: 18, weight: .bold))
                                 .foregroundStyle(.primary)
                                 .multilineTextAlignment(.center)
