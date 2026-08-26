@@ -4263,7 +4263,7 @@
         }
       }
     },
-    "Nessun lavoro trovato per questo filtro." : {
+    "Nessun lavoro trovato per questo filtro" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4274,12 +4274,12 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No se han encontrado resultados para este filtro."
+            "value" : "No se han encontrado resultados para este filtro"
           }
         }
       }
     },
-    "Nessun lavoro trovato per: \"%@\"." : {
+    "Nessun lavoro trovato per: \"%@\"" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {

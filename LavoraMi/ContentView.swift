@@ -975,7 +975,7 @@ struct MainView: View {
                                                 .font(.system(size: 60))
                                                 .foregroundStyle(.primary)
                                             VStack(spacing: 8) {
-                                                Text("Nessun lavoro trovato per questo filtro.")
+                                                Text("Nessun lavoro trovato per questo filtro")
                                                     .font(.system(size: 18, weight: .bold))
                                                     .foregroundStyle(.primary)
                                                     .multilineTextAlignment(.center)
@@ -1013,7 +1013,7 @@ struct MainView: View {
                                                 .font(.system(size: 60))
                                                 .foregroundStyle(.primary)
                                             VStack(spacing: 8) {
-                                                Text("Nessun lavoro trovato per: \"\(searchInput)\".")
+                                                Text("Nessun lavoro trovato per: \"\(searchInput)\"")
                                                     .font(.system(size: 18, weight: .bold))
                                                     .foregroundStyle(.primary)
                                                     .multilineTextAlignment(.center)
@@ -5856,7 +5856,7 @@ struct LinesView: View {
                                 .font(.system(size: 18, weight: .bold))
                                 .foregroundStyle(.primary)
                                 .multilineTextAlignment(.center)
-                            Text("Prova a cercarne un altra, come: \(generateRandomLine()).")
+                            Text("Prova a cercarne un' altra, come: \(generateRandomLine()).")
                                 .font(.system(size: 14))
                                 .foregroundStyle(.secondary)
                                 .multilineTextAlignment(.center)
