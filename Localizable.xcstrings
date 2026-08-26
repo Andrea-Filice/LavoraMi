@@ -3897,6 +3897,9 @@
         }
       }
     },
+    "Lo sapevi che, creando un Account LavoraMi, puoi salvare le tue linee preferite per ritrovarle su tutti i tuoi dispositivi? Che aspetti! Crea un Account!" : {
+
+    },
     "M1" : {
       "localizations" : {
         "en" : {
@@ -5711,6 +5714,9 @@
           }
         }
       }
+    },
+    "Salva le tue linee" : {
+
     },
     "Scegli che tipologia di dati vuoi che vengano salvati nei nostri Database, per poterci accedere sempre dal tuo Account." : {
       "localizations" : {

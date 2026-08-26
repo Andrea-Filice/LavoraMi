@@ -5983,6 +5983,7 @@ struct LineDetailView: View {
     @AppStorage("feedbacksEnabled") var feedbacksEnabled: Bool = true
     @AppStorage("alreadySeenPopUp") var alreadySeenPopUp: Bool = false
     @AppStorage("alreadySeenPopUpLines") var alreadySeenPopUpLines: Bool = false
+    @AppStorage("seenPopUpCreateAccount") var seenPopUpCreateAccount: Bool = false
     @AppStorage("linesSelected") private var linesSelected: [String] = []
     @AppStorage("linesFavorites") private var linesFavorites: [String] = []
     @StateObject private var networkManager = NetworkMonitor()
@@ -6005,6 +6006,7 @@ struct LineDetailView: View {
     @State private var selectedBranch: String? = nil
     @State private var tramLinesSupported: [String] = ["1", "2", "3", "4", "5", "7", "9", "10", "14", "15", "16", "19", "24", "27", "31", "33"]
     @State private var linesWithBlackText: [String] = ["M3", "M5", "S5", "S6", "S8", "S11", "S12"]
+    @State private var showPopUpAccount: Bool = false
     
     private var centerIndex: Int { max(0, stations.count / 2) }
     private var centerCoordinate: CLLocationCoordinate2D {
@@ -6178,6 +6180,11 @@ struct LineDetailView: View {
             } message: {
                 Text("Si è verificato un errore di connessione durante il salvataggio. Controlla la tua connessione ad Internet.")
             }
+            .alert("Salva le tue linee", isPresented: $showPopUpAccount) {
+                Button("Chiudi", role: .cancel) { }
+            } message: {
+                Text("Lo sapevi che, creando un Account LavoraMi, puoi salvare le tue linee preferite per ritrovarle su tutti i tuoi dispositivi? Che aspetti! Crea un Account!")
+            }
             .navigationTitle("Dettagli Linea")
             .navigationBarTitleDisplayMode(.inline)
         }
@@ -6303,6 +6310,10 @@ extension LineDetailView {
                                 showErrorDBSavePopUp = !res
                             }
                         }
+                    }
+                    else if (!seenPopUpCreateAccount){
+                        seenPopUpCreateAccount = true
+                        showPopUpAccount = true
                     }
                 }){
                     Image(systemName: (linesSelected.contains(lineName)) ? "heart.fill" : "heart")
@@ -6868,6 +6879,7 @@ struct LineSmallDetailedView: View {
     @AppStorage("feedbacksEnabled") var feedbacksEnabled: Bool = true
     @AppStorage("alreadySeenPopUp") var alreadySeenPopUp: Bool = false
     @AppStorage("alreadySeenPopUpLines") var alreadySeenPopUpLines: Bool = false
+    @AppStorage("seenPopUpCreateAccount") var seenPopUpCreateAccount: Bool = false
     @AppStorage("linesSelected") private var linesSelected: [String] = []
     @AppStorage("linesFavorites") private var linesFavorites: [String] = []
     @State private var openPopUpWidget: Bool = false
@@ -6878,6 +6890,7 @@ struct LineSmallDetailedView: View {
     @AppStorage("linkOpenURL") var howToOpenLinks: linkOpenTypes = .inApp
     @State private var selectedURL: URL?
     @State private var showErrorDBSavePopUp: Bool = false
+    @State private var showPopUpAccount: Bool = false
 
     let lineName: String
     let typeOfTransport: String
@@ -7022,6 +7035,10 @@ struct LineSmallDetailedView: View {
                                         showErrorDBSavePopUp = !res
                                     }
                                 }
+                            }
+                            else if (!seenPopUpCreateAccount){
+                                seenPopUpCreateAccount = true
+                                showPopUpAccount = true
                             }
                         }){
                             Image(systemName: (linesSelected.contains(lineName)) ? "heart.fill" : "heart")
@@ -7416,6 +7433,11 @@ struct LineSmallDetailedView: View {
                 Button("Chiudi", role: .cancel) { }
             } message: {
                 Text("Si è verificato un errore di connessione durante il salvataggio. Controlla la tua connessione ad Internet.")
+            }
+            .alert("Salva le tue linee", isPresented: $showPopUpAccount) {
+                Button("Chiudi", role: .cancel) { }
+            } message: {
+                Text("Lo sapevi che, creando un Account LavoraMi, puoi salvare le tue linee preferite per ritrovarle su tutti i tuoi dispositivi? Che aspetti! Crea un Account!")
             }
             .onAppear { if routeData == nil { loadData() } }
             .navigationTitle("Dettagli Linea")
