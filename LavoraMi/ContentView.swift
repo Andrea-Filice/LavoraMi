@@ -5887,6 +5887,10 @@ struct LinesView: View {
 }
 
 func generateRandomLine() -> String {
+    /// This is a method to generate random line names for suggestions.
+    /// - Parameters: no parameters for this function.
+    /// - Returns: String name of the line extracted randomly.
+    
     let lineList: [String] = ["M1", "M4", "S5", "S6", "S8", "R16", "R22", "R40", "RE1", "RE3", "z620", "z643"]
     let randomIndex = Int(arc4random_uniform(UInt32(lineList.count)))
     
