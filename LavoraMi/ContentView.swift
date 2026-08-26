@@ -4490,7 +4490,7 @@ struct LibrariesView: View {
         ),
         LibraryDetailView(
             name: "GoogleMobileAds",
-            version: "13.8.0",
+            version: "13.9.0",
             license: "Apache License 2.0",
             copyright: "Copyright (c) 2023 Google LLC",
             licenseText: """
@@ -4516,7 +4516,7 @@ struct LibrariesView: View {
         ),
         LibraryDetailView(
             name: "GoogleUtilities",
-            version: "8.1.2",
+            version: "8.1.3",
             license: "Apache License 2.0",
             copyright: "Copyright (c) 2017 Google LLC",
             licenseText: """
@@ -4718,7 +4718,7 @@ struct LibrariesView: View {
         ),
         LibraryDetailView (
             name: "xctest-dynamic-overlay",
-            version: "1.11.0",
+            version: "1.13.0",
             license: "MIT License",
             copyright: "Copyright (c) 2021 Point-Free, Inc.",
             licenseText: """
