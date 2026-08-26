@@ -970,18 +970,63 @@ struct MainView: View {
                                                     .clipShape(Capsule())
                                             }
                                         }
-                                        Text("Nessun lavoro trovato per questo filtro.")
-                                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                            .containerRelativeFrame(.vertical)
-                                            .multilineTextAlignment(.center)
-                                            .foregroundStyle(.secondary)
+                                        VStack(spacing: 20) {
+                                            Image(systemName: "rectangle.and.text.magnifyingglass")
+                                                .font(.system(size: 60))
+                                                .foregroundStyle(.primary)
+                                            VStack(spacing: 8) {
+                                                Text("Nessun lavoro trovato per questo filtro.")
+                                                    .font(.system(size: 18, weight: .bold))
+                                                    .foregroundStyle(.primary)
+                                                    .multilineTextAlignment(.center)
+                                                Text("Prova a modificare i filtri selezionati per trovare altri lavori.")
+                                                    .font(.system(size: 14))
+                                                    .foregroundStyle(.secondary)
+                                                    .multilineTextAlignment(.center)
+                                            }
+                                            Button(action: {
+                                                withAnimation(.snappy) {
+                                                    if(feedbacksEnabled){
+                                                        HapticManager.shared.trigger()
+                                                    }
+                                                    selectedFilter = .all
+                                                }
+                                            }) {
+                                                Text("Reimposta filtri")
+                                                    .font(.subheadline)
+                                                    .fontWeight(.semibold)
+                                                    .foregroundStyle(.white)
+                                                    .padding(.horizontal, 20)
+                                                    .padding(.vertical, 10)
+                                                    .background(Color.red)
+                                                    .clipShape(Capsule())
+                                            }
+                                        }
+                                        .padding(.horizontal, 32)
+                                        .padding(.bottom, 50)
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                        .containerRelativeFrame(.vertical)
                                     }
                                     else if currentFilteredItems.isEmpty && !searchInput.isEmpty {
-                                        Text("Nessun lavoro trovato per: \"\(searchInput)\".")
-                                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                            .containerRelativeFrame(.vertical)
-                                            .multilineTextAlignment(.center)
-                                            .foregroundStyle(.secondary)
+                                        VStack(spacing: 20) {
+                                            Image(systemName: "exclamationmark.magnifyingglass")
+                                                .font(.system(size: 60))
+                                                .foregroundStyle(.primary)
+                                            VStack(spacing: 8) {
+                                                Text("Nessun lavoro trovato per: \"\(searchInput)\".")
+                                                    .font(.system(size: 18, weight: .bold))
+                                                    .foregroundStyle(.primary)
+                                                    .multilineTextAlignment(.center)
+                                                Text("Prova a cercare qualcos'altro.")
+                                                    .font(.system(size: 14))
+                                                    .foregroundStyle(.secondary)
+                                                    .multilineTextAlignment(.center)
+                                            }
+                                        }
+                                        .padding(.horizontal, 32)
+                                        .padding(.bottom, 50)
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                        .containerRelativeFrame(.vertical)
                                     }
                                     else {
                                         if selectedFilter == .suggested {
@@ -5802,8 +5847,25 @@ struct LinesView: View {
             .overlay {
                 let allFiltered = [filteredMetros, filteredSuburban, filteredRegioExpress, filteredRegional, filteredCrossBorders, filteredMalpensaExpress, filteredTrams, filteredFilobus, filteredMovibus, filteredSTAV, filteredSTAR, filteredAutoguidovie]
                 if allFiltered.allSatisfy({ $0.isEmpty }) {
-                    Text("Nessun risultato per: \"\(searchInput)\".")
-                        .foregroundStyle(.secondary)
+                    VStack(spacing: 20) {
+                        Image(systemName: "exclamationmark.magnifyingglass")
+                            .font(.system(size: 60))
+                            .foregroundStyle(.primary)
+                        VStack(spacing: 8) {
+                            Text("Nessuna linea trovata per: \"\(searchInput)\".")
+                                .font(.system(size: 18, weight: .bold))
+                                .foregroundStyle(.primary)
+                                .multilineTextAlignment(.center)
+                            Text("Prova a cercarne un altra, come: \(generateRandomLine()).")
+                                .font(.system(size: 14))
+                                .foregroundStyle(.secondary)
+                                .multilineTextAlignment(.center)
+                        }
+                    }
+                    .padding(.horizontal, 32)
+                    .padding(.bottom, 50)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .containerRelativeFrame(.vertical)
                 }
             }
             .alert("Sei sicuro?", isPresented: $showDeletePopUp) {
@@ -5822,6 +5884,13 @@ struct LinesView: View {
             }
         }
     }
+}
+
+func generateRandomLine() -> String {
+    let lineList: [String] = ["M1", "M4", "S5", "S6", "S8", "R16", "R22", "R40", "RE1", "RE3", "z620", "z643"]
+    let randomIndex = Int(arc4random_uniform(UInt32(lineList.count)))
+    
+    return lineList[randomIndex]
 }
 
 func getWorkNow(line: String, viewModel: WorkViewModel) -> Int{

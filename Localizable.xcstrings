@@ -4296,6 +4296,7 @@
       }
     },
     "Nessun risultato per: \"%@\"." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4390,6 +4391,9 @@
           }
         }
       }
+    },
+    "Nessuna linea trovata per: \"%@\"." : {
+
     },
     "Nome utente" : {
       "localizations" : {
@@ -5196,6 +5200,15 @@
         }
       }
     },
+    "Prova a cercare qualcos'altro." : {
+
+    },
+    "Prova a cercarne un altra, come: %@." : {
+
+    },
+    "Prova a modificare i filtri selezionati per trovare altri lavori." : {
+
+    },
     "Pulisci Memoria Cache" : {
       "localizations" : {
         "en" : {
@@ -5362,6 +5375,9 @@
           }
         }
       }
+    },
+    "Reimposta filtri" : {
+
     },
     "Reset Password" : {
       "localizations" : {
