@@ -21357,7 +21357,7 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.48347, longitude: 9.18721), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.4835, longitude: 9.18711), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.48354, longitude: 9.18699), branch: "Main"),
-        .init(name: "Stazione Garibaldi M2 M5", coordinate: .init(latitude: 45.48374, longitude: 9.1867), branch: "Main"),
+        .init(name: "Garibaldi FS M2 M5", coordinate: .init(latitude: 45.48374, longitude: 9.1867), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.48377, longitude: 9.18644), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.4838, longitude: 9.18637), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.48386, longitude: 9.18627), branch: "Main"),
@@ -21591,7 +21591,7 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.45207, longitude: 9.17902), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.45203, longitude: 9.17905), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.452, longitude: 9.17909), branch: "Main"),
-        .init(name: "P.Za Ventiquattro Maggio", coordinate: .init(latitude: 45.45199, longitude: 9.17941), branch: "Main")
+        .init(name: "P.Za XXIV Maggio", coordinate: .init(latitude: 45.45199, longitude: 9.17941), branch: "Main")
     ]
     
     static let tram14: [MetroStation] = [
