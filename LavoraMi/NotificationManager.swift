@@ -17,7 +17,7 @@ class NotificationManager {
     @AppStorage("notificationConsent") var notificationConsent: Bool = false
     @AppStorage("dateSchedule") var dateSchedule: Date = defaultTime
     
-    let roadsType: [String] = ["via", "viale", "corso", "largo", "stretto"]
+    let roadsType: [String] = ["via", "viale", "corso", "largo", "stretto", "piazza", "p.za", "v.le", "c.so", "p.le", "piazzale"]
     
     static var defaultTime: Date {
         var components = DateComponents()
