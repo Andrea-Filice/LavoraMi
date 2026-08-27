@@ -7332,12 +7332,10 @@ struct LineSmallDetailedView: View {
                                                                 .foregroundStyle((first.minutesFromNow < 10) ? ((first.minutesFromNow < 5) ? ((first.minutesFromNow == 0) ? .yellow : .red) : .orange) : .green)
                                                                 .font(.system(size: 18))
 
-                                                            Text(first.minutesFromNow == 0 ? "In partenza" : "\(first.minutesFromNow) min")
+                                                            Text(first.minutesFromNow == 0 ? "In partenza" : first.formattedWait)
                                                                 .font(.system(size: 32, weight: .bold, design: .rounded))
                                                                 .foregroundStyle((first.minutesFromNow < 10) ? ((first.minutesFromNow < 5) ? ((first.minutesFromNow == 0) ? .yellow : .red) : .orange) : .green)
-
                                                             Spacer()
-
                                                             Text(first.time)
                                                                 .font(.system(size: 15, weight: .medium))
                                                                 .foregroundStyle(.secondary)
@@ -7356,7 +7354,7 @@ struct LineSmallDetailedView: View {
                                                                         Image(systemName: "clock.arrow.trianglehead.clockwise.rotate.90.path.dotted")
                                                                             .font(.caption2)
                                                                             .foregroundStyle(.secondary)
-                                                                        Text("\(dep.minutesFromNow) min")
+                                                                        Text(dep.formattedWait)
                                                                             .font(.system(size: 14, weight: .semibold, design: .rounded))
                                                                             .foregroundStyle(.primary)
                                                                         Text(dep.time)
