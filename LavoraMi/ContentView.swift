@@ -6017,7 +6017,7 @@ struct LineDetailView: View {
         MapCameraBounds(
             centerCoordinateBounds: MKCoordinateRegion(
                 center: CLLocationCoordinate2D(latitude: 45.46443, longitude: 9.18927),
-                span: MKCoordinateSpan(latitudeDelta: 1.8, longitudeDelta: 2.5)
+                span: MKCoordinateSpan(latitudeDelta: 1.9, longitudeDelta: 3.2)
             ),
             minimumDistance: 1000,
             maximumDistance: 175000
