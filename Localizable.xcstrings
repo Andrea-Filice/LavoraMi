@@ -190,23 +190,6 @@
         }
       }
     },
-    "%lld min" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld min"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld min"
-          }
-        }
-      }
-    },
     "%lld programmati." : {
       "localizations" : {
         "en" : {
@@ -2500,23 +2483,6 @@
         }
       }
     },
-    "In partenza" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Leaving"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "En salida"
-          }
-        }
-      }
-    },
     "inAppLocalized" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2754,6 +2720,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "I lavori a %1$@ delle linee %2$@ sono iniziati oggi. Consulta il sito di %3$@ per maggiori info."
+          }
+        }
+      }
+    },
+    "inPartenza" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leaving"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En salida"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In partenza"
           }
         }
       }

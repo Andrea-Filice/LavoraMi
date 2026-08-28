@@ -7332,7 +7332,7 @@ struct LineSmallDetailedView: View {
                                                                 .foregroundStyle((first.minutesFromNow < 10) ? ((first.minutesFromNow < 5) ? ((first.minutesFromNow == 0) ? .yellow : .red) : .orange) : .green)
                                                                 .font(.system(size: 18))
 
-                                                            Text(first.minutesFromNow == 0 ? "In partenza" : first.formattedWait)
+                                                            Text(first.minutesFromNow == 0 ? String(localized: .inPartenza) : first.formattedWait)
                                                                 .font(.system(size: 32, weight: .bold, design: .rounded))
                                                                 .foregroundStyle((first.minutesFromNow < 10) ? ((first.minutesFromNow < 5) ? ((first.minutesFromNow == 0) ? .yellow : .red) : .orange) : .green)
                                                             Spacer()
