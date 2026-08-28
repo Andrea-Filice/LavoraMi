@@ -4641,7 +4641,7 @@ struct LibrariesView: View {
         ),
         LibraryDetailView(
             name: "swift-clocks",
-            version: "1.1.0",
+            version: "1.1.1",
             license: "MIT License",
             copyright: "Copyright (c) 2022 Point-Free, Inc.",
             licenseText: """
@@ -4718,7 +4718,7 @@ struct LibrariesView: View {
         ),
         LibraryDetailView (
             name: "xctest-dynamic-overlay",
-            version: "1.13.0",
+            version: "1.13.1",
             license: "MIT License",
             copyright: "Copyright (c) 2021 Point-Free, Inc.",
             licenseText: """
