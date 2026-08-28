@@ -3105,22 +3105,6 @@
         }
       }
     },
-    "Lavori linea" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Line works"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Obras en línea"
-          }
-        }
-      }
-    },
     "lavoriDeviationInfoDeps" : {
       "extractionState" : "manual",
       "localizations" : {

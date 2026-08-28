@@ -7176,7 +7176,7 @@ struct LineSmallDetailedView: View {
                                 .font(.title3)
                             
                             if selectedTab == .works {
-                                Text("Lavori linea")
+                                Text("Lavori")
                                     .font(.subheadline)
                                     .fontWeight(.semibold)
                                     .lineLimit(1)
