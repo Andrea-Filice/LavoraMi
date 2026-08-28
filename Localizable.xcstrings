@@ -3773,22 +3773,6 @@
         }
       }
     },
-    "Linee Tramviarie" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tram Lines"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Líneas de Tranvía"
-          }
-        }
-      }
-    },
     "Linee Transfrontaliere" : {
       "localizations" : {
         "en" : {
@@ -3801,6 +3785,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Líneas TILO"
+          }
+        }
+      }
+    },
+    "Linee Tranviarie" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tram Lines"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Líneas de Tranvía"
           }
         }
       }

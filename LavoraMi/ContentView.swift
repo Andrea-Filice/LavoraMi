@@ -5614,7 +5614,7 @@ struct LinesView: View {
                     if(!filteredTrams.isEmpty) {
                         HStack{
                             VStack(alignment: .leading, spacing: 2) {
-                                Text("Linee Tramviarie")
+                                Text("Linee Tranviarie")
                                     .font(.title3)
                                     .bold()
                                     .foregroundStyle(.primary)
