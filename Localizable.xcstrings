@@ -3008,18 +3008,18 @@
         }
       }
     },
-    "LavoraMi potrebbe non mostrare il percorso attuale di questa linea, poiché sono in corso deviazioni, interruzioni di tratte del percorso o di stazioni non accessibili. Consultate gli avvisi nella sezione \"Lavori Linea\"!" : {
+    "LavoraMi potrebbe non mostrare il percorso attuale delle linee sulle mappe, poiché sono in corso deviazioni, interruzioni di tratte del percorso o di stazioni non accessibili. Consultate gli avvisi nella sezione \"Lavori\"!" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "LavoraMi may not show the current route for this line, as there are currently diversions, section closures or stations that are inaccessible. Please check the notices in the ‘Line Works’ section!"
+            "value" : "LavoraMi may not show the current route of the lines on the maps, as there may be diversions, section closures or stations that are inaccessible. Please check the notices in the “Works” section!"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Es posible que LavoraMi no muestre el recorrido actual de esta línea, ya que hay desvíos, interrupciones en el trayecto o estaciones inaccesibles. ¡Consulte los avisos en la sección “Obras en la línea”!"
+            "value" : "Es posible que LavoraMi no muestre el recorrido actual de las líneas en los mapas, ya que puede haber desvíos, interrupciones en algunos tramos del recorrido o estaciones inaccesibles. ¡Consulta los avisos en la sección “Obras”!"
           }
         }
       }

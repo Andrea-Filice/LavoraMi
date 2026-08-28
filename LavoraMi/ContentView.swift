@@ -7824,7 +7824,7 @@ struct LineDeviationInfoView: View {
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
 
-                    Text("LavoraMi potrebbe non mostrare il percorso attuale di questa linea, poiché sono in corso deviazioni, interruzioni di tratte del percorso o di stazioni non accessibili. Consultate gli avvisi nella sezione \"Lavori Linea\"!")
+                    Text("LavoraMi potrebbe non mostrare il percorso attuale delle linee sulle mappe, poiché sono in corso deviazioni, interruzioni di tratte del percorso o di stazioni non accessibili. Consultate gli avvisi nella sezione \"Lavori\"!")
                         .font(.headline)
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
