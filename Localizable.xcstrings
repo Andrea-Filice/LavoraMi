@@ -750,7 +750,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Activar Vibración Tactil "
+            "value" : "Activar Vibración Táctil "
           }
         }
       }
@@ -2512,7 +2512,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "If you notice any discrepancies between our app and your mobile plan, please report the issue to: report-informazioni@lavorami.it!"
+            "value" : "If you notice any discrepancies between our app and your line, please report the issue to: report-informazioni@lavorami.it!"
           }
         },
         "es" : {
@@ -3661,7 +3661,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Líneas Regional"
+            "value" : "Líneas Regionales"
           }
         }
       }
@@ -4211,7 +4211,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Show Recent Research"
+            "value" : "Show Recent Searches"
           }
         },
         "es" : {
@@ -4345,7 +4345,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No hay paradas de interscambio."
+            "value" : "No hay paradas de intercambio."
           }
         }
       }
@@ -4729,7 +4729,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O bien guarda una línea en la sección “Tus Líneas” para ver, mediante el filtro correspondiente, solo los obras que te interesan."
+            "value" : "O bien guarda una línea en la sección “Tus Líneas” para ver, mediante el filtro correspondiente, solo las obras que te interesan."
           }
         }
       }
@@ -6710,7 +6710,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Desarrollador de Android:"
+            "value" : "Desarrolladores de Android:"
           }
         }
       }
@@ -6726,7 +6726,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Desarrollador Web:"
+            "value" : "Desarrolladores Web:"
           }
         }
       }
@@ -6816,7 +6816,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Terms of Services"
+            "value" : "Terms of Service"
           }
         },
         "es" : {
@@ -6934,7 +6934,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "TiKTok"
+            "value" : "TikTok"
           }
         }
       }
