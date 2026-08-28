@@ -2512,19 +2512,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "If you notice any discrepancies between our app and your mobile plan, please report the issue to: info@lavorami.it!"
+            "value" : "If you notice any discrepancies between our app and your mobile plan, please report the issue to: report-informazioni@lavorami.it!"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Si detectas alguna inconsistencia en nuestra aplicación con respecto a tu línea, informa de este problema a: info@lavorami.it."
+            "value" : "Si detectas alguna inconsistencia en nuestra aplicación con respecto a tu línea, informa de este problema a: report-informazioni@lavorami.it."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Se trovi delle incoerenze nella nostra app con la tua linea, segnala questo problema a: info@lavorami.it!"
+            "value" : "Se trovi delle incoerenze nella nostra app con la tua linea, segnala questo problema a: report-informazioni@lavorami.it!"
           }
         }
       }
