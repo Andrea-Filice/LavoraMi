@@ -3816,19 +3816,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ROUTE REPLACED BY BUSES."
+            "value" : "ROUTE REPLACED BY BUSES"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "LÍNEA SUSTITUIDA POR AUTOBÚS."
+            "value" : "LÍNEA SUSTITUIDA POR AUTOBÚS"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "LINEA SOSTITUITA DA BUS."
+            "value" : "LINEA SOSTITUITA DA BUS"
           }
         }
       }
@@ -3839,19 +3839,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "LINE COMPLETELY SUSPENDED."
+            "value" : "LINE COMPLETELY SUSPENDED"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "LÍNEA TOTALMENTE SUSPENDIDA."
+            "value" : "LÍNEA TOTALMENTE SUSPENDIDA"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "LINEA INTERAMENTE SOSPESA."
+            "value" : "LINEA INTERAMENTE SOSPESA"
           }
         }
       }
@@ -7387,19 +7387,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "TRAM ROUTE WITH DETOURS."
+            "value" : "TRAM ROUTE WITH DETOURS"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "LÍNEA DE TRANVÍA CON DESVÍOS."
+            "value" : "LÍNEA DE TRANVÍA CON DESVÍOS"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "LINEA DI TRAM CON DEVIAZIONI."
+            "value" : "LINEA DI TRAM CON DEVIAZIONI"
           }
         }
       }
