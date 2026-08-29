@@ -513,6 +513,9 @@ class NotificationManager {
         /// This is a refactoring method, checks if the notification to send is of the first type (with "in") or the second type (with "at").
         /// - Parameter workRoads: the roads string of the work currently into the for-loop.
         /// - Returns: a boolean value.
-        return roadsType.contains(where: workRoads.lowercased().contains) && workRoads.lowercased() != "pavia"
+        let words = workRoads.lowercased()
+            .components(separatedBy: CharacterSet.alphanumerics.inverted)
+            .filter { !$0.isEmpty }
+        return words.contains(where: roadsType.contains)
     }
 }
