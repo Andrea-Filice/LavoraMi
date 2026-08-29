@@ -6261,8 +6261,14 @@ extension LineDetailView {
                         )
                 }
                 
-                if(lineName == "MXP1" || lineName == "MXP2" || lineName.contains("RE")){
+                if(lineName.contains("RE")){
                     Text("\(typeOfTransport)")
+                        .font(.custom("TitilliumWeb-Bold", size: 30))
+                        .minimumScaleFactor(0.5)
+                        .lineLimit(1)
+                }
+                else if(lineName == "MXP1" || lineName == "MXP2"){
+                    Text("Malpensa Express")
                         .font(.custom("TitilliumWeb-Bold", size: 30))
                         .minimumScaleFactor(0.5)
                         .lineLimit(1)
