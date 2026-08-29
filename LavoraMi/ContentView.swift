@@ -3858,7 +3858,9 @@ struct InfoView: View {
     @AppStorage("linkOpenURL") var howToOpenLinks: linkOpenTypes = .inApp
     @State private var selectedURL: URL?
     @State private var mailData: ComposeMailData = ComposeMailData(subject: String(localized: .titoloBugReport), recipients: ["info@lavorami.it"], message: "", attachments: nil)
+    @State private var mailDataInfoReport: ComposeMailData = ComposeMailData(subject: "Segnala Informazioni Errate", recipients: ["report-incorrettezze@lavorami.it"], message: "", attachments: nil)
     @State private var showMailView: Bool = false
+    @State private var showMailViewReport: Bool = false
     
     var body: some View {
         Section{
@@ -4017,6 +4019,14 @@ struct InfoView: View {
                     .padding(.top, 5)
                     .padding(.bottom, 20)
                     Button {
+                        showMailViewReport = true
+                    } label: {
+                        Label("Segnala Incorrettezze", systemImage: "exclamationmark.triangle.fill")
+                            .font(.system(size: 20))
+                    }
+                    .padding(.top, 5)
+                    .padding(.bottom, 20)
+                    Button {
                         let url = URL(string: "https://www.lavorami.it\((colorScheme == .dark) ? "?theme=dark" : "?theme=light")")!
                         
                         if(howToOpenLinks == .inApp) {
@@ -4033,6 +4043,11 @@ struct InfoView: View {
                     .padding(.bottom, 20)
                     .sheet(isPresented: $showMailView) {
                         MailView(data: $mailData) { result in
+                            print(result)
+                        }
+                    }
+                    .sheet(isPresented: $showMailViewReport) {
+                        MailView(data: $mailDataInfoReport) { result in
                             print(result)
                         }
                     }
