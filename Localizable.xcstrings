@@ -1817,7 +1817,20 @@
       }
     },
     "Facebook" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Facebook"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Facebook"
+          }
+        }
+      }
     },
     "Fasce garantite %@" : {
       "localizations" : {
