@@ -3960,7 +3960,20 @@
       }
     },
     "Malpensa Express" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Malpensa Express"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Malpensa Express"
+          }
+        }
+      }
     },
     "Manutenzione in corso." : {
       "localizations" : {
