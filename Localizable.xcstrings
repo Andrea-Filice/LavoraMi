@@ -4223,7 +4223,20 @@
       }
     },
     "Mostra tutti i lavori" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show all works"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar todos los trabajos"
+          }
+        }
+      }
     },
     "Movibus" : {
       "localizations" : {
@@ -5401,23 +5414,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Registrándose..."
-          }
-        }
-      }
-    },
-    "Reimposta filtri" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reset filters"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Restablecer filtros"
           }
         }
       }
