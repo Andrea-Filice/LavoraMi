@@ -992,7 +992,7 @@ struct MainView: View {
                                                     selectedFilter = .all
                                                 }
                                             }) {
-                                                Text("Reimposta filtri")
+                                                Text("Mostra tutti i lavori")
                                                     .font(.subheadline)
                                                     .fontWeight(.semibold)
                                                     .foregroundStyle(.white)

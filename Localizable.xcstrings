@@ -4222,6 +4222,9 @@
         }
       }
     },
+    "Mostra tutti i lavori" : {
+
+    },
     "Movibus" : {
       "localizations" : {
         "en" : {
@@ -5403,6 +5406,7 @@
       }
     },
     "Reimposta filtri" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
