@@ -2863,19 +2863,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "SERVICE DISRUPTIONS DUE TO WORKS ON THE LINE."
+            "value" : "SERVICE DISRUPTIONS DUE TO WORKS ON THE LINE"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "INTERRUPCIONES EN LA LÍNEA POR OBRAS."
+            "value" : "INTERRUPCIONES EN LA LÍNEA POR OBRAS"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "INTERRUZIONI SULLA LINEA PER LAVORI."
+            "value" : "INTERRUZIONI SULLA LINEA PER LAVORI"
           }
         }
       }
@@ -3427,19 +3427,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accessible."
+            "value" : "Accessible"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accesible."
+            "value" : "Accesible"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accessibile."
+            "value" : "Accessibile"
           }
         }
       }
@@ -3450,19 +3450,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Not accessible."
+            "value" : "Not accessible"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No accesible."
+            "value" : "No accesible"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Non accessibile."
+            "value" : "Non accessibile"
           }
         }
       }
@@ -3473,19 +3473,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Partially accessible."
+            "value" : "Partially accessible"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accesible parcialmente."
+            "value" : "Accesible parcialmente"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Parzialmente accessibile."
+            "value" : "Parzialmente accessibile"
           }
         }
       }
