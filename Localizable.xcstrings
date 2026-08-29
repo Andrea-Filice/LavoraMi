@@ -3936,6 +3936,29 @@
         }
       }
     },
+    "mailInformazioni" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reporting Incorrect Information"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reporting Incorrect Information"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Segnala Informazioni Errate"
+          }
+        }
+      }
+    },
     "Manutenzione in corso." : {
       "localizations" : {
         "en" : {
@@ -5998,7 +6021,20 @@
       }
     },
     "Segnala Incorrettezze" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Report Inaccuracies"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informar De Errores"
+          }
+        }
+      }
     },
     "Segnala un bug" : {
       "localizations" : {

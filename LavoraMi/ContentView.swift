@@ -3858,7 +3858,7 @@ struct InfoView: View {
     @AppStorage("linkOpenURL") var howToOpenLinks: linkOpenTypes = .inApp
     @State private var selectedURL: URL?
     @State private var mailData: ComposeMailData = ComposeMailData(subject: String(localized: .titoloBugReport), recipients: ["info@lavorami.it"], message: "", attachments: nil)
-    @State private var mailDataInfoReport: ComposeMailData = ComposeMailData(subject: "Segnala Informazioni Errate", recipients: ["report-incorrettezze@lavorami.it"], message: "", attachments: nil)
+    @State private var mailDataInfoReport: ComposeMailData = ComposeMailData(subject: String(localized: .mailInformazioni), recipients: ["report-incorrettezze@lavorami.it"], message: "", attachments: nil)
     @State private var showMailView: Bool = false
     @State private var showMailViewReport: Bool = false
     
