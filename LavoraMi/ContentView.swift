@@ -3984,6 +3984,22 @@ struct InfoView: View {
                     }
                     .padding(.top, 5)
                     .padding(.bottom, 20)
+                    Button {
+                        let url = URL(string: "https://www.facebook.com/profile.php?id=61593590085842")!
+                        openURLAction(url)
+                    } label: {
+                        HStack{
+                            Image("facebook")
+                                .resizable()
+                                .renderingMode(.template)
+                                .scaledToFit()
+                                .frame(width: 22, height: 22)
+                            Text("Facebook")
+                                .font(.system(size: 20))
+                        }
+                    }
+                    .padding(.top, 5)
+                    .padding(.bottom, 20)
                 }
                 Divider().padding(.top, 10)
                 Section(){
