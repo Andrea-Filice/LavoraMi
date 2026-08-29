@@ -804,6 +804,7 @@
       }
     },
     "ATTUALMENTE LA LINEA ATTESTA A: MILANO BOVISA." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2960,18 +2961,18 @@
         }
       }
     },
-    "LA LINEA È ATTIVA SOLO NEI GIORNI LAVORATIVI." : {
+    "LA LINEA È ATTIVA SOLO NEI GIORNI LAVORATIVI" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "THE LINE IS AVAILABLE ONLY ON WORKING DAYS."
+            "value" : "THE LINE IS AVAILABLE ONLY ON WORKING DAYS"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "LA LÍNEA ESTÁ ACTIVA SOLO EN DÍAS LABORABLES."
+            "value" : "LA LÍNEA ESTÁ ACTIVA SOLO EN DÍAS LABORABLES"
           }
         }
       }

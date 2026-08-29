@@ -5104,7 +5104,7 @@ struct LinesView: View {
             LineInfo(name: "S8", branches: "Lecco - Carnate - Milano Porta Garibaldi", type: String(localized: .suburbano), waitMinutes: "30 min", stations: StationsDB.stationsS8, accessibilityStatus: String(localized: .lineaNonAccessibile)),
             LineInfo(name: "S9", branches: "Saronno - Milano Rogoredo", type: String(localized: .suburbano), waitMinutes: "30 min", stations: StationsDB.stationsS9, accessibilityStatus: String(localized: .lineaNonAccessibile)),
             LineInfo(name: "S11", branches: "Milano Porta Garibaldi - Como S. Giovanni", type: String(localized: .suburbano), waitMinutes: "30 min", stations: StationsDB.stationsS11, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
-            LineInfo(name: "S12", branches: "Melegnano - Cormano Cusano Milanino", type: String(localized: .suburbano), waitMinutes: "30 min", stations: StationsDB.stationsS12, accessibilityStatus: String(localized: .lineaAccessibile)),
+            LineInfo(name: "S12", branches: "Melegnano - Milano Bovisa", type: String(localized: .suburbano), waitMinutes: "30 min", stations: StationsDB.stationsS12, accessibilityStatus: String(localized: .lineaAccessibile)),
             LineInfo(name: "S13", branches: ((viewModel.enablePassanteWork) ? "Milano Rogoredo - Pavia" : "Garbagnate Milanese - Pavia"), type: String(localized: .suburbano), waitMinutes: "30 min", stations: StationsDB.getStationS13(isPassanteClosed: viewModel.enablePassanteWork), accessibilityStatus: String(localized: .lineaAccessibile)),
             LineInfo(name: "S19", branches: "Albairate Vermezzo - Milano Rogoredo", type: String(localized: .suburbano), waitMinutes: "30 min", stations: StationsDB.stationsS19, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "S31", branches: "Brescia - Iseo", type: String(localized: .suburbano), waitMinutes: "1 \(String(localized: .ora))", stations: StationsDB.stationsS31, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile))
@@ -6374,12 +6374,6 @@ extension LineDetailView {
                     .font(.title3)
                     .multilineTextAlignment(.leading)
                 
-                if(lineName == "S12"){
-                    Text("ATTUALMENTE LA LINEA ATTESTA A: MILANO BOVISA.")
-                        .font(.system(size: 12))
-                        .foregroundStyle(.secondary)
-                        .bold()
-                }
                 if(viewModel.suburbanWithInterruptions.contains(lineName)){
                     WarningBanner(
                         text: String(localized: .interruzioniGeneraleLavori),
@@ -6454,7 +6448,7 @@ extension LineDetailView {
                     .multilineTextAlignment(.leading)
                 
                 if(lineName == "S2" || lineName == "S12" || lineName == "S19"){
-                    Text("LA LINEA È ATTIVA SOLO NEI GIORNI LAVORATIVI.")
+                    Text("LA LINEA È ATTIVA SOLO NEI GIORNI LAVORATIVI")
                         .font(.system(size: 12))
                         .foregroundStyle(.secondary)
                         .bold()
