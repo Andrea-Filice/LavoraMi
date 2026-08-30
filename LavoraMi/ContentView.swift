@@ -1371,7 +1371,8 @@ struct WorkInProgressRow: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .foregroundStyle(Color("TextColor"))
                         }
-                    } else if item.titleIcon == "arrow.trianglehead.2.counterclockwise" {
+                    }
+                    else if item.titleIcon == "arrow.trianglehead.2.counterclockwise" {
                         if #available(iOS 18, *) {
                             Label(item.title, systemImage: item.titleIcon)
                                 .font(.headline)
@@ -1383,7 +1384,8 @@ struct WorkInProgressRow: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .foregroundStyle(Color("TextColor"))
                         }
-                    } else {
+                    }
+                    else {
                         Label(item.title, systemImage: item.titleIcon)
                             .font(.headline)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -7047,9 +7049,16 @@ struct LineSmallDetailedView: View {
                                 }
                             }
                         }) {
-                            Image(systemName: (selectedWidgetLine == lineName) ? "widget.small" : "widget.small.badge.plus")
-                                .foregroundStyle((selectedWidgetLine == lineName) ? .yellow : .gray)
-                                .scaleEffect(1.5)
+                            if #available(iOS 18, *){
+                                Image(systemName: (selectedWidgetLine == lineName) ? "widget.small" : "widget.small.badge.plus")
+                                    .foregroundStyle((selectedWidgetLine == lineName) ? .yellow : .gray)
+                                    .scaleEffect(1.5)
+                            }
+                            else{
+                                Image(systemName: (selectedWidgetLine == lineName) ? "app.badge.checkmark" : "plus.viewfinder")
+                                    .foregroundStyle((selectedWidgetLine == lineName) ? .yellow : .gray)
+                                    .scaleEffect(1.5)
+                            }
                         }
                         .alert("Linea attivata", isPresented: $openPopUpWidget) {
                             Button("OK", role: .cancel) {}
