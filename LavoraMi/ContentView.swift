@@ -5371,15 +5371,14 @@ struct LinesView: View {
                         if(searchInput.isEmpty) {
                             HStack {
                                 VStack(alignment: .leading, spacing: 2) {
-                                    Label {
+                                    HStack(spacing: 6) {
+                                        Image(systemName: "text.magnifyingglass")
+                                            .foregroundStyle(.primary)
                                         Text("Cercate di recente")
                                             .font(.title3)
                                             .bold()
                                             .foregroundStyle(.primary)
                                             .textCase(nil)
-                                            .padding(.leading, -10)
-                                    } icon: {
-                                        Image(systemName: "text.magnifyingglass")
                                     }
                                     
                                     Text("In base alle tue ricerche")
