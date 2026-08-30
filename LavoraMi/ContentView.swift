@@ -667,7 +667,15 @@ struct MainView: View {
                     }
                 }
             }
-            .padding()
+            .padding(.horizontal, 14)
+            .padding(.vertical, 10)
+            .background(
+                Capsule()
+                    .fill(Color(.secondarySystemBackground))
+            )
+            .padding(.horizontal)
+            .padding(.top, 6)
+            .padding(.bottom, 5)
             .task {
                 while !Task.isCancelled {
                     try? await Task.sleep(nanoseconds: 3_000_000_000)
@@ -5345,7 +5353,15 @@ struct LinesView: View {
                     }
                 }
             }
-            .padding()
+            .padding(.horizontal, 14)
+            .padding(.vertical, 10)
+            .background(
+                Capsule()
+                    .fill(Color(.secondarySystemBackground))
+            )
+            .padding(.horizontal)
+            .padding(.top, 6)
+            .padding(.bottom, 5)
             List {
                 if(showRecentSearches) {
                     Section(){
