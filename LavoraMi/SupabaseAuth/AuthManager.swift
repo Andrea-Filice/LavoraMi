@@ -250,7 +250,7 @@ class AuthManager: ObservableObject {
             return decodedRows.first ?? UserPreferencesDatas(user_email: "", enable_favorites: true, enable_your_lines: true)
             
         } catch {
-            print("Errore reale nel fetch dei dati: \(error)")
+            print("Errore nel fetch dei dati: \(error)")
             return UserPreferencesDatas(user_email: "", enable_favorites: true, enable_your_lines: true) ///Fallback value
         }
     }

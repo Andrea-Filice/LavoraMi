@@ -3393,6 +3393,7 @@ struct AccountDatasInfoView: View {
     @State var saveFavoritesData: Bool
     @State var saveYourLinesData: Bool
     @State var isLoading: Bool = true
+    @State var errorFetching: Bool = false
     @Binding var currentSyncStatus: String
     @Binding var currentSyncStatusIcon: String
     @AppStorage("enableAnimations") var enableAnimations = true
@@ -3445,7 +3446,7 @@ struct AccountDatasInfoView: View {
                                     .font(.system(size: 16, weight: .medium))
                             }
                         }
-                        .disabled(isLoading)
+                        .disabled(isLoading || errorFetching)
                         .onChange(of: saveFavoritesData) {
                             Task {
                                 let res: Bool
@@ -3483,7 +3484,7 @@ struct AccountDatasInfoView: View {
                                     .font(.system(size: 16, weight: .medium))
                             }
                         }
-                        .disabled(isLoading)
+                        .disabled(isLoading || errorFetching)
                         .onChange(of: saveYourLinesData) {
                             Task {
                                 let res: Bool
@@ -3512,11 +3513,21 @@ struct AccountDatasInfoView: View {
                         .background(Color(.secondarySystemBackground))
                         .cornerRadius(12)
                         
-                        if(isLoading) {
+                        if(isLoading && !errorFetching) {
                             HStack(spacing: 8) {
                                 ProgressView()
                                     .tint(.red)
                                 Text("Caricamento...")
+                                    .foregroundStyle(.secondary)
+                            }
+                            .padding(.top, 10)
+                            .padding(.leading, 5)
+                        }
+                        if(errorFetching) {
+                            HStack(spacing: 8) {
+                                Image(systemName: "wifi.slash")
+                                    .foregroundStyle(.red)
+                                Text("Errore di connessione.")
                                     .foregroundStyle(.secondary)
                             }
                             .padding(.top, 10)
@@ -3547,6 +3558,7 @@ struct AccountDatasInfoView: View {
                     
                     saveYourLinesData = res.enable_your_lines
                     saveFavoritesData = res.enable_favorites
+                    errorFetching = res.user_email == ""
                     
                     isLoading = false
                 }

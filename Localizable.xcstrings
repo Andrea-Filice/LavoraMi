@@ -1778,6 +1778,9 @@
         }
       }
     },
+    "Errore di connessione." : {
+
+    },
     "erroreSincronizzato" : {
       "extractionState" : "manual",
       "localizations" : {
