@@ -4991,6 +4991,7 @@ struct LinesView: View {
                         .textCase(nil)
                 }
             }
+            .listRowBackground(Color(uiColor: .secondarySystemBackground))
         }
     }
 

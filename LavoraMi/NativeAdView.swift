@@ -34,7 +34,7 @@ struct NativeAdView: UIViewControllerRepresentable {
         adView.clipsToBounds = true
         
         let cardView = UIView()
-        cardView.backgroundColor = UIColor(Color(UIColor { $0.userInterfaceStyle == .dark ? UIColor(red: 0.11, green: 0.11, blue: 0.12, alpha: 1) : UIColor.white }))
+        cardView.backgroundColor = UIColor(Color(.secondarySystemBackground))
         cardView.layer.cornerRadius = 16
         cardView.layer.shadowColor = UIColor.black.cgColor
         cardView.layer.shadowOpacity = 0.1
