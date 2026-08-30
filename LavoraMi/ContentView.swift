@@ -4447,7 +4447,7 @@ private struct CardView<Content: View>: View {
     var body: some View {
         content
             .frame(maxWidth: .infinity)
-            .background(Color("disclosureBg"))
+            .background(Color(.secondarySystemBackground))
             .cornerRadius(12)
             .padding(.horizontal, 16)
             .padding(.top, 10)
