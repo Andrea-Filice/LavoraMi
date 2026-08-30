@@ -2321,6 +2321,7 @@ struct FavoritesHeader: View {
             } message: {
                 Text("Scegli i tuoi operatori di trasporti più usati e, mettendoli nei preferiti, riceverai subito le notifiche con nuovi lavori.")
             }
+            .textCase(nil)
         }
     }
 }
