@@ -2292,33 +2292,6 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.46636, longitude: 9.23689), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.46558, longitude: 9.23684), branch: "Main"),
         .init(name: "Milano Forlanini", coordinate: .init(latitude: 45.46438, longitude: 9.23691), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.46376, longitude: 9.23711), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.46313, longitude: 9.2373), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.4627, longitude: 9.2374), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.46227, longitude: 9.23742), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.46065, longitude: 9.23738), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.45539, longitude: 9.23724), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.45475, longitude: 9.23723), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.45409, longitude: 9.2372), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.45296, longitude: 9.23709), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.45146, longitude: 9.23691), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.45102, longitude: 9.23686), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.45037, longitude: 9.23678), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.44968, longitude: 9.23654), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.44921, longitude: 9.23625), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.44844, longitude: 9.23573), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.44778, longitude: 9.23529), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.44713, longitude: 9.23496), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.44667, longitude: 9.23484), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.44607, longitude: 9.23474), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.44562, longitude: 9.23479), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.44517, longitude: 9.2348), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.44411, longitude: 9.235), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.44331, longitude: 9.23515), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.44185, longitude: 9.23552), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.43886, longitude: 9.23647), branch: "Main"),
-        .init(name: "Milano Rogoredo", coordinate: .init(latitude: 45.4336, longitude: 9.2383), branch: "Main")
-        /* MODIFICHE CIRCOLAZIONE: Fino al 6 settembre
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.46372, longitude: 9.23711), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.46331, longitude: 9.23724), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.46267, longitude: 9.23737), branch: "Main"),
@@ -2409,7 +2382,7 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.40675, longitude: 9.02097), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.4066, longitude: 9.01795), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.4045, longitude: 8.96032), branch: "Main"),
-        .init(name: "Albairate - Vermezzo", coordinate: .init(latitude: 45.40435, longitude: 8.95822), branch: "Main")*/
+        .init(name: "Albairate - Vermezzo", coordinate: .init(latitude: 45.40435, longitude: 8.95822), branch: "Main")
     ]
     
     static let stationsS11: [MetroStation] = [
