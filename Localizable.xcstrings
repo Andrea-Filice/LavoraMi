@@ -803,23 +803,6 @@
         }
       }
     },
-    "ATTUALMENTE LA LINEA ATTESTA A: MILANO BOVISA." : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "THE LINE CURRENTLY TERMINATES AT: MILANO BOVISA."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ACTUALMENTE LA LÍNEA LLEGA HASTA: MILANO BOVISA."
-          }
-        }
-      }
-    },
     "Autoguidovie" : {
       "localizations" : {
         "en" : {
@@ -1779,7 +1762,20 @@
       }
     },
     "Errore di connessione." : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connection error."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error de conexión."
+          }
+        }
+      }
     },
     "erroreSincronizzato" : {
       "extractionState" : "manual",
