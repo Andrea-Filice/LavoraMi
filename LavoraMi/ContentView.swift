@@ -3346,12 +3346,12 @@ struct ChangeUsernameView: View {
                             .fontWeight(.semibold)
                             .frame(height: 50)
                             .frame(maxWidth: .infinity)
-                            .background((newUsername.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || newUsername == fullName || (newUsername.trimmingCharacters(in: .whitespacesAndNewlines).count < 3)) ? Color.gray : Color.red)
+                            .background(isUsernameValid() ? Color.gray : Color.red)
                             .foregroundColor(.white)
                             .cornerRadius(14)
                     }
                     .padding(.top, 10)
-                    .disabled(newUsername.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || newUsername.trimmingCharacters(in: .whitespacesAndNewlines) == fullName.trimmingCharacters(in: .whitespacesAndNewlines) || (newUsername.trimmingCharacters(in: .whitespacesAndNewlines).count < 3))
+                    .disabled(isUsernameValid())
                     
                     if(newUsername.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) {
                         Text("Il Nome Utente non può essere vuoto.")
@@ -3399,6 +3399,12 @@ struct ChangeUsernameView: View {
     private func dismiss() {
         fullName = fullName
         presentationMode.wrappedValue.dismiss()
+    }
+    
+    private func isUsernameValid() -> Bool {
+        /// This method is a refactor one and check if the new Username of the user is valid and can be saved into the Database.
+        /// - Returns: A boolean value based from 3 rules: 1) Username cannot be empty, 2) Username can't be equal to the old username, 3) Minimum characters of the new username: 3
+        return newUsername.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || newUsername.trimmingCharacters(in: .whitespacesAndNewlines) == fullName.trimmingCharacters(in: .whitespacesAndNewlines) || (newUsername.trimmingCharacters(in: .whitespacesAndNewlines).count < 3)
     }
 }
 
