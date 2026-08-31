@@ -6821,7 +6821,7 @@ extension LineDetailView {
                                     .foregroundStyle(selectedBranch == branch ? .white : Color("TextColor"))
                                     .padding(.vertical, 7)
                                     .padding(.horizontal, 14)
-                                    .background(Capsule().fill(selectedBranch == branch ? getColor(for: lineName) : Color(.tertiarySystemBackground)))
+                                    .background(Capsule().fill(selectedBranch == branch ? getColor(for: lineName) : Color(.secondarySystemBackground)))
                             }
                         }
                     }
