@@ -2323,7 +2323,20 @@
       }
     },
     "Il Nome Utente non può contenere meno di 3 caratteri." : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Username must contain at least 3 characters."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El Nombre De Usuario no puede tener menos de 3 caracteres."
+          }
+        }
+      }
     },
     "Il Nome Utente non può essere vuoto." : {
       "localizations" : {
