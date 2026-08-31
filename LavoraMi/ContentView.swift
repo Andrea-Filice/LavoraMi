@@ -7456,7 +7456,7 @@ struct LineSmallDetailedView: View {
                                         .foregroundStyle(.primary)
                                     Text("Per oggi non c'è nessuna corsa programmata per questa fermata, prova a sceglierne un' altra.")
                                         .font(.system(size: 12))
-                                        .padding(.horizontal, 10)
+                                        .padding(.horizontal, 20)
                                         .foregroundStyle(.secondary)
                                         .multilineTextAlignment(.center)
                                 }
