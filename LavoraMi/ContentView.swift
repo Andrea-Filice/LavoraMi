@@ -3346,12 +3346,12 @@ struct ChangeUsernameView: View {
                             .fontWeight(.semibold)
                             .frame(height: 50)
                             .frame(maxWidth: .infinity)
-                            .background((newUsername.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || newUsername == fullName) ? Color.gray : Color.red)
+                            .background((newUsername.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || newUsername == fullName || (newUsername.trimmingCharacters(in: .whitespacesAndNewlines).count < 3)) ? Color.gray : Color.red)
                             .foregroundColor(.white)
                             .cornerRadius(14)
                     }
                     .padding(.top, 10)
-                    .disabled(newUsername.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || newUsername.trimmingCharacters(in: .whitespacesAndNewlines) == fullName.trimmingCharacters(in: .whitespacesAndNewlines))
+                    .disabled(newUsername.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || newUsername.trimmingCharacters(in: .whitespacesAndNewlines) == fullName.trimmingCharacters(in: .whitespacesAndNewlines) || (newUsername.trimmingCharacters(in: .whitespacesAndNewlines).count < 3))
                     
                     if(newUsername.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) {
                         Text("Il Nome Utente non può essere vuoto.")
@@ -3362,6 +3362,13 @@ struct ChangeUsernameView: View {
                     }
                     else if(newUsername.trimmingCharacters(in: .whitespacesAndNewlines) == fullName.trimmingCharacters(in: .whitespacesAndNewlines)) {
                         Text("Il nuovo Nome Utente non può essere uguale al tuo Nome Utente attuale.")
+                            .font(.caption2)
+                            .foregroundColor(.secondary)
+                            .padding(.top, -15)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
+                    else if(newUsername.trimmingCharacters(in: .whitespacesAndNewlines).count < 3) {
+                        Text("Il Nome Utente non può contenere meno di 3 caratteri.")
                             .font(.caption2)
                             .foregroundColor(.secondary)
                             .padding(.top, -15)

@@ -2322,6 +2322,9 @@
         }
       }
     },
+    "Il Nome Utente non può contenere meno di 3 caratteri." : {
+
+    },
     "Il Nome Utente non può essere vuoto." : {
       "localizations" : {
         "en" : {
