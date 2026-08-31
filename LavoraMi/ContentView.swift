@@ -3358,14 +3358,14 @@ struct ChangeUsernameView: View {
                             .font(.caption2)
                             .foregroundColor(.secondary)
                             .padding(.top, -15)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .frame(maxWidth: .infinity, alignment: .center)
                     }
                     else if(newUsername.trimmingCharacters(in: .whitespacesAndNewlines) == fullName.trimmingCharacters(in: .whitespacesAndNewlines)) {
                         Text("Il nuovo Nome Utente non può essere uguale al tuo Nome Utente attuale.")
                             .font(.caption2)
                             .foregroundColor(.secondary)
                             .padding(.top, -15)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .frame(maxWidth: .infinity, alignment: .center)
                     }
                 }
                 .padding()
