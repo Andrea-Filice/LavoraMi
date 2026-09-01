@@ -5684,6 +5684,9 @@
     "Riguarda il wrapped" : {
 
     },
+    "RIGUARDA IL WRAPPED DEL MESE" : {
+
+    },
     "Ripristina Impostazioni" : {
       "localizations" : {
         "en" : {
@@ -5715,9 +5718,6 @@
           }
         }
       }
-    },
-    "Rivedi il Wrapped di questo mese" : {
-
     },
     "S2" : {
       "localizations" : {
@@ -6351,6 +6351,9 @@
           }
         }
       }
+    },
+    "Si è verificato un problema durante il caricamento del Video. Riprova più tardi." : {
+
     },
     "Simone Gallotti" : {
       "localizations" : {
@@ -7630,16 +7633,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Versión:"
-          }
-        }
-      }
-    },
-    "Video \"%@.%@\" non trovato nel bundle" : {
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Video \"%1$@.%2$@\" non trovato nel bundle"
           }
         }
       }

@@ -693,13 +693,13 @@ struct MainView: View {
                     showWrapped = true
                 }) {
                     HStack(spacing: 8) {
-                        Image("icon")
+                        Image("iconAppAndroid")
                             .resizable()
                             .frame(width: 26, height: 26)
                             .clipShape(RoundedRectangle(cornerRadius: 5))
 
                         Text("SCOPRI IL WRAPPED DI QUESTO MESE")
-                            .font(.system(size: 15, weight: .bold))
+                            .font(.system(size: 14, weight: .bold))
                             .foregroundStyle(.white)
                             .tracking(0.5)
 
@@ -707,7 +707,7 @@ struct MainView: View {
                     }
                     .padding(.horizontal, 14)
                     .padding(.vertical, 11)
-                    .background(Color.red)
+                    .background(Color(red: 224/255, green: 32/255, blue: 34/255))
                 }
                 .buttonStyle(.plain)
                 .clipShape(RoundedRectangle(cornerRadius: 14))
@@ -1803,17 +1803,39 @@ struct SettingsView: View{
                         }
                         .padding(.vertical, 4)
                     }
-                    if viewModel.wrappedEnabled {
-                        Button(action: { showWrapped = true }) {
-                            HStack(spacing: 12) {
-                                Image(systemName: "play.rectangle.fill")
-                                    .font(.system(size: 22))
-                                    .foregroundStyle(.red)
+                    if(viewModel.wrappedEnabled && hasOpenedWrapped) {
+                        Button(action: {
+                            if feedbacksEnabled { HapticManager.shared.trigger() }
+                            showWrapped = true
+                        }) {
+                            HStack(spacing: 8) {
+                                Image("iconAppAndroid")
+                                    .resizable()
+                                    .frame(width: 26, height: 26)
+                                    .clipShape(RoundedRectangle(cornerRadius: 5))
 
-                                Text("Rivedi il Wrapped di questo mese")
-                                    .foregroundStyle(.primary)
+                                Text("RIGUARDA IL WRAPPED DEL MESE")
+                                    .font(.system(size: 14, weight: .bold))
+                                    .foregroundStyle(.white)
+                                    .tracking(0.5)
+
+                                Spacer()
                             }
+                            .padding(.horizontal, 14)
+                            .padding(.vertical, 11)
+                            .background(Color(red: 224/255, green: 32/255, blue: 34/255))
                         }
+                        .buttonStyle(.plain)
+                        .frame(maxWidth: .infinity)
+                        .clipShape(RoundedRectangle(cornerRadius: 14))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 14)
+                                .stroke(Color.red, lineWidth: 1)
+                        )
+                        .shadow(color: .black.opacity(0.15), radius: 4, x: 0, y: 2)
+                        .padding(.bottom, 10)
+                        .listRowBackground(Color.clear)
+                        .listRowInsets(EdgeInsets())
                     }
                 }
                 Section(content: {
