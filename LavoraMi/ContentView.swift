@@ -1178,10 +1178,10 @@ struct MainView: View {
             }) {
                 WrappedView()
             }
-            .alert("Riguarda il wrapped", isPresented: $showWrappedOpenedInfo) {
+            .alert("Riguarda il Wrapped", isPresented: $showWrappedOpenedInfo) {
                 Button("OK", role: .cancel) {}
             } message: {
-                Text("D'ora in poi, troverai il wrapped sotto la sezione \"Account\" nelle impostazioni")
+                Text("D'ora in poi, troverai il Wrapped sotto la sezione \"Account\" nelle impostazioni.")
             }
             .onChange(of: selectedFilter) { oldValue, newValue in
                 if newValue == .suggested && feedbacksEnabled {
