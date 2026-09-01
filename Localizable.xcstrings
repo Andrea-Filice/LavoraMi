@@ -1416,7 +1416,20 @@
       }
     },
     "D'ora in poi, troverai il Wrapped sotto la sezione \"Account\" nelle impostazioni." : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "From now on, you’ll find Wrapped under the “Account” section in the settings."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A partir de ahora, encontrarás el Wrapped en la sección “Cuenta” de los ajustes."
+          }
+        }
+      }
     },
     "Dati da Salvare" : {
       "localizations" : {
@@ -5682,10 +5695,36 @@
       }
     },
     "Riguarda il Wrapped" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rewatch Wrapped"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelve a ver Wrapped"
+          }
+        }
+      }
     },
     "RIGUARDA IL WRAPPED DEL MESE" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CHECK OUT THIS MONTH’S WRAPPED"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SOBRE EL WRAPPED DEL MES"
+          }
+        }
+      }
     },
     "Ripristina Impostazioni" : {
       "localizations" : {
@@ -6011,7 +6050,20 @@
       }
     },
     "SCOPRI IL WRAPPED DI QUESTO MESE" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DISCOVER THIS MONTH’S WRAPPED"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DESCUBRE EL WRAPPED DE ESTE MES"
+          }
+        }
+      }
     },
     "Scopri le novità..." : {
       "extractionState" : "manual",
@@ -6353,7 +6405,20 @@
       }
     },
     "Si è verificato un problema durante il caricamento del Video. Riprova più tardi." : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There was a problem whilst uploading the video. Please try again later."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se ha producido un problema al cargar el vídeo. Inténtalo de nuevo más tarde."
+          }
+        }
+      }
     },
     "Simone Gallotti" : {
       "localizations" : {
