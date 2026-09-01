@@ -4782,7 +4782,7 @@ struct LibrariesView: View {
         ),
         LibraryDetailView(
             name: "swift-asn1",
-            version: "1.7.1",
+            version: "1.7.2",
             license: "Apache License 2.0",
             copyright: "Copyright (c) 2022 Apple Inc.",
             licenseText: """
