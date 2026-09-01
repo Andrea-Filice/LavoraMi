@@ -163,7 +163,7 @@ class WorkViewModel: ObservableObject {
                     self?.regionalWithInterruptions = result.regionalLinesWithDeviations
                     self?.regionalInterruptionLinks = result.regionalLinesDeviationLinks
                     
-                    self?.wrappedEnabled = (result.enableWrappedDebug == "true")
+                    self?.wrappedEnabled = (result.enableWrapped == "true")
                     self?.enablePassanteWork = (result.enablePassanteWork == "true")
                     self?.strikeUpdateLive = result.strikeUpdateLive
                     self?.updateStrikeTodayStatus()
@@ -274,7 +274,7 @@ class WorkViewModel: ObservableObject {
 struct RemoteConfigData: Codable {
     let enableStrike: String
     let enableStrikeDebug: String
-    let enableWrappedDebug: String?
+    let enableWrapped: String?
     let strikeUpdateLive: String
     let enablePassanteWork: String
     let date: String
