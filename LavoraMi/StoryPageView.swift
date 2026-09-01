@@ -45,6 +45,9 @@ struct StoryPageView: View {
             guard isActive else { return }
             onProgress(story.id, newValue)
         }
+        .onDisappear{
+            playerController.pause()
+        }
         .overlay {
             if missingAsset {
                 VStack(spacing: 8) {
