@@ -106,16 +106,14 @@ struct WrappedView: View {
 
     private func advanceOrFinish(from index: Int) {
         let next = index + 1
-        if next < stories.count {
-            goToStory(next)
-        }
-        else {
-            dismiss()
-        }
+        
+        if next < stories.count {goToStory(next)}
+        else {dismiss()}
     }
 
     private func goToStory(_ index: Int) {
         if index < 0 { return }
+        
         if index >= stories.count {
             dismiss()
             return

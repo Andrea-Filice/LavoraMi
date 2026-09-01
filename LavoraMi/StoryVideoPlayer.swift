@@ -11,8 +11,9 @@ import AVFoundation
 
 @MainActor
 final class StoryVideoPlayer: ObservableObject {
-    let player: AVPlayer
     @Published private(set) var progress: Double = 0
+    
+    let player: AVPlayer
     var onFinished: (() -> Void)?
     private var timeObserverToken: Any?
     private var hasReportedFinish = false

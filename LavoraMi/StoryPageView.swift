@@ -22,12 +22,8 @@ struct StoryPageView: View {
         self.onProgress = onProgress
         self.onFinished = onFinished
 
-        if let url = story.videoURL {
-            _playerController = StateObject(wrappedValue: StoryVideoPlayer(url: url))
-        }
-        else {
-            _playerController = StateObject(wrappedValue: StoryVideoPlayer(url: URL(fileURLWithPath: "/dev/null")))
-        }
+        if let url = story.videoURL {_playerController = StateObject(wrappedValue: StoryVideoPlayer(url: url))}
+        else {_playerController = StateObject(wrappedValue: StoryVideoPlayer(url: URL(fileURLWithPath: "/dev/null")))}
     }
 
     var body: some View {
@@ -42,11 +38,8 @@ struct StoryPageView: View {
             if isActive { playerController.playFromStart() }
         }
         .onChange(of: isActive) { _, active in
-            if active {
-                playerController.playFromStart()
-            } else {
-                playerController.pause()
-            }
+            if active {playerController.playFromStart()}
+            else {playerController.pause()}
         }
         .onChange(of: playerController.progress) { _, newValue in
             guard isActive else { return }
@@ -57,7 +50,7 @@ struct StoryPageView: View {
                 VStack(spacing: 8) {
                     Image(systemName: "exclamationmark.triangle")
                         .font(.largeTitle)
-                    Text("Video \"\(story.videoResourceName).\(story.videoExtension)\" non trovato nel bundle")
+                    Text("Si è verificato un problema durante il caricamento del Video. Riprova più tardi.")
                         .multilineTextAlignment(.center)
                         .font(.footnote)
                 }

@@ -49,7 +49,7 @@ struct WrappedStory: Identifiable, Hashable {
 extension WrappedStory {
     static func debugPrintBundleVideos() {
         guard let resourceURL = Bundle.main.resourceURL else {
-            print("⚠️ Wrapped: Bundle.main.resourceURL è nil")
+            print("Il bundle non è stato trovato.")
             return
         }
 
@@ -61,12 +61,8 @@ extension WrappedStory {
             }
         }
 
-        if found.isEmpty {
-            print("⚠️ Wrapped: nessun file .mp4 trovato nel bundle. Controlla Target Membership e la fase di build \"Copy Bundle Resources\".")
-        } else {
-            print("✅ Wrapped: video .mp4 trovati nel bundle:")
-            found.forEach { print("   \($0)") }
-        }
+        if found.isEmpty {print("Nessun file .mp4 trovato.")}
+        else {found.forEach { print("   \($0)") }}
     }
 }
 
