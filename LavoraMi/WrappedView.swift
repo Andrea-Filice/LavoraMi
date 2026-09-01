@@ -14,7 +14,6 @@ struct WrappedView: View {
 
     @State private var currentIndex = 0
     @State private var progressFractions: [Double]
-    @State private var progressTask: Task<Void, Never>?
 
     init(stories: [WrappedStory] = WrappedStory.augustStories) {
         self.stories = stories
@@ -30,7 +29,8 @@ struct WrappedView: View {
                     StoryPageView(
                         story: story,
                         isActive: currentIndex == story.id,
-                        onDurationReady: handleDurationReady
+                        onProgress: handleProgress,
+                        onFinished: handleFinished
                     )
                     .tag(story.id)
                 }
@@ -42,10 +42,8 @@ struct WrappedView: View {
 
             progressBar
                 .padding(.top, 12)
-                .padding(.top, 35) // equivalente al layout_marginTop="35dp" della XML
+                .padding(.top, 35)
 
-            // Zone premibili avanti/indietro, stesso rapporto 1:2 della XML
-            // (tapPrevious layout_weight="1", tapNext layout_weight="2").
             GeometryReader { geo in
                 HStack(spacing: 0) {
                     Color.clear
@@ -64,10 +62,9 @@ struct WrappedView: View {
         .statusBarHidden()
         .onAppear {
             #if DEBUG
-            WrappedStory.debugPrintBundleVideos()
+                WrappedStory.debugPrintBundleVideos()
             #endif
         }
-        .onDisappear { progressTask?.cancel() }
     }
 
     private var progressBar: some View {
@@ -80,6 +77,10 @@ struct WrappedView: View {
                             .fill(Color.white)
                             .frame(width: barGeo.size.width * progressFractions[index])
                     }
+                    .overlay(
+                        Capsule().stroke(Color.black.opacity(0.3), lineWidth: 0.75)
+                    )
+                    .shadow(color: .black.opacity(0.35), radius: 1.5, x: 0, y: 0.5)
                 }
                 .frame(height: 3)
             }
@@ -87,48 +88,32 @@ struct WrappedView: View {
         .padding(.horizontal, 8)
     }
 
-    /// Equivalente a onStoryChanged(position) in WrappedActivity.java.
     private func handleStoryChanged(from oldIndex: Int, to newIndex: Int) {
         for i in 0..<newIndex { progressFractions[i] = 1 }
         for i in (newIndex + 1)..<stories.count { progressFractions[i] = 0 }
-
-        progressTask?.cancel()
-        progressTask = nil
-        progressFractions[newIndex] = 0
     }
 
-    /// Equivalente a onVideoDurationReady(durationMs) in WrappedActivity.java:
-    /// avvia il timer della progress bar solo se la storia è ancora quella attiva.
-    private func handleDurationReady(for storyId: Int, duration: Double) {
+    private func handleProgress(for storyId: Int, progress: Double) {
         guard storyId == currentIndex else { return }
-        startProgressAnimation(duration: duration, index: storyId)
+        progressFractions[storyId] = progress
     }
-
-    /// Equivalente a startStoryTimer(position, durationMs).
-    private func startProgressAnimation(duration: Double, index: Int) {
-        progressTask?.cancel()
-        progressFractions[index] = 0
-
-        progressTask = Task { @MainActor in
-            withAnimation(.linear(duration: duration)) {
-                progressFractions[index] = 1
-            }
-            try? await Task.sleep(nanoseconds: UInt64(duration * 1_000_000_000))
-            guard !Task.isCancelled else { return }
-            advanceOrFinish(from: index)
-        }
+    
+    private func handleFinished(for storyId: Int) {
+        guard storyId == currentIndex else { return }
+        progressFractions[storyId] = 1
+        advanceOrFinish(from: storyId)
     }
 
     private func advanceOrFinish(from index: Int) {
         let next = index + 1
         if next < stories.count {
             goToStory(next)
-        } else {
+        }
+        else {
             dismiss()
         }
     }
 
-    /// Equivalente a goToStory(index) in WrappedActivity.java.
     private func goToStory(_ index: Int) {
         if index < 0 { return }
         if index >= stories.count {

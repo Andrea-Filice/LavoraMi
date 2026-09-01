@@ -12,36 +12,59 @@ import AVFoundation
 @MainActor
 final class StoryVideoPlayer: ObservableObject {
     let player: AVPlayer
-    @Published private(set) var durationSeconds: Double?
-
-    private var statusObserver: NSKeyValueObservation?
+    @Published private(set) var progress: Double = 0
+    var onFinished: (() -> Void)?
+    private var timeObserverToken: Any?
+    private var hasReportedFinish = false
 
     init(url: URL) {
         let item = AVPlayerItem(url: url)
         player = AVPlayer(playerItem: item)
         player.actionAtItemEnd = .pause
-
-        statusObserver = item.observe(\.status, options: [.new]) { [weak self] observedItem, _ in
-            guard observedItem.status == .readyToPlay else { return }
-            let seconds = observedItem.duration.seconds
-            guard seconds.isFinite, seconds > 0 else { return }
-            Task { @MainActor in
-                self?.durationSeconds = seconds
-            }
-        }
     }
 
     func playFromStart() {
+        hasReportedFinish = false
+        progress = 0
         player.seek(to: .zero)
         player.play()
+        startObservingProgress()
     }
 
     func pause() {
         player.pause()
+        stopObservingProgress()
+    }
+
+    private func startObservingProgress() {
+        stopObservingProgress()
+
+        let interval = CMTime(seconds: 1.0 / 60.0, preferredTimescale: 600)
+        timeObserverToken = player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] time in
+            guard let self, let duration = self.player.currentItem?.duration.seconds,
+                  duration.isFinite, duration > 0 else { return }
+
+            let current = time.seconds
+            self.progress = min(max(current / duration, 0), 1)
+
+            if current >= duration - 0.05, !self.hasReportedFinish {
+                self.hasReportedFinish = true
+                self.onFinished?()
+            }
+        }
+    }
+
+    private func stopObservingProgress() {
+        if let token = timeObserverToken {
+            player.removeTimeObserver(token)
+            timeObserverToken = nil
+        }
     }
 
     deinit {
-        statusObserver?.invalidate()
+        if let token = timeObserverToken {
+            player.removeTimeObserver(token)
+        }
     }
 }
 
@@ -51,7 +74,7 @@ struct VideoPlayerLayerView: UIViewRepresentable {
     func makeUIView(context: Context) -> PlayerContainerView {
         let view = PlayerContainerView()
         view.playerLayer.player = player
-        view.playerLayer.videoGravity = .resizeAspectFill
+        view.playerLayer.videoGravity = .resizeAspect
         return view
     }
 

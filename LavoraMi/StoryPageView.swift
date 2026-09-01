@@ -10,15 +10,17 @@ import SwiftUI
 struct StoryPageView: View {
     let story: WrappedStory
     let isActive: Bool
-    let onDurationReady: (Int, Double) -> Void
+    let onProgress: (Int, Double) -> Void
+    let onFinished: (Int) -> Void
 
     @StateObject private var playerController: StoryVideoPlayer
     @State private var missingAsset = false
 
-    init(story: WrappedStory, isActive: Bool, onDurationReady: @escaping (Int, Double) -> Void) {
+    init(story: WrappedStory, isActive: Bool, onProgress: @escaping (Int, Double) -> Void, onFinished: @escaping (Int) -> Void) {
         self.story = story
         self.isActive = isActive
-        self.onDurationReady = onDurationReady
+        self.onProgress = onProgress
+        self.onFinished = onFinished
 
         if let url = story.videoURL {
             _playerController = StateObject(wrappedValue: StoryVideoPlayer(url: url))
@@ -36,6 +38,7 @@ struct StoryPageView: View {
         .ignoresSafeArea()
         .onAppear {
             missingAsset = story.videoURL == nil
+            playerController.onFinished = { [story] in onFinished(story.id) }
             if isActive { playerController.playFromStart() }
         }
         .onChange(of: isActive) { _, active in
@@ -45,9 +48,9 @@ struct StoryPageView: View {
                 playerController.pause()
             }
         }
-        .onChange(of: playerController.durationSeconds) { _, duration in
-            guard isActive, let duration else { return }
-            onDurationReady(story.id, duration)
+        .onChange(of: playerController.progress) { _, newValue in
+            guard isActive else { return }
+            onProgress(story.id, newValue)
         }
         .overlay {
             if missingAsset {
