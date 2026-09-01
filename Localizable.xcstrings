@@ -1415,6 +1415,9 @@
         }
       }
     },
+    "D'ora in poi, troverai il wrapped sotto la sezione \"Account\" nelle impostazioni" : {
+
+    },
     "Dati da Salvare" : {
       "localizations" : {
         "en" : {
@@ -5678,6 +5681,9 @@
         }
       }
     },
+    "Riguarda il wrapped" : {
+
+    },
     "Ripristina Impostazioni" : {
       "localizations" : {
         "en" : {
@@ -5709,6 +5715,9 @@
           }
         }
       }
+    },
+    "Rivedi il Wrapped di questo mese" : {
+
     },
     "S2" : {
       "localizations" : {
@@ -6000,6 +6009,9 @@
           }
         }
       }
+    },
+    "SCOPRI IL WRAPPED DI QUESTO MESE" : {
+
     },
     "Scopri le novità..." : {
       "extractionState" : "manual",
@@ -7618,6 +7630,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Versión:"
+          }
+        }
+      }
+    },
+    "Video \"%@.%@\" non trovato nel bundle" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Video \"%1$@.%2$@\" non trovato nel bundle"
           }
         }
       }

@@ -20,6 +20,7 @@ class WorkViewModel: ObservableObject {
     @Published var strikeUpdateLive: String = ""
     @Published var dateStrike: String = ""
     @Published var guaranteed: String = ""
+    @Published var wrappedEnabled: Bool = false
     @Published var maintenanceModeEnabled: Bool = false
     @Published var maintenanceModeDebugEnabled: Bool = false
     @Published var maintenanceDeps: String = ""
@@ -162,6 +163,7 @@ class WorkViewModel: ObservableObject {
                     self?.regionalWithInterruptions = result.regionalLinesWithDeviations
                     self?.regionalInterruptionLinks = result.regionalLinesDeviationLinks
                     
+                    self?.wrappedEnabled = (result.enableWrappedDebug == "true")
                     self?.enablePassanteWork = (result.enablePassanteWork == "true")
                     self?.strikeUpdateLive = result.strikeUpdateLive
                     self?.updateStrikeTodayStatus()
@@ -272,6 +274,7 @@ class WorkViewModel: ObservableObject {
 struct RemoteConfigData: Codable {
     let enableStrike: String
     let enableStrikeDebug: String
+    let enableWrappedDebug: String?
     let strikeUpdateLive: String
     let enablePassanteWork: String
     let date: String

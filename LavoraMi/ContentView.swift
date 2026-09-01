@@ -520,6 +520,9 @@ struct MainView: View {
     @State private var showInfoFavoriteLines: Bool = false
     @State private var showMaintenanceMode: Bool = false
     @State private var strikeExpanded: Bool = true
+    @AppStorage("hasOpenedWrapped") private var hasOpenedWrapped: Bool = false
+    @State private var showWrapped: Bool = false
+    @State private var showWrappedOpenedInfo: Bool = false
     @State private var livePulse = true
     @State private var suggestedTrigger = 0
     @State private var marqueeOffset: CGFloat = 0
@@ -683,6 +686,38 @@ struct MainView: View {
                         currentHintIndex = (currentHintIndex + 1) % searchHints.count
                     }
                 }
+            }
+            if viewModel.wrappedEnabled && !hasOpenedWrapped {
+                Button(action: {
+                    if feedbacksEnabled { HapticManager.shared.trigger() }
+                    showWrapped = true
+                }) {
+                    HStack(spacing: 8) {
+                        Image("icon")
+                            .resizable()
+                            .frame(width: 26, height: 26)
+                            .clipShape(RoundedRectangle(cornerRadius: 5))
+
+                        Text("SCOPRI IL WRAPPED DI QUESTO MESE")
+                            .font(.system(size: 15, weight: .bold))
+                            .foregroundStyle(.white)
+                            .tracking(0.5)
+
+                        Spacer()
+                    }
+                    .padding(.horizontal, 14)
+                    .padding(.vertical, 11)
+                    .background(Color.red)
+                }
+                .buttonStyle(.plain)
+                .clipShape(RoundedRectangle(cornerRadius: 14))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 14)
+                        .stroke(Color.red, lineWidth: 1)
+                )
+                .shadow(color: .black.opacity(0.15), radius: 4, x: 0, y: 2)
+                .padding(.horizontal)
+                .padding(.bottom, 10)
             }
             if viewModel.strikeEnabled && showStrikeBanner {
                 VStack(spacing: 0) {
@@ -1136,6 +1171,17 @@ struct MainView: View {
                 MaintenanceView(maintenanceDeps: viewModel.maintenanceDeps, maintenanceDepsEn: viewModel.maintenanceDepsEn) {
                     showMaintenanceMode = false
                 }
+            }
+            .fullScreenCover(isPresented: $showWrapped, onDismiss: {
+                hasOpenedWrapped = true
+                showWrappedOpenedInfo = true
+            }) {
+                WrappedView()
+            }
+            .alert("Riguarda il wrapped", isPresented: $showWrappedOpenedInfo) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text("D'ora in poi, troverai il wrapped sotto la sezione \"Account\" nelle impostazioni")
             }
             .onChange(of: selectedFilter) { oldValue, newValue in
                 if newValue == .suggested && feedbacksEnabled {
@@ -1692,6 +1738,8 @@ struct SettingsView: View{
     @State private var selectedURL: URL?
     @State private var showErrorDBSavePopUp = false
     @State private var showInfoMapDeviations: Bool = false
+    @State private var showWrapped: Bool = false
+    @AppStorage("hasOpenedWrapped") private var hasOpenedWrapped: Bool = false
     @StateObject var viewModel: WorkViewModel
     @StateObject var authManager = AuthManager()
     
@@ -1754,6 +1802,18 @@ struct SettingsView: View{
                             }
                         }
                         .padding(.vertical, 4)
+                    }
+                    if viewModel.wrappedEnabled {
+                        Button(action: { showWrapped = true }) {
+                            HStack(spacing: 12) {
+                                Image(systemName: "play.rectangle.fill")
+                                    .font(.system(size: 22))
+                                    .foregroundStyle(.red)
+
+                                Text("Rivedi il Wrapped di questo mese")
+                                    .foregroundStyle(.primary)
+                            }
+                        }
                     }
                 }
                 Section(content: {
@@ -2307,6 +2367,11 @@ struct SettingsView: View{
             .sheet(item: $selectedURL) { url in
                 SafariView(url: url)
                     .ignoresSafeArea(.all)
+            }
+            .fullScreenCover(isPresented: $showWrapped, onDismiss: {
+                hasOpenedWrapped = true
+            }) {
+                WrappedView()
             }
         }
     }

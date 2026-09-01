@@ -150,10 +150,19 @@
 				SharedData.swift,
 				SplashScreenView.swift,
 				StationsDB.swift,
+				StoryPageView.swift,
+				StoryVideoPlayer.swift,
 				SupabaseAuth/AuthManager.swift,
 				SupabaseAuth/SupabaseClient.swift,
 				"TitilliumWeb-Bold.ttf",
+				Videos/august_story1.mp4,
+				Videos/august_story2.mp4,
+				Videos/august_story3.mp4,
+				Videos/august_story4.mp4,
+				Videos/august_story5.mp4,
 				WorkViewModel.swift,
+				WrappedStory.swift,
+				WrappedView.swift,
 			);
 			target = 6582F30A2F1BD9F000F7ADAF /* LavoraMiWidgetExtension */;
 		};
