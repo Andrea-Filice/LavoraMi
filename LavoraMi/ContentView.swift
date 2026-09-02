@@ -5197,7 +5197,7 @@ struct LinesView: View {
     }
     
     func fullLineInfo(for name: String) -> LineInfo? {
-        let all = metros + suburban + regioExpress + regionalLines + crossBorderLines + malpensaExpress + trams + filobus + bus + stav + star + autoguidovie
+        let all = metros + suburban + regioExpress + regionalLines + crossBorderLines + malpensaExpress + trams + filobus + bus + net + stav + star + autoguidovie
         return all.first { $0.name == name }
     }
 
