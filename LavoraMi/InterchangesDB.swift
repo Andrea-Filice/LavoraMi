@@ -1433,6 +1433,40 @@ struct InterchangesDB {
         .init(name: "Novi Ligure", lines: ["RE13", "REG", "RV"], typeOfInterchange: "lightrail", branch: "Arquata Scrivia", lineOrder: 1),
         .init(name: "Pozzolo Formigaro", lines: ["RE13"], typeOfInterchange: "lightrail", branch: "Arquata Scrivia", lineOrder: 2),
     ]
+    
+    static let interchangesBus: [InterchangeStation] = [
+        .init(displayName: "Milano Molino Dorino M1", lines: ["M1", "NM1", "35", "69", "80", "424", "528", "z601", "z617", "z620", "z621", "z649"], typeOfInterchange: "tram.fill.tunnel", linesToShow: ["z601", "z617", "z620", "z621", "z649"]),
+        .init(displayName: "Milano Cadorna FN", lines: ["M1", "NM1", "M2", "NM2", "S3", "S4", "R22", "R27", "RE1", "RE7", "MXP2", "1", "2", "50", "96", "97", "z602", "z603", "z6C3", "N25", "N26"], typeOfInterchange: "lightrail", linesToShow: ["z602", "z603", "z6C3"]),
+        .init(displayName: "Parabiago FS", lines: ["S5", "R21", "R23", "RE5", "z644"], typeOfInterchange: "train.side.front.car", linesToShow: ["z644"]),
+        .init(displayName: "Vittuone FS", lines: ["S6", "RV", "z622", "z643"], typeOfInterchange: "train.side.front.car", linesToShow: ["z643"]),
+        .init(displayName: "Rho, Corso Europa", lines: ["S5", "S6", "S11", "z601", "z606", "z618"], typeOfInterchange: "train.side.front.car", linesToShow: ["z606", "z618"]),
+        .init(displayName: "Rho FS", lines: ["S5", "S6", "S11", "z616"], typeOfInterchange: "train.side.front.car", linesToShow: ["z616"]),
+        .init(displayName: "Cuggiono, Piazza della Vittoria", lines: ["z621", "z622", "z627", "z641", "z646"], typeOfInterchange: "bus.fill", linesToShow: ["z622"]),
+        .init(displayName: "Busto Garolfo", lines: ["z625", "z627", "z644", "z647", "z649"], typeOfInterchange: "bus.fill", linesToShow: ["z625"]),
+        .init(displayName: "Arese, Il Centro", lines: ["561", "z612"], typeOfInterchange: "bus.fill", linesToShow: ["z612"]),
+        .init(displayName: "Legnano FS", lines: ["S5", "R21", "RE5", "REG", "RV", "z601", "z602", "z611", "z642", "z627"], typeOfInterchange: "train.side.front.car", linesToShow: ["z611", "z612", "z627", "z636", "z642"]),
+        .init(displayName: "Milano Bisceglie M1", lines: ["M1", "NM1", "47", "58", "63", "76", "78", "321", "322", "323", "327", "433", "z551", "z560"], typeOfInterchange: "tram.fill.tunnel", linesToShow: ["z551", "z560"]),
+        .init(displayName: "Milano Romolo FS", lines: ["M2", "NM2", "S9", "S19", "R31", "47", "Filobus 90", "Filobus 91", "71", "324", "325", "z553"], typeOfInterchange: "train.side.front.car", linesToShow: ["z553"]),
+        .init(displayName: "Santo Stefano Ticino FS", lines: ["S6", "RV", "z552"], typeOfInterchange: "train.side.front.car", linesToShow: ["z552"]),
+        .init(displayName: "Albairate - Vermezzo FS", lines: ["S9", "S19", "R31", "z554"], typeOfInterchange: "train.side.front.car", linesToShow: ["z554"]),
+        .init(displayName: "Gaggiano FS", lines: ["S9", "S19", "R31", "z557"], typeOfInterchange: "train.side.front.car", linesToShow: ["z557"]),
+        .init(displayName: "Magenta FS", lines: ["S6", "RV", "z559", "z620", "z641", "z642", "z646"], typeOfInterchange: "train.side.front.car", linesToShow: ["z641", "z646", "z559"]),
+        .init(displayName: "Abbiategrasso Vittorio Veneto", lines: ["z551", "z552", "z553", "z555", "z559"], typeOfInterchange: "bus.fill", linesToShow: ["z555", "z556"]),
+        .init(displayName: "Melzo FS", lines: ["R4", "S5", "S6", "z401", "z404", "z407", "z411"], typeOfInterchange: "train.side.front.car", linesToShow: ["z401", "z411"]),
+        .init(displayName: "Pioltello Limito FS", lines: ["R4", "RE2", "RE6", "S5", "S6", "z402", "z409"], typeOfInterchange: "train.side.front.car", linesToShow: ["z402"]),
+        .init(displayName: "Gorgonzola M2", lines: ["M2", "z310", "z315", "z403", "z407", "z419"], typeOfInterchange: "tram.fill.tunnel", linesToShow: ["z403", "z407", "z419"]),
+        .init(displayName: "Gessate M2", lines: ["M2", "z310", "z311", "z312", "z313", "z314", "z404", "z405", "z406"], typeOfInterchange: "tram.fill.tunnel", linesToShow: ["z404", "z405", "z406"]),
+        .init(displayName: "Linate Aereoporto M4", lines: ["M4", "NM4", "183", "901", "903", "923", "973", "z409"], typeOfInterchange: "airplane.departure", linesToShow: ["z409"]),
+        .init(displayName: "San Donato M3", lines: ["M3", "NM3", "45", "77", "121", "130", "132", "901", "902", "903", "z410", "z411", "z412", "z413", "z415", "z420"], typeOfInterchange: "tram.fill.tunnel", linesToShow: ["z410", "z412", "z413", "z415", "z420"]),
+        .init(displayName: "Melegnano FS", lines: ["S1", "S12", "REG", "z431"], typeOfInterchange: "train.side.front.car", linesToShow: ["z431", "z432"]),
+        .init(displayName: "San Zenone Al Lambro FS", lines: ["S1", "z415", "z418", "z420"], typeOfInterchange: "train.side.front.car", linesToShow: ["z418"]),
+        .init(displayName: "Monza FS", lines: ["S7", "S8", "S9", "S11", "R7", "R13", "R14", "RE8", "RE80", "z203", "z205", "z219", "z221", "z222", "z228", "z314", "z321"], typeOfInterchange: "train.side.front.car", linesToShow: ["z203", "z205", "z219", "z221", "z222", "z228"]),
+        .init(displayName: "Cesano FN", lines: ["S2", "S4", "S9", "R16", "z209", "z250", "z251"], typeOfInterchange: "train.side.front.car", linesToShow: ["z209", "z250", "z251"]),
+        .init(displayName: "Sesto San Giovanni FS M1", lines: ["M1", "NM1", "S7", "S8", "S9", "S11","R13", "R14", "RE8", "700", "702", "712", "727", "729", "z221", "z222", "z225", "z227", "z301"], typeOfInterchange: "train.side.front.car", linesToShow: ["z225", "z227"]),
+        .init(displayName: "Seregno FS", lines: ["S9", "S11", "R15", "RE80", "z228", "z231", "z232", "z233", "z242"], typeOfInterchange: "train.side.front.car", linesToShow: ["z231", "z232", "z233"]),
+        .init(displayName: "Milano Famagosta M2", lines: ["M2", "NM2", "46", "59", "71", "74", "95", "98", "z501", "z509", "z510", "z515", "z516"], typeOfInterchange: "tram.fill.tunnel", linesToShow: ["z501", "z509", "z510", "z515", "z516"]),
+        .init(displayName: "Lissone - Muggiò FS", lines: ["S9", "S11", "z227", "z234", "z250"], typeOfInterchange: "train.side.front.car", linesToShow: ["z227", "z234"])
+    ]
 
     static func getMetroInterchanges(line: String) -> [InterchangeInfo] {
         return metroInterchanges.filter { $0.lines.contains(line) }

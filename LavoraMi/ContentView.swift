@@ -7148,37 +7148,12 @@ struct LineSmallDetailedView: View {
     @State private var opacity: Double = 1.0
     @State private var openPopUpLines: Bool = false
 
-    let interchanges: [InterchangeStation] = [
-        .init(key: "Molino Dorino", displayName: "Molino Dorino MM", lines: ["M1", "NM1", "35", "69", "80", "424", "528", "z601", "z617", "z620", "z621", "z649"], typeOfInterchange: "tram.fill.tunnel"),
-        .init(key: "Cadorna FN", displayName: "Milano Cadorna FN", lines: ["M1", "NM1", "M2", "NM2", "S3", "S4", "R22", "R27", "RE1", "RE7", "MXP2", "1", "2", "50", "96", "97", "z602", "z603", "z6C3", "N25", "N26"], typeOfInterchange: "lightrail"),
-        .init(key: "Parabiago", displayName: "Parabiago", lines: ["z611", "z644", "z643"], typeOfInterchange: "bus.fill"),
-        .init(key: "Rho/Europa", displayName: "Rho, Corso Europa", lines: ["S5", "S6", "S11", "z601", "z606", "z618"], typeOfInterchange: "train.side.front.car"),
-        .init(key: "Rho", displayName: "Rho FS", lines: ["S5", "S6", "S11", "z616", "z618"], typeOfInterchange: "train.side.front.car"),
-        .init(key: "Busto Garolfo", displayName: "Busto Garolfo", lines: ["z625", "z627", "z644", "z647", "z649"], typeOfInterchange: "bus.fill"),
-        .init(key: "Legnano", displayName: "Legnano", lines: ["z601", "z602", "z611", "z612", "z642", "z627"], typeOfInterchange: "bus.fill"),
-        .init(key: "Bisceglie", displayName: "Bisceglie MM", lines: ["M1", "NM1", "47", "58", "63", "76", "78", "321", "322", "323", "327", "433", "z551", "z560"], typeOfInterchange: "tram.fill.tunnel"),
-        .init(key: "Romolo", displayName: "Romolo FS", lines: ["M2", "NM2", "S9", "S19", "R31", "47", "Filobus 90", "Filobus 91", "71", "324", "325", "z553"], typeOfInterchange: "train.side.front.car"),
-        .init(key: "S. Stefano Ticino", displayName: "Santo Stefano Ticino - Corbetta", lines: ["S6"], typeOfInterchange: "train.side.front.car"),
-        .init(key: "Magenta", displayName: "Magenta FS", lines: ["S6", "RV", "z641", "z646", "z559"], typeOfInterchange: "train.side.front.car"),
-        .init(key: "Abbiategrasso Vittorio Veneto", displayName: "Abbiategrasso V. Veneto", lines: ["z551", "z552", "z553", "z555", "z560"], typeOfInterchange: "bus.fill"),
-        .init(key: "Abbiategrasso FS", displayName: "Abbiategrasso FS", lines: ["R31", "z551", "z552", "z553", "z555", "z556", "z560"], typeOfInterchange: "train.side.front.car"),
-        .init(key: "Albairate Vermezzo FS", displayName: "Albairate Vermezzo FS", lines: ["R31", "S9", "S19"], typeOfInterchange: "train.side.front.car"),
-        .init(key: "Melzo FS", displayName: "Melzo FS", lines: ["R4", "S5", "S6", "z401", "z404", "z411"], typeOfInterchange: "train.side.front.car"),
-        .init(key: "Pioltello FS", displayName: "Pioltello Limito FS", lines: ["R4", "RE2", "RE6", "S5", "S6", "z402"], typeOfInterchange: "train.side.front.car"),
-        .init(key: "Gorgonzola", displayName: "Gorgonzola M2", lines: ["M2", "z403", "z407", "z419"], typeOfInterchange: "tram.fill.tunnel"),
-        .init(key: "Gessate", displayName: "Gessate M2", lines: ["M2", "z405", "z406"], typeOfInterchange: "tram.fill.tunnel"),
-        .init(key: "Linate Aereoporto", displayName: "Linate Aereoporto", lines: ["M4", "NM4", "183", "901", "903", "923", "973", "z409"], typeOfInterchange: "airplane.departure"),
-        .init(key: "Donato", displayName: "San Donato M3", lines: ["M3", "NM3", "45", "77", "121", "130", "132", "901", "902", "903", "z410", "z411", "z412", "z413", "z415", "z420"], typeOfInterchange: "tram.fill.tunnel"),
-        .init(key: "Melegnano FS", displayName: "Melegnano FS", lines: ["REG", "S1", "S12", "z431", "z432"], typeOfInterchange: "train.side.front.car"),
-        .init(key: "Monza FS", displayName: "Monza FS", lines: ["R7", "R13", "R14", "RE8", "RE80", "S7", "S8", "S9", "S11", "z203", "z205", "z219", "z221", "z222", "z228"], typeOfInterchange: "train.side.front.car"),
-        .init(key: "Sesto S.G", displayName: "Sesto San Giovanni FS M1", lines: ["M1", "R13", "R14", "RE8", "S7", "S8", "S9", "S11", "z221", "z222", "z225"], typeOfInterchange: "train.side.front.car"),
-        .init(key: "Seregno", displayName: "Seregno FS", lines: ["RE80", "S9", "S11", "z231", "z232", "z233", "z242"], typeOfInterchange: "train.side.front.car"),
-        .init(key: "Desio FS", displayName: "Desio FS", lines: ["RE80", "S9", "S11", "z250", "z251"], typeOfInterchange: "train.side.front.car"),
-        .init(key: "Milano Famagosta", displayName: "Famagosta M2", lines: ["M2", "NM2", "46", "59", "71", "74", "95", "98", "z501", "z509", "z510", "z515", "z516"], typeOfInterchange: "tram.fill.tunnel")
-    ]
+    let interchanges = InterchangesDB.interchangesBus
 
     var activeInterchange: InterchangeStation? {
-        interchanges.first { branches.contains($0.key) }
+        interchanges.first { station in
+            station.linesToShow.contains(lineName)
+        }
     }
     
     var onAppear: (() -> Void)? = nil
@@ -7186,7 +7161,6 @@ struct LineSmallDetailedView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                // MARK: - Header
                 VStack(alignment: .leading, spacing: 20) {
                     HStack(spacing: 12) {
                         Text(lineName)
@@ -8535,10 +8509,10 @@ struct MetroStation: Identifiable {
 
 struct InterchangeStation: Identifiable {
     let id = UUID()
-    let key: String
     let displayName: String
     let lines: [String]
     let typeOfInterchange: String
+    let linesToShow: [String]
 }
 
 enum linkOpenTypes: String, CaseIterable, Identifiable{
