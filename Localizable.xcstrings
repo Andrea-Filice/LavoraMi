@@ -1564,6 +1564,29 @@
         }
       }
     },
+    "diNET" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "by NET"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "de NET"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "di NET"
+          }
+        }
+      }
+    },
     "DIREZIONE: %@" : {
       "localizations" : {
         "en" : {
