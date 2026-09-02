@@ -1444,7 +1444,7 @@ struct InterchangesDB {
         .init(displayName: "Cuggiono, Piazza della Vittoria", lines: ["z621", "z622", "z627", "z641", "z646"], typeOfInterchange: "bus.fill", linesToShow: ["z622"]),
         .init(displayName: "Busto Garolfo", lines: ["z625", "z627", "z644", "z647", "z649"], typeOfInterchange: "bus.fill", linesToShow: ["z625"]),
         .init(displayName: "Arese, Il Centro", lines: ["561", "z612"], typeOfInterchange: "bus.fill", linesToShow: ["z612"]),
-        .init(displayName: "Legnano FS", lines: ["S5", "R21", "RE5", "REG", "RV", "z601", "z602", "z611", "z642", "z627"], typeOfInterchange: "train.side.front.car", linesToShow: ["z611", "z612", "z627", "z636", "z642"]),
+        .init(displayName: "Legnano FS", lines: ["S5", "R21", "RE5", "REG", "RV", "z601", "z602", "z611", "z627", "z642"], typeOfInterchange: "train.side.front.car", linesToShow: ["z611", "z612", "z627", "z636", "z642"]),
         .init(displayName: "Milano Bisceglie M1", lines: ["M1", "NM1", "47", "58", "63", "76", "78", "321", "322", "323", "327", "433", "z551", "z560"], typeOfInterchange: "tram.fill.tunnel", linesToShow: ["z551", "z560"]),
         .init(displayName: "Milano Romolo FS", lines: ["M2", "NM2", "S9", "S19", "R31", "47", "Filobus 90", "Filobus 91", "71", "324", "325", "z553"], typeOfInterchange: "train.side.front.car", linesToShow: ["z553"]),
         .init(displayName: "Santo Stefano Ticino FS", lines: ["S6", "RV", "z552"], typeOfInterchange: "train.side.front.car", linesToShow: ["z552"]),
