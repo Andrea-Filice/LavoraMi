@@ -4710,7 +4710,20 @@
       }
     },
     "Nordest Trasporti (NET)" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nordest Trasporti (NET)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nordest Trasporti (NET)"
+          }
+        }
+      }
     },
     "Notifiche" : {
       "localizations" : {
