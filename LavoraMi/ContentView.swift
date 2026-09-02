@@ -5002,6 +5002,7 @@ struct LineRow: View {
         (typeOfTransport != String(localized: .tram) || supportedLines.contains(line))
         && typeOfTransport != "Movibus"
         && typeOfTransport != "STAV"
+        && typeOfTransport != "NET"
         && typeOfTransport != "Autoguidovie"
         && typeOfTransport != "STAR Mobility"
     }
