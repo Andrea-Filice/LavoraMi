@@ -5124,6 +5124,7 @@ struct LinesView: View {
             String(localized: .tram): ["tram", "tranvía", "t"],
             String(localized: .filobus): ["filobus", "9"],
             "Movibus": ["bus", "movibus", "z"],
+            "Nordest Trasporti": ["z", "bus", "net"],
             "STAR Mobility": ["bus", "star", "z"],
             "STAV": ["stav", "bus", "z"],
             "Autoguidovie": ["autoguidovie", "bus", "z"],
@@ -5162,6 +5163,7 @@ struct LinesView: View {
     var filteredTrams: [LineInfo] { filtered(trams) }
     var filteredFilobus: [LineInfo] { filtered(filobus) }
     var filteredMovibus: [LineInfo] { filtered(bus) }
+    var filteredNET: [LineInfo] { filtered(net) }
     var filteredSTAR: [LineInfo] { filtered(star) }
     var filteredSTAV: [LineInfo] { filtered(stav) }
     var filteredAutoguidovie: [LineInfo] { filtered(autoguidovie) }
@@ -5365,6 +5367,27 @@ struct LinesView: View {
             LineInfo(name: "z646", branches: "Magenta - Castano Primo", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z647", branches: "Cornaredo - Castano Primo", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z649", branches: "Magenta - Arluno - Molino Dorino M1", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: "")
+        ]
+    }
+    
+    var net: [LineInfo] {
+        [
+            LineInfo(name: "z301", branches: "Milano Lampugnano M1 - Sesto FS M1 - Bergamo", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z304", branches: "Cologno Nord M2 - Brugherio", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z305", branches: "Cologno Nord M2 - Carugate - Villa Fiorita M2", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z307", branches: "Cologno Nord M2 - Vimercate", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z309", branches: "Cassano D'Adda FS - Trezzo sull'Adda", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z310", branches: "Gessate M2 - Trezzo sull'Adda", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z311", branches: "Gessate M2 - Vaprio d'Adda", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z312", branches: "Gessate M2 - Vimercate", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z313", branches: "Gessate M2 - Paderno D'Adda FS", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z315", branches: "Gorgonzola M2 - Vimercate", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z317", branches: "Vimercate - Arcore FS - Correzzana", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z318", branches: "Vimercate - Carnate - Usmate", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z319", branches: "Arcore FS - Vimercate - Carnate FS", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z321", branches: "Monza FS - Vimercate - Porto d’Adda", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z322", branches: "Cologno Nord M2 - Vimercate - Porto d'Adda", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z323", branches: "Cologno Nord M2 - Vimercate", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
         ]
     }
     
@@ -5883,6 +5906,45 @@ struct LinesView: View {
                 }
                 .listRowBackground(Color(uiColor: .secondarySystemBackground))
                 Section(){
+                    if(!filteredNET.isEmpty){
+                        ForEach(filteredNET, id: \.id){bus in
+                            LineRow(line: bus.name, typeOfTransport: bus.type, branches: bus.branches, waitMinutes: bus.waitMinutes, accessibilityStatus: bus.accessibilityStatus, stations: bus.stations, viewModel: viewModel, onTap: { addToRecent(bus) })
+                        }
+                    }
+                }
+                header: {
+                    if(!filteredNET.isEmpty) {
+                        HStack{
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Linee di Bus")
+                                    .font(.title3)
+                                    .bold()
+                                    .foregroundStyle(.primary)
+                                    .textCase(nil)
+                                
+                                Text("Nordest Trasporti (NET)")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                                    .textCase(nil)
+                            }
+                            .padding(.bottom, 4)
+                            Spacer()
+                            Button(action: {
+                                let url = URL(string: "https://www.nordesttrasporti.it/media/2508/linee-net_area-nord-est-provincia-mi_nov2025.jpg")!
+                                if howToOpenLinks == .inApp {
+                                    selectedURL = url
+                                } else {
+                                    openURLAction(url)
+                                }
+                            }) {
+                                Image(systemName: "info.circle.fill")
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                    }
+                }
+                .listRowBackground(Color(uiColor: .secondarySystemBackground))
+                Section(){
                     if(!filteredSTAR.isEmpty){
                         ForEach(filteredSTAR, id: \.id){bus in
                             LineRow(line: bus.name, typeOfTransport: bus.type, branches: bus.branches, waitMinutes: bus.waitMinutes, accessibilityStatus: bus.accessibilityStatus, stations: bus.stations, viewModel: viewModel, onTap: { addToRecent(bus) })
@@ -6007,7 +6069,7 @@ struct LinesView: View {
             .navigationTitle("Linee")
             .scrollContentBackground(.hidden)
             .overlay {
-                let allFiltered = [filteredMetros, filteredSuburban, filteredRegioExpress, filteredRegional, filteredCrossBorders, filteredMalpensaExpress, filteredTrams, filteredFilobus, filteredMovibus, filteredSTAV, filteredSTAR, filteredAutoguidovie]
+                let allFiltered = [filteredMetros, filteredSuburban, filteredRegioExpress, filteredRegional, filteredCrossBorders, filteredMalpensaExpress, filteredTrams, filteredFilobus, filteredMovibus, filteredNET, filteredSTAV, filteredSTAR, filteredAutoguidovie]
                 if allFiltered.allSatisfy({ $0.isEmpty }) {
                     VStack(spacing: 20) {
                         Image(systemName: "exclamationmark.magnifyingglass")
