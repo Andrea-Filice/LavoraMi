@@ -5384,6 +5384,7 @@ struct LinesView: View {
             LineInfo(name: "z311", branches: "Gessate M2 - Vaprio d'Adda", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z312", branches: "Gessate M2 - Vimercate", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z313", branches: "Gessate M2 - Paderno D'Adda FS", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z314", branches: "Gessate M2 - Monza FS", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z315", branches: "Gorgonzola M2 - Vimercate", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z317", branches: "Vimercate - Arcore FS - Correzzana", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z318", branches: "Vimercate - Carnate - Usmate", type: "NET", waitMinutes: "", stations: [], accessibilityStatus: ""),

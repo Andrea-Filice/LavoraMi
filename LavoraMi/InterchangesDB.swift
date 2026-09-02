@@ -1455,7 +1455,7 @@ struct InterchangesDB {
         .init(displayName: "Melzo FS", lines: ["R4", "S5", "S6", "z401", "z404", "z407", "z411"], typeOfInterchange: "train.side.front.car", linesToShow: ["z401", "z411"]),
         .init(displayName: "Pioltello Limito FS", lines: ["R4", "RE2", "RE6", "S5", "S6", "z402", "z409"], typeOfInterchange: "train.side.front.car", linesToShow: ["z402"]),
         .init(displayName: "Gorgonzola M2", lines: ["M2", "z310", "z315", "z403", "z407", "z419"], typeOfInterchange: "tram.fill.tunnel", linesToShow: ["z315", "z403", "z407", "z419"]),
-        .init(displayName: "Gessate M2", lines: ["M2", "z310", "z311", "z312", "z313", "z314", "z404", "z405", "z406"], typeOfInterchange: "tram.fill.tunnel", linesToShow: ["z310", "z311", "z312", "z313", "z404", "z405", "z406"]),
+        .init(displayName: "Gessate M2", lines: ["M2", "z310", "z311", "z312", "z313", "z314", "z404", "z405", "z406"], typeOfInterchange: "tram.fill.tunnel", linesToShow: ["z310", "z311", "z312", "z313", "z314", "z404", "z405", "z406"]),
         .init(displayName: "Linate Aereoporto M4", lines: ["M4", "NM4", "183", "901", "903", "923", "973", "z409"], typeOfInterchange: "airplane.departure", linesToShow: ["z409"]),
         .init(displayName: "San Donato M3", lines: ["M3", "NM3", "45", "77", "121", "130", "132", "901", "902", "903", "z410", "z411", "z412", "z413", "z415", "z420"], typeOfInterchange: "tram.fill.tunnel", linesToShow: ["z410", "z412", "z413", "z415", "z420"]),
         .init(displayName: "Melegnano FS", lines: ["S1", "S12", "REG", "z431"], typeOfInterchange: "train.side.front.car", linesToShow: ["z431", "z432"]),
