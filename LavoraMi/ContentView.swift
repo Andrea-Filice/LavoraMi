@@ -6189,9 +6189,7 @@ func getInterchanges(line: String) -> [InterchangeInfo] {
         if(line.wholeMatch(of: /9[0-3]/) != nil) { return InterchangesDB.getFilobusInterchanges(line: line) }
         return InterchangesDB.interchangesTrams.filter { $0.lines.contains(line) }
     }
-    else {
-        return InterchangesDB.interchanges.filter { $0.lines.contains(line) }
-    }
+    else {return []}
 }
 
 struct LineDetailView: View {
