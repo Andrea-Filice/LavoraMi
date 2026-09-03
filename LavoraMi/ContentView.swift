@@ -7110,6 +7110,7 @@ struct LineSmallDetailedView: View {
     @AppStorage("linesFavorites") private var linesFavorites: [String] = []
     @State private var openPopUpWidget: Bool = false
     @State private var openInfoAccessibility: Bool = false
+    @State private var openInfoLineSuspended: Bool = false
     @StateObject private var networkManager = NetworkMonitor()
     @StateObject private var authManager = AuthManager()
     @Environment(\.openURL) private var openURLAction
@@ -7305,6 +7306,14 @@ struct LineSmallDetailedView: View {
                                     else {
                                         openURLAction(url)
                                     }
+                                }
+                            )
+                        }
+                        if(viewModel.lineeSospeseInteramente.contains(lineName)) {
+                            WarningBanner(
+                                text: String(localized: .lineSuspendedUppercased),
+                                action: {
+                                    openInfoLineSuspended = true
                                 }
                             )
                         }
@@ -7643,6 +7652,11 @@ struct LineSmallDetailedView: View {
                 Button("Chiudi", role: .cancel) { }
             } message: {
                 Text("Lo sapevi che, creando un Account LavoraMi, puoi salvare le tue linee preferite per ritrovarle su tutti i tuoi dispositivi? Che aspetti! Crea un Account!")
+            }
+            .alert("Linea Interamente Sospesa", isPresented: $openInfoLineSuspended) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text("Questa linea è stata interrotta per tutto il suo tragitto per via di lavori sulla tratta o rimodulazioni di orario. Per saperne di più, vai nella sezione \"Lavori\" della linea.")
             }
             .onAppear { if routeData == nil { loadData() } }
             .navigationTitle("Dettagli Linea")
