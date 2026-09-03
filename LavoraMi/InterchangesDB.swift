@@ -1436,7 +1436,7 @@ struct InterchangesDB {
     
     static let interchangesBus: [InterchangeStation] = [
         .init(displayName: "Milano Molino Dorino M1", lines: ["M1", "NM1", "35", "69", "80", "424", "528", "z601", "z617", "z620", "z621", "z649"], typeOfInterchange: "tram.fill.tunnel", linesToShow: ["z601", "z617", "z620", "z621", "z649"]),
-        .init(displayName: "Milano Cadorna FN", lines: ["M1", "NM1", "M2", "NM2", "S3", "S4", "R22", "R27", "RE1", "RE7", "MXP2", "1", "2", "50", "96", "97", "z602", "z603", "z6C3", "N25", "N26"], typeOfInterchange: "train.side.front.car", linesToShow: ["z602", "z603", "z6C3"]),
+        .init(displayName: "Milano Cadorna FN", lines: ["M1", "NM1", "M2", "NM2", "S3", "S4", "R16", "R17", "R22", "R27", "RE1", "RE7", "MXP2", "1", "2", "50", "96", "97", "z602", "z603", "z6C3", "N25", "N26"], typeOfInterchange: "train.side.front.car", linesToShow: ["z602", "z603", "z6C3"]),
         .init(displayName: "Parabiago FS", lines: ["S5", "R21", "R23", "RE5", "z644"], typeOfInterchange: "train.side.front.car", linesToShow: ["z644"]),
         .init(displayName: "Vittuone FS", lines: ["S6", "RV", "z622", "z643"], typeOfInterchange: "train.side.front.car", linesToShow: ["z643"]),
         .init(displayName: "Rho, Corso Europa", lines: ["S5", "S6", "S11", "z601", "z606", "z618"], typeOfInterchange: "train.side.front.car", linesToShow: ["z606", "z618"]),
