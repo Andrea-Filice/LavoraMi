@@ -9,41 +9,6 @@ import Foundation
 import MapKit
 
 struct InterchangesDB {
-    static let interchanges: [InterchangeInfo] = [
-        .init(name: "Rho Fiera-Milano", lines: ["M1", "AV", "R21", "R23", "RE4", "RE5", "S5", "S6", "S11"], typeOfInterchange: "lightrail"),
-        .init(name: "Lotto", lines: ["M1", "M5"], typeOfInterchange: "tram.fill.tunnel"),
-        .init(name: "Cadorna FN", lines: ["M1", "M2", "R16", "R17", "R22", "R27", "RE1", "RE7", "S3", "S4", "MXP1"], typeOfInterchange: "lightrail"),
-        .init(name: "Duomo", lines: ["M1", "M3"], typeOfInterchange: "tram.fill.tunnel"),
-        .init(name: "San Babila", lines: ["M1", "M4"], typeOfInterchange: "tram.fill.tunnel"),
-        .init(name: "Porta Venezia", lines: ["M1", "S1", "S2", "S5", "S6", "S12", "S13"], typeOfInterchange: "tram.fill.tunnel"),
-        .init(name: "Loreto", lines: ["M1", "M2"], typeOfInterchange: "tram.fill.tunnel"),
-        .init(name: "Sesto 1° Maggio FS", lines: ["M1", "R13", "R14", "RE8", "S7", "S8", "S9", "S11"], typeOfInterchange: "lightrail"),
-        .init(name: "Romolo", lines: ["M2", "R31", "S9", "S19"], typeOfInterchange: "lightrail"),
-        .init(name: "S. Ambrogio", lines: ["M2", "M4"], typeOfInterchange: "tram.fill.tunnel"),
-        .init(name: "Porta Garibaldi", lines: ["M2", "M5", "AV", "R6", "R13", "R14", "R21", "R23", "R34", "RE2", "RE5", "RE6", "MXP1", "S1", "S2", "S5", "S6", "S7", "S8", "S9", "S11", "S12", "S13"], typeOfInterchange: "lightrail"),
-        .init(name: "Centrale FS", lines: ["M2", "M3", "AV", "R4", "RE2", "RE4", "RE6", "RE8", "RE11", "RE13", "RE80", "MXP1"], typeOfInterchange: "lightrail"),
-        .init(name: "Lambrate FS", lines: ["M2", "R4", "R6", "R7", "R34", "R38", "RE2", "RE6", "RE8", "RE11", "RE13", "S9"], typeOfInterchange: "lightrail"),
-        .init(name: "Affori FN", lines: ["M3", "R16", "S2", "S4"], typeOfInterchange: "lightrail"),
-        .init(name: "Zara", lines: ["M3", "M5"],typeOfInterchange: "tram.fill.tunnel"),
-        .init(name: "Repubblica", lines: ["M3", "S1", "S2", "S5", "S6", "S12", "S13"], typeOfInterchange: "lightrail"),
-        .init(name: "Lodi TIBB", lines: ["M3", "R31", "S9", "S19"], typeOfInterchange: "figure.walk"),
-        .init(name: "Rogoredo FS", lines: ["M3", "AV", "R31", "R34", "R38", "RE8", "RE11", "RE13", "S1", "S2", "S9", "S12", "S13", "S19"], typeOfInterchange: "lightrail"),
-        .init(name: "San Cristoforo", lines: ["M4", "R31", "S9", "S19"], typeOfInterchange: "lightrail"),
-        .init(name: "Sforza - Policlinico", lines: ["M3", "M4"], typeOfInterchange: "figure.walk"),
-        .init(name: "Dateo", lines: ["M4", "S1", "S2", "S5", "S6", "S12", "S13"], typeOfInterchange: "tram.fill.tunnel"),
-        .init(name: "Stazione Forlanini", lines: ["M4", "R38", "RE8", "RE13", "S5", "S6", "S9"], typeOfInterchange: "lightrail"),
-        .init(name: "Linate Aereoporto", lines: [String(localized: .aereoporto), "M4"], typeOfInterchange: "airplane.departure"),
-        .init(name: "Domodossola FN", lines: ["M5", "R16", "R17", "R22", "R27", "RE1", "RE7", "MXP2", "S3", "S4"], typeOfInterchange: "tram.fill.tunnel"),
-        .init(name: "Como S. Giovanni", lines: ["S10", "S11", "S40", "RE80"], typeOfInterchange: "lightrail"),
-        .init(name: "Mendrisio", lines: ["S10", "S40", "S50", "RE80"], typeOfInterchange: "lightrail"),
-        .init(name: "Biasca", lines: ["S10", "S50"], typeOfInterchange: "lightrail"),
-        .init(name: "Varese", lines: ["S5", "S40", "S50"], typeOfInterchange: "lightrail"),
-        .init(name: "Gallarate", lines: ["S30", "S50"], typeOfInterchange: "lightrail"),
-        .init(name: "Busto Arsizio Nord", lines: ["S50", "MXP1", "MXP2"], typeOfInterchange: "lightrail"),
-        .init(name: "Milano Bovisa", lines: ["S1", "S2", "S3", "S4", "S12", "S13", "MXP1", "MXP2"], typeOfInterchange: "lightrail"),
-        .init(name: "Saronno", lines: ["S1", "S3", "S9", "MXP1", "MXP2"], typeOfInterchange: "lightrail"),
-        .init(name: "Monza", lines: ["S7", "S8", "S9", "S11", "RE80"], typeOfInterchange: "lightrail")
-    ]
     
     static let interchangesTrams: [InterchangeInfo] = [
         .init(name: "Certosa FS", lines: ["1", "12", "RE13", "S5", "S6", "S11"], typeOfInterchange: "lightrail"),
