@@ -465,7 +465,7 @@ struct InterchangesDB {
         .init(name: "Corbetta - S. Stefano Ticino", lines: ["S6", "RV", "z552", "z642"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 3),
         .init(name: "Vittuone - Arluno", lines: ["S6", "RV", "z622", "z643"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 4),
         .init(name: "Pregnana Milanese", lines: ["S6", "z616", "z649"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 5),
-        .init(name: "Rho", lines: ["S6", "S5", "S11", "RV", "431", "433", "z601", "z606", "z618", "z616"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 6),
+        .init(name: "Rho", lines: ["S6", "S5", "S11", "RV", "431", "433", "z601", "z606", "z616", "z618"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 6),
         .init(name: "Rho Fiera Milano", lines: ["S6", "S5", "S11", "R21", "R23", "RE4", "RE5", "AV", "M1", "542", "561"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 7),
         .init(name: "Milano Certosa", lines: ["S6", "S5", "S11", "1", "12", "35", "40", "57"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 8),
         .init(name: "Milano Villapizzone", lines: ["S6", "S5", "S11", "R6", "RE2"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 9),
