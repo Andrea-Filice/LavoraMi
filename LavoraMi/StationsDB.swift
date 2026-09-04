@@ -11,7 +11,7 @@ import MapKit
 struct StationsDB {
     //MARK: METRO STATIONS:
     static let stationsM1: [MetroStation] = [
-        .init(name: "Monza Bettola", coordinate: .init(latitude: 45.55612, longitude: 9.24795), branch: "Nord - New"),
+        .init(name: "Cinisello Monza", coordinate: .init(latitude: 45.55612, longitude: 9.24795), branch: "Nord - New"),
         .init(name: "Sesto Restellone", coordinate: .init(latitude: 45.54841, longitude: 9.24268), branch: "Nord - New"),
         .init(name: "Sesto 1° Maggio FS", coordinate: .init(latitude: 45.54156, longitude: 9.23835), branch: "Main"),
         .init(name: "Sesto Rondò", coordinate: .init(latitude: 45.5342, longitude: 9.23128), branch: "Main"),
