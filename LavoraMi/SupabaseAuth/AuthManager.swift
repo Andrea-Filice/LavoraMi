@@ -163,17 +163,18 @@ class AuthManager: ObservableObject {
     
     func isLoggedInWithApple() -> Bool {return session?.user.appMetadata["provider"]?.stringValue == "apple"}
     
-    func saveDatasToDb(favorites: [String], yourLines: [String]) async -> Bool{
+    func saveDatasToDb(favorites: [String], yourLines: [String]) async -> Bool {
         let userEmail = session?.user.email
+        let userPreferences = await fetchUserPreferences()
         
-        let linesToSave = LinesFavoriteDatas(user_email: userEmail ?? "", lines: favorites, your_lines: yourLines)
+        let linesToSave = LinesFavoriteDatas(user_email: userEmail ?? "", lines: (userPreferences.enable_favorites) ? favorites : [], your_lines: (userPreferences.enable_your_lines) ? yourLines : [])
         
         let res = await inserDataToDb(linesToSave: linesToSave)
         
         return res
     }
     
-    func inserDataToDb(linesToSave: LinesFavoriteDatas) async -> Bool{
+    func inserDataToDb(linesToSave: LinesFavoriteDatas) async -> Bool {
         
         if(linesToSave.user_email.isEmpty){
             print("ERRORE: Email vuota.")
