@@ -6234,9 +6234,10 @@ struct LineDetailView: View {
     @State private var linesWithBlackText: [String] = ["M3", "M5", "S5", "S6", "S8", "S11", "S12"]
     @State private var showPopUpAccount: Bool = false
     
-    private var centerIndex: Int { max(0, stations.count / 2) }
+    var activeStations: [MetroStation] {stations.filter { !$0.branch.lowercased().contains("- new") }}
+    private var centerIndex: Int {max(0, activeStations.count / 2)}
     private var centerCoordinate: CLLocationCoordinate2D {
-        stations.isEmpty ? CLLocationCoordinate2D(latitude: 45.46443, longitude: 9.18927) : stations[centerIndex].coordinate
+        stations.isEmpty ? CLLocationCoordinate2D(latitude: 45.46443, longitude: 9.18927) : activeStations[centerIndex].coordinate
     }
     
     private var lombardyBounds: MapCameraBounds {
