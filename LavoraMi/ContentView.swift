@@ -6943,10 +6943,17 @@ extension LineDetailView {
                     }
                     .padding(.vertical, 8)
                 } else {
-                    Label((networkManager.isConnected) ? "Non ci sono lavori su questa linea." : "Nessuna connessione ad Internet.", systemImage: (networkManager.isConnected) ? "info.circle.fill" : "wifi.slash")
-                        .padding()
-                        .bold()
-                        .font(.system(size: 15))
+                    Label {
+                        Text((networkManager.isConnected) ? "Non ci sono lavori su questa linea." : "Nessuna connessione ad Internet.")
+                            .font(.system(size: 15))
+                            .foregroundStyle(.secondary)
+                    } icon: {
+                        Image(systemName: (networkManager.isConnected) ? "info.circle.fill" : "wifi.slash")
+                            .foregroundStyle(.white)
+                            .font(.system(size: 15))
+                    }
+                    .padding()
+                    .bold()
                 }
             }
         }
