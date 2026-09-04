@@ -370,7 +370,7 @@ struct InterchangesDB {
         .init(name: "Borgolombardo", lines: ["S1", "S12", "132"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 19),
         .init(name: "San Giuliano Milanese", lines: ["S1", "S12", "121"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 20),
         .init(name: "Melegnano", lines: ["S1", "S12", "REG", "z431"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 21),
-        .init(name: "San Zenone Al Lambro", lines: ["S1", "z415", "z418", "z420"], typeOfInterchange: "bus.fill", branch: "Main", lineOrder: 22),
+        .init(name: "San Zenone Al Lambro", lines: ["S1", "z415", "z418", "z420"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 22),
         .init(name: "Tavazzano", lines: ["S1"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 23),
         .init(name: "Lodi", lines: ["S1", "R38", "RE11", "RV"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 24),
 
