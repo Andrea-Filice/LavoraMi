@@ -438,7 +438,7 @@ struct InterchangesDB {
         .init(name: "Canegrate", lines: ["S5", "R21", "z611"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 8),
         .init(name: "Parabiago", lines: ["S5", "R21", "R23", "RE5", "z644"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 9),
         .init(name: "Vanzago Pogliano", lines: ["S5", "RE5"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 10),
-        .init(name: "Rho", lines: ["S5", "S6", "S11", "RV", "431", "433", "z616"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 11),
+        .init(name: "Rho", lines: ["S5", "S6", "S11", "RV", "431", "433", "z601", "z606", "z616", "z618"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 11),
         .init(name: "Rho Fiera Milano", lines: ["S5", "S6", "S11", "R21", "R23", "RE4", "RE5", "AV", "M1", "542", "561"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 12),
         .init(name: "Milano Certosa", lines: ["S5", "S6", "S11", "1", "12", "35", "40", "57"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 13),
         .init(name: "Milano Villapizzone", lines: ["S5", "S6", "S11", "R6", "RE2"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 14),
@@ -549,7 +549,7 @@ struct InterchangesDB {
         .init(name: "Albairate Vermezzo", lines: ["S9", "S19", "R31", "z554"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 21),
 
         /// Suburbano S11
-        .init(name: "Rho", lines: ["S11", "S5", "S6", "RV", "431", "433", "z616"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 0),
+        .init(name: "Rho", lines: ["S11", "S5", "S6", "RV", "431", "433", "z601", "z606", "z616", "z618"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 0),
         .init(name: "Rho Fiera Milano", lines: ["S11", "S5", "S6", "R21", "R23", "RE4", "RE5", "AV", "M1", "542", "561"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 1),
         .init(name: "Milano Certosa", lines: ["S11", "S5", "S6", "1", "12", "35", "40", "57"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 2),
         .init(name: "Milano Villapizzone", lines: ["S11", "S5", "S6", "R6", "RE2"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 3),
