@@ -6361,8 +6361,8 @@ struct LineDetailView: View {
             }
 
             let firstDist = minDist(branchStations.first!)
-            let lastDist  = minDist(branchStations.last!)
-            let oriented  = firstDist <= lastDist ? branchStations : branchStations.reversed()
+            let lastDist = minDist(branchStations.last!)
+            let oriented = firstDist <= lastDist ? branchStations : branchStations.reversed()
 
             let junctionLoc = CLLocation(latitude: oriented.first!.coordinate.latitude, longitude: oriented.first!.coordinate.longitude)
             guard let junction = searchPool.min(by: { a, b in
