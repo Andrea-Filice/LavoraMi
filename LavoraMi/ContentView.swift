@@ -7151,14 +7151,14 @@ struct LineSmallDetailedView: View {
     let viewModel: WorkViewModel
     let timer = Timer.publish(every: 15, on: .main, in: .common).autoconnect()
 
-    private enum LineSmallTab { case works, arrivi }
-    @State private var selectedTab: LineSmallTab = .works
-    
+    fileprivate enum LineSmallTab { case works, arrivi }
+    @State fileprivate var selectedTab: LineSmallTab = .works
+
     private var cdnURL: URL? {
         let upper = lineName.uppercased()
         return URL(string: "https://cdn.lavorami.it/gtfs/\(upper).json")
     }
-    
+
     @State private var routeData: GTFSRoute? = nil
     @State private var isLoading = false
     @State private var errorMessage: String? = nil
@@ -7176,289 +7176,15 @@ struct LineSmallDetailedView: View {
             station.linesToShow.contains(lineName)
         }
     }
-    
+
     var onAppear: (() -> Void)? = nil
 
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                VStack(alignment: .leading, spacing: 20) {
-                    HStack(spacing: 12) {
-                        Text(lineName)
-                            .foregroundStyle(.white)
-                            .font(.system(size: (typeOfTransport == String(localized: .tram)) ? 40 : 30, weight: .bold))
-                            .padding(.vertical, 4)
-                            .padding(.horizontal, 20)
-                            .background(
-                                RoundedRectangle(cornerRadius: 6)
-                                    .fill((typeOfTransport == String(localized: .tram)) ? .orange : getColor(for: lineName))
-                            )
+                headerSection
+                tabBarSection
 
-                        if(typeOfTransport.contains(String(localized: .tram))) {
-                            Text("\(typeOfTransport) \(lineName)")
-                                .font(.system(size: 30))
-                                .minimumScaleFactor(0.5)
-                                .lineLimit(1)
-                        }
-                        else {
-                            Text("\(typeOfTransport)")
-                                .font(.system(size: 25))
-                                .minimumScaleFactor(0.5)
-                                .lineLimit(1)
-                        }
-
-                        Spacer()
-
-                        Button(action: {
-                            if selectedWidgetLine == lineName {
-                                selectedWidgetLine = ""
-                                DataManager.shared.deleteSavedLine()
-                            } else {
-                                DataManager.shared.setSavedLine(SavedLine(
-                                    id: lineName, name: lineName, longName: typeOfTransport,
-                                    iconTransport: getCurrentTransportIcon(for: typeOfTransport),
-                                    worksNow: workNow, worksScheduled: workScheduled
-                                ))
-                                selectedWidgetLine = lineName
-                                if(!alreadySeenPopUp) {
-                                    alreadySeenPopUp = true
-                                    openPopUpWidget = true
-                                }
-                            }
-                        }) {
-                            if #available(iOS 18, *){
-                                Image(systemName: (selectedWidgetLine == lineName) ? "widget.small" : "widget.small.badge.plus")
-                                    .foregroundStyle((selectedWidgetLine == lineName) ? .yellow : .gray)
-                                    .scaleEffect(1.5)
-                            }
-                            else{
-                                Image(systemName: (selectedWidgetLine == lineName) ? "app.badge.checkmark" : "plus.viewfinder")
-                                    .foregroundStyle((selectedWidgetLine == lineName) ? .yellow : .gray)
-                                    .scaleEffect(1.5)
-                            }
-                        }
-                        .alert("Linea attivata", isPresented: $openPopUpWidget) {
-                            Button("OK", role: .cancel) {}
-                        } message: {
-                            Text("Linea impostata per essere vista sul Widget dell'app!")
-                        }
-                        Button(action: {
-                            if(linesSelected.contains(lineName)) {
-                                linesSelected.removeAll { $0 == lineName }
-                            }
-                            else {
-                                if(!alreadySeenPopUpLines){
-                                    alreadySeenPopUpLines = true
-                                    openPopUpLines = true
-                                }
-                                
-                                linesSelected.append(lineName)
-                            }
-                            
-                            if(authManager.isLoggedIn()) {
-                                Task {
-                                    let preferences: UserPreferencesDatas = await authManager.fetchUserPreferences()
-                                    
-                                    if(preferences.enable_your_lines) {
-                                        let res = await authManager.saveDatasToDb(favorites: linesFavorites, yourLines: linesSelected)
-                                        showErrorDBSavePopUp = !res
-                                    }
-                                }
-                            }
-                            else if (!seenPopUpCreateAccount){
-                                seenPopUpCreateAccount = true
-                                showPopUpAccount = true
-                            }
-                        }){
-                            Image(systemName: (linesSelected.contains(lineName)) ? "heart.fill" : "heart")
-                                .foregroundStyle((linesSelected.contains(lineName)) ? Color(red: 1, green: 93 / 255, blue: 162 / 255) : .gray)
-                                .scaleEffect(1.5)
-                        }
-                        .padding(.leading, 10)
-                        .alert("Linea salvata", isPresented: $openPopUpLines) {
-                            Button("OK", role: .cancel){}
-                        } message: {
-                            Text("La linea \(lineName) è stata aggiunta nella sezione \"Le tue linee\"!")
-                        }
-                    }
-
-                    if !accessibilityStatus.isEmpty {
-                        HStack {
-                            Image(systemName: "figure.roll")
-                                .foregroundStyle(.gray)
-                                .scaleEffect(1.5)
-                            Image(systemName: accessibilityStatus == String(localized: .lineaAccessibile)
-                                ? "checkmark.circle.fill"
-                                : (accessibilityStatus == String(localized: .lineaParzialmenteAccessibile)
-                                    ? "exclamationmark.circle.fill"
-                                    : "xmark.circle.fill"))
-                                .foregroundStyle(accessibilityStatus == String(localized: .lineaAccessibile)
-                                    ? .green
-                                    : (accessibilityStatus == String(localized: .lineaParzialmenteAccessibile) ? .yellow : .red))
-                                .scaleEffect(1.5)
-                                .padding(.leading, 5)
-                            Text(accessibilityStatus)
-                                .foregroundColor(.secondary)
-                                .padding(.leading, 5)
-                            Spacer()
-                            Button(action: { openInfoAccessibility = true }) {
-                                Image(systemName: "info.circle.fill").foregroundColor(.gray)
-                            }
-                        }
-                    }
-
-                    Divider()
-
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text("DIREZIONI:")
-                            .font(.caption).foregroundStyle(.secondary).bold()
-                        Text(branches)
-                            .font(.title3).multilineTextAlignment(.leading)
-
-                        if viewModel.linesDeviated.contains(lineName) {
-                            WarningBanner(
-                                text: String(localized: .tramDeviations),
-                                action: {
-                                    let url = getLineDeviationLink(line: lineName, viewModel: viewModel)
-                                    
-                                    if(howToOpenLinks == .inApp) {
-                                        selectedURL = url
-                                    }
-                                    else {
-                                        openURLAction(url)
-                                    }
-                                }
-                            )
-                        }
-                        if(viewModel.lineeSospeseInteramente.contains(lineName)) {
-                            WarningBanner(
-                                text: String(localized: .lineSuspendedUppercased),
-                                action: {
-                                    openInfoLineSuspended = true
-                                }
-                            )
-                        }
-                    }
-
-                    if !waitMinutes.isEmpty {
-                        VStack(alignment: .leading, spacing: 5) {
-                            Text("TEMPO DI ATTESA MEDIO:")
-                                .font(.caption).foregroundStyle(.secondary).bold()
-                            Text(waitMinutes)
-                                .font(.title3).multilineTextAlignment(.leading)
-                        }
-                    } else {
-                        VStack(alignment: .leading, spacing: 5) {
-                            Text("FERMATA DI INTERSCAMBIO:")
-                                .font(.caption).foregroundStyle(.secondary).bold()
-                            if let station = activeInterchange {
-                                Label(station.displayName, systemImage: station.typeOfInterchange)
-                                    .font(.title3).multilineTextAlignment(.leading)
-                                ScrollView(.horizontal, showsIndicators: false) {
-                                    HStack {
-                                        ForEach(station.lines, id: \.self) { line in
-                                            TransportBadge(line: line)
-                                        }
-                                    }
-                                }
-                            } else {
-                                Text("Nessuna fermata di interscambio.").foregroundColor(.secondary)
-                            }
-                        }
-                    }
-
-                    HStack(spacing: 8) {
-                        Image(systemName: "exclamationmark.triangle.fill")
-                            .font(.system(size: 22))
-                            .foregroundColor(.gray)
-                        
-                        VStack(alignment: .leading, spacing: 0) {
-                            if(workNow != 1) {
-                                Text("\(workNow) attuali,")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(.secondary)
-                            }
-                            else {
-                                Text("\(workNow) attuale,")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(.secondary)
-                            }
-                            
-                            if(workScheduled != 1) {
-                                Text("\(workScheduled) programmati.")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(.secondary)
-                            }
-                            else {
-                                Text("\(workScheduled) programmato.")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(.secondary)
-                            }
-                        }
-                    }
-                }
-                .padding()
-                .frame(maxWidth: .infinity)
-                .padding(.top, 20)
-                .background(Color(uiColor: .systemBackground))
-
-                // MARK: - Tab Bar
-                HStack(spacing: 12) {
-                    Button(action: {
-                        if feedbacksEnabled { HapticManager.shared.trigger() }
-                        withAnimation(.snappy) { selectedTab = .works }
-                    }) {
-                        HStack(spacing: 8) {
-                            Image(systemName: "exclamationmark.triangle.fill")
-                                .font(.title3)
-                            
-                            if selectedTab == .works {
-                                Text("Lavori")
-                                    .font(.subheadline)
-                                    .fontWeight(.semibold)
-                                    .lineLimit(1)
-                                    .fixedSize(horizontal: true, vertical: false)
-                            }
-                        }
-                        .frame(maxWidth: selectedTab == .works ? .infinity : 70)
-                        .frame(height: 38)
-                        .background(
-                            Capsule()
-                                .fill(selectedTab == .works ? getColor(for: lineName) : getColor(for: lineName).opacity(0.15))
-                        )
-                        .foregroundStyle(selectedTab == .works ? .white : getColor(for: lineName))
-                    }
-                    if viewModel.linesSupportedGTFS.contains(lineName) {
-                        Button(action: {
-                            if feedbacksEnabled { HapticManager.shared.trigger() }
-                            withAnimation(.snappy) { selectedTab = .arrivi }
-                        }) {
-                            HStack(spacing: 8) {
-                                Image(systemName: "clock.fill")
-                                    .font(.title3)
-                                
-                                if selectedTab == .arrivi {
-                                    Text("Arrivi")
-                                        .font(.subheadline)
-                                        .fontWeight(.semibold)
-                                        .lineLimit(1)
-                                        .fixedSize(horizontal: true, vertical: false)
-                                }
-                            }
-                            .frame(maxWidth: selectedTab == .arrivi ? .infinity : 70)
-                            .frame(height: 38)
-                            .background(
-                                Capsule()
-                                    .fill(selectedTab == .arrivi ? getColor(for: lineName) : getColor(for: lineName).opacity(0.15))
-                            )
-                            .foregroundStyle(selectedTab == .arrivi ? .white : getColor(for: lineName))
-                        }
-                    }
-                }
-                .padding(.horizontal)
-                .padding(.bottom, 8)
-
-                // MARK: - Tab Content
                 if selectedTab == .works {
                     VStack {
                         ScrollView {
@@ -7535,7 +7261,7 @@ struct LineSmallDetailedView: View {
                                         ForEach(Array(departuresByDir.keys).sorted(), id: \.self) { dirId in
                                             let departures = departuresByDir[dirId] ?? []
                                             let headsign = departures.first?.headsign ?? "Direzione \(dirId)"
-                                            
+
                                             let isLastStop = selectedStopName.caseInsensitiveCompare(headsign) == .orderedSame
 
                                             VStack(alignment: .leading, spacing: 0) {
@@ -7543,7 +7269,7 @@ struct LineSmallDetailedView: View {
                                                     Image(systemName: "arrow.forward")
                                                         .font(.caption)
                                                         .foregroundStyle(.secondary)
-                                                
+
                                                     Text(isLastStop ? "PROSSIMI ARRIVI: \(headsign)" : "DIREZIONE: \(headsign.uppercased())")
                                                         .font(.caption)
                                                         .fontWeight(.semibold)
@@ -7562,7 +7288,7 @@ struct LineSmallDetailedView: View {
                                                 } else {
                                                     let first = departures[0]
                                                     let rest = Array(departures.dropFirst().prefix(3))
-                                                    
+
                                                     VStack(alignment: .leading, spacing: 12) {
                                                         HStack(alignment: .center, spacing: 10) {
                                                             Image(systemName: "clock.fill")
@@ -7577,7 +7303,7 @@ struct LineSmallDetailedView: View {
                                                                 .font(.system(size: 15, weight: .medium))
                                                                 .foregroundStyle(.secondary)
                                                         }
-                                                        
+
                                                         Text("Il bus può fare un ritardo dai 3 ai 5 minuti, questo è l'orario programmato.")
                                                             .font(.system(size: 10, weight: .medium))
                                                             .foregroundStyle(.secondary)
@@ -7618,7 +7344,7 @@ struct LineSmallDetailedView: View {
                                     Image(systemName: "clock.badge.questionmark.fill")
                                         .font(.system(size: 44))
                                         .foregroundStyle(.secondary)
-                                    
+
                                     Text("Nessuna corsa prevista per oggi.")
                                         .font(.system(size: 16, weight: .bold))
                                         .foregroundStyle(.primary)
@@ -7667,7 +7393,7 @@ struct LineSmallDetailedView: View {
             .alert("Errore di connessione", isPresented: $showErrorDBSavePopUp) {
                 Button("Chiudi", role: .cancel) { }
             } message: {
-                Text("Si è verificato un errore di connessione durante il salvataggio. Controlla la tua connessione ad Internet.")
+                Text("Si è verificato un errore di connessione durante il salvataggio. Controlla la tua connessione ad Internet.")
             }
             .alert("Salva le tue linee", isPresented: $showPopUpAccount) {
                 Button("Chiudi", role: .cancel) { }
@@ -7684,7 +7410,7 @@ struct LineSmallDetailedView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
     }
-    
+
     private func sortedStops(route: GTFSRoute) -> [(id: String, name: String)] {
         route.stops.map { ($0.key, $0.value.n) }.sorted { $0.name < $1.name }
     }
@@ -7710,7 +7436,7 @@ struct LineSmallDetailedView: View {
             }
         }
     }
-    
+
     private func startAnimation() {
         withAnimation(.easeIn(duration: 0.15).delay(1.05)) {
             opacity = 0.5
@@ -7721,6 +7447,289 @@ struct LineSmallDetailedView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             startAnimation()
         }
+    }
+}
+
+extension LineSmallDetailedView {
+    @ViewBuilder
+    fileprivate var headerSection: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            HStack(spacing: 12) {
+                Text(lineName)
+                    .foregroundStyle(.white)
+                    .font(.system(size: (typeOfTransport == String(localized: .tram)) ? 40 : 30, weight: .bold))
+                    .padding(.vertical, 4)
+                    .padding(.horizontal, 20)
+                    .background(
+                        RoundedRectangle(cornerRadius: 6)
+                            .fill((typeOfTransport == String(localized: .tram)) ? .orange : getColor(for: lineName))
+                    )
+
+                if(typeOfTransport.contains(String(localized: .tram))) {
+                    Text("\(typeOfTransport) \(lineName)")
+                        .font(.system(size: 30))
+                        .minimumScaleFactor(0.5)
+                        .lineLimit(1)
+                }
+                else {
+                    Text("\(typeOfTransport)")
+                        .font(.system(size: 25))
+                        .minimumScaleFactor(0.5)
+                        .lineLimit(1)
+                }
+
+                Spacer()
+
+                Button(action: {
+                    if selectedWidgetLine == lineName {
+                        selectedWidgetLine = ""
+                        DataManager.shared.deleteSavedLine()
+                    } else {
+                        DataManager.shared.setSavedLine(SavedLine(
+                            id: lineName, name: lineName, longName: typeOfTransport,
+                            iconTransport: getCurrentTransportIcon(for: typeOfTransport),
+                            worksNow: workNow, worksScheduled: workScheduled
+                        ))
+                        selectedWidgetLine = lineName
+                        if(!alreadySeenPopUp) {
+                            alreadySeenPopUp = true
+                            openPopUpWidget = true
+                        }
+                    }
+                }) {
+                    if #available(iOS 18, *){
+                        Image(systemName: (selectedWidgetLine == lineName) ? "widget.small" : "widget.small.badge.plus")
+                            .foregroundStyle((selectedWidgetLine == lineName) ? .yellow : .gray)
+                            .scaleEffect(1.5)
+                    }
+                    else{
+                        Image(systemName: (selectedWidgetLine == lineName) ? "app.badge.checkmark" : "plus.viewfinder")
+                            .foregroundStyle((selectedWidgetLine == lineName) ? .yellow : .gray)
+                            .scaleEffect(1.5)
+                    }
+                }
+                .alert("Linea attivata", isPresented: $openPopUpWidget) {
+                    Button("OK", role: .cancel) {}
+                } message: {
+                    Text("Linea impostata per essere vista sul Widget dell'app!")
+                }
+                Button(action: {
+                    if(linesSelected.contains(lineName)) {
+                        linesSelected.removeAll { $0 == lineName }
+                    }
+                    else {
+                        if(!alreadySeenPopUpLines){
+                            alreadySeenPopUpLines = true
+                            openPopUpLines = true
+                        }
+
+                        linesSelected.append(lineName)
+                    }
+
+                    if(authManager.isLoggedIn()) {
+                        Task {
+                            let preferences: UserPreferencesDatas = await authManager.fetchUserPreferences()
+
+                            if(preferences.enable_your_lines) {
+                                let res = await authManager.saveDatasToDb(favorites: linesFavorites, yourLines: linesSelected)
+                                showErrorDBSavePopUp = !res
+                            }
+                        }
+                    }
+                    else if (!seenPopUpCreateAccount){
+                        seenPopUpCreateAccount = true
+                        showPopUpAccount = true
+                    }
+                }){
+                    Image(systemName: (linesSelected.contains(lineName)) ? "heart.fill" : "heart")
+                        .foregroundStyle((linesSelected.contains(lineName)) ? Color(red: 1, green: 93 / 255, blue: 162 / 255) : .gray)
+                        .scaleEffect(1.5)
+                }
+                .padding(.leading, 10)
+                .alert("Linea salvata", isPresented: $openPopUpLines) {
+                    Button("OK", role: .cancel){}
+                } message: {
+                    Text("La linea \(lineName) è stata aggiunta nella sezione \"Le tue linee\"!")
+                }
+            }
+
+            if !accessibilityStatus.isEmpty {
+                HStack {
+                    Image(systemName: "figure.roll")
+                        .foregroundStyle(.gray)
+                        .scaleEffect(1.5)
+                    Image(systemName: accessibilityStatus == String(localized: .lineaAccessibile)
+                        ? "checkmark.circle.fill"
+                        : (accessibilityStatus == String(localized: .lineaParzialmenteAccessibile)
+                            ? "exclamationmark.circle.fill"
+                            : "xmark.circle.fill"))
+                        .foregroundStyle(accessibilityStatus == String(localized: .lineaAccessibile)
+                            ? .green
+                            : (accessibilityStatus == String(localized: .lineaParzialmenteAccessibile) ? .yellow : .red))
+                        .scaleEffect(1.5)
+                        .padding(.leading, 5)
+                    Text(accessibilityStatus)
+                        .foregroundColor(.secondary)
+                        .padding(.leading, 5)
+                    Spacer()
+                    Button(action: { openInfoAccessibility = true }) {
+                        Image(systemName: "info.circle.fill").foregroundColor(.gray)
+                    }
+                }
+            }
+
+            Divider()
+
+            VStack(alignment: .leading, spacing: 5) {
+                Text("DIREZIONI:")
+                    .font(.caption).foregroundStyle(.secondary).bold()
+                Text(branches)
+                    .font(.title3).multilineTextAlignment(.leading)
+
+                if viewModel.linesDeviated.contains(lineName) {
+                    WarningBanner(
+                        text: String(localized: .tramDeviations),
+                        action: {
+                            let url = getLineDeviationLink(line: lineName, viewModel: viewModel)
+
+                            if(howToOpenLinks == .inApp) {
+                                selectedURL = url
+                            }
+                            else {
+                                openURLAction(url)
+                            }
+                        }
+                    )
+                }
+                if(viewModel.lineeSospeseInteramente.contains(lineName)) {
+                    WarningBanner(
+                        text: String(localized: .lineSuspendedUppercased),
+                        action: {
+                            openInfoLineSuspended = true
+                        }
+                    )
+                }
+            }
+
+            if !waitMinutes.isEmpty {
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("TEMPO DI ATTESA MEDIO:")
+                        .font(.caption).foregroundStyle(.secondary).bold()
+                    Text(waitMinutes)
+                        .font(.title3).multilineTextAlignment(.leading)
+                }
+            } else {
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("FERMATA DI INTERSCAMBIO:")
+                        .font(.caption).foregroundStyle(.secondary).bold()
+                    if let station = activeInterchange {
+                        Label(station.displayName, systemImage: station.typeOfInterchange)
+                            .font(.title3).multilineTextAlignment(.leading)
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(station.lines, id: \.self) { line in
+                                    TransportBadge(line: line)
+                                }
+                            }
+                        }
+                    } else {
+                        Text("Nessuna fermata di interscambio.").foregroundColor(.secondary)
+                    }
+                }
+            }
+
+            HStack(spacing: 8) {
+                Image(systemName: "exclamationmark.triangle.fill")
+                    .font(.system(size: 22))
+                    .foregroundColor(.gray)
+
+                VStack(alignment: .leading, spacing: 0) {
+                    if(workNow != 1) {
+                        Text("\(workNow) attuali,")
+                            .font(.system(size: 14))
+                            .foregroundColor(.secondary)
+                    }
+                    else {
+                        Text("\(workNow) attuale,")
+                            .font(.system(size: 14))
+                            .foregroundColor(.secondary)
+                    }
+
+                    if(workScheduled != 1) {
+                        Text("\(workScheduled) programmati.")
+                            .font(.system(size: 14))
+                            .foregroundColor(.secondary)
+                    }
+                    else {
+                        Text("\(workScheduled) programmato.")
+                            .font(.system(size: 14))
+                            .foregroundColor(.secondary)
+                    }
+                }
+            }
+        }
+        .padding()
+        .frame(maxWidth: .infinity)
+        .padding(.top, 20)
+        .background(Color(uiColor: .systemBackground))
+    }
+
+    @ViewBuilder
+    fileprivate var tabBarSection: some View {
+        HStack(spacing: 12) {
+            Button(action: {
+                if feedbacksEnabled { HapticManager.shared.trigger() }
+                withAnimation(.snappy) { selectedTab = .works }
+            }) {
+                HStack(spacing: 8) {
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .font(.title3)
+
+                    if selectedTab == .works {
+                        Text("Lavori")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .lineLimit(1)
+                            .fixedSize(horizontal: true, vertical: false)
+                    }
+                }
+                .frame(maxWidth: selectedTab == .works ? .infinity : 70)
+                .frame(height: 38)
+                .background(
+                    Capsule()
+                        .fill(selectedTab == .works ? getColor(for: lineName) : getColor(for: lineName).opacity(0.15))
+                )
+                .foregroundStyle(selectedTab == .works ? .white : getColor(for: lineName))
+            }
+            if viewModel.linesSupportedGTFS.contains(lineName) {
+                Button(action: {
+                    if feedbacksEnabled { HapticManager.shared.trigger() }
+                    withAnimation(.snappy) { selectedTab = .arrivi }
+                }) {
+                    HStack(spacing: 8) {
+                        Image(systemName: "clock.fill")
+                            .font(.title3)
+
+                        if selectedTab == .arrivi {
+                            Text("Arrivi")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                                .lineLimit(1)
+                                .fixedSize(horizontal: true, vertical: false)
+                        }
+                    }
+                    .frame(maxWidth: selectedTab == .arrivi ? .infinity : 70)
+                    .frame(height: 38)
+                    .background(
+                        Capsule()
+                            .fill(selectedTab == .arrivi ? getColor(for: lineName) : getColor(for: lineName).opacity(0.15))
+                    )
+                    .foregroundStyle(selectedTab == .arrivi ? .white : getColor(for: lineName))
+                }
+            }
+        }
+        .padding(.horizontal)
+        .padding(.bottom, 8)
     }
 }
 
