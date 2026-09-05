@@ -5445,7 +5445,7 @@ struct LinesView: View {
             LineInfo(name: "z233", branches: "Triuggio - Albiate - Seregno FS", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z234", branches: "Vedano - Lissone - Muggiò", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z238", branches: "Lissone FS - Monza Polo Istituzionale", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z242", branches: "Desio - Seregno FS - Renate", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z242", branches: "Desio - Seregno FS - Monticello", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z250", branches: "Lissone FS - Cesano FN - Limbiate", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z251", branches: "Desio FS - Limbiate - Cesano FN", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: "")
         ]
