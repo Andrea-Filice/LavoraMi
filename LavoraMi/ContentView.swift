@@ -5431,22 +5431,22 @@ struct LinesView: View {
             LineInfo(name: "z432", branches: "Melegnano FS - Vizzolo Ospedale", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
 
             LineInfo(name: "z203", branches: "Muggiò - Monza FS - Cologno Nord M2", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z205", branches: "Limbiate Mombello - Varedo - Monza FS", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z205", branches: "Limbiate - Varedo - Monza FS", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z209", branches: "Cesano FN - Desio - Lissone", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z219", branches: "Monza FS - Muggiò - Paderno Dugnano", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z221", branches: "Sesto S.G. - Monza FS - Carate", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z222", branches: "Monza FS - S.Fruttuoso - Sesto S.G.", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z221", branches: "Sesto S.G. - Monza FS - Mariano", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z222", branches: "Monza FS - Cinisello B. - Sesto S.G.", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z225", branches: "Sesto S.G. - Cinisello B. - Nova M.se", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z227", branches: "Monza H/Lissone FS - Muggiò - Cinisello", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z227", branches: "Monza H/Lissone FS - Muggiò - Sesto S.G.", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z228", branches: "Seregno FS - Lissone - Monza FS", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z229", branches: "Paderno ITC - Cusano - Cinisello B.", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z231", branches: "Carate - Giussano - Seregno FS - Desio", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z232", branches: "Desio - Seregno - Carate - Besana FS", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z233", branches: "Triuggio - Albiate - Seregno FS", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z234", branches: "Vedano al L. - Lissone - Muggiò", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z234", branches: "Vedano - Lissone - Muggiò", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z242", branches: "Desio - Seregno FS - Renate", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z250", branches: "Lissone FS - Desio FS - Cesano FN", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z251", branches: "Desio FS - Bovisio M. - Limbiate - Cesano FN", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: "")
+            LineInfo(name: "z250", branches: "Lissone FS - Cesano FN - Limbiate", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z251", branches: "Desio FS - Limbiate - Cesano FN", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: "")
         ]
     }
     
