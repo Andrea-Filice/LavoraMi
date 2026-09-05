@@ -5417,7 +5417,6 @@ struct LinesView: View {
             LineInfo(name: "z403", branches: "Gorgonzola M2 - Melzo (Circolare)", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z404", branches: "Melzo FS - Inzago - Gessate M2", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z405", branches: "Gessate M2 - Cassano d'Adda - Treviglio", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z406", branches: "Trecella FS - Bellinzago - Gessate M2", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z407", branches: "Gorgonzola M2 - Truccazzano", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z409", branches: "Rodano - S. Felice - Linate Aereoporto", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z410", branches: "Pantigliate - Peschiera - S.Donato M3", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
