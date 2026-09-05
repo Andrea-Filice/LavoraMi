@@ -5925,7 +5925,7 @@ struct LinesView: View {
                             .padding(.bottom, 4)
                             Spacer()
                             Button(action: {
-                                let url = URL(string: "https://www.nordesttrasporti.it/media/2508/linee-net_area-nord-est-provincia-mi_nov2025.jpg")!
+                                let url = URL(string: "https://www.nordesttrasporti.it/percorsi-e-orari/")!
                                 if howToOpenLinks == .inApp {
                                     selectedURL = url
                                 } else {
