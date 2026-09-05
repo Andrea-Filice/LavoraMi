@@ -5421,7 +5421,7 @@ struct LinesView: View {
             LineInfo(name: "z409", branches: "Rodano - S. Felice - Linate Aereoporto", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z410", branches: "Pantigliate - Peschiera - S.Donato M3", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z411", branches: "Melzo FS - Settala - Pantigliate - S.Donato M3", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z412", branches: "Zelo B.P. - Paullo - S.Donato M3", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z412", branches: "Paullo - Peschiera - S.Donato M3", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z413", branches: "Tribiano - S.Donato M3", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z415", branches: "Melegnano - Dresano - S.Donato M3", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z418", branches: "S.Zenone FS - Casalmaiocco", type: "Autoguidovie", waitMinutes: "", stations: [], accessibilityStatus: ""),
