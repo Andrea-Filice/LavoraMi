@@ -5402,10 +5402,10 @@ struct LinesView: View {
             LineInfo(name: "z552", branches: "Abbiategrasso Vittorio Veneto - S. Stefano Ticino", type: "STAV", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z553", branches: "Abbiategrasso - Rosate - Milano Romolo", type: "STAV", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z554", branches: "Albairate - Albairate Vermezzo FS - Bubbiano", type: "STAV", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z555", branches: "Abbiategrasso Vittorio Veneto - Binasco / Rosate", type: "STAV", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z555", branches: "Abbiategrasso Vittorio Veneto - Binasco/Rosate", type: "STAV", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z556", branches: "Abbiategrasso FS - Motta Visconti", type: "STAV", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z557", branches: "Gaggiano De Gasperi - Gaggiano FS - San Vito", type: "STAV", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z559", branches: "Abbiategrasso Stazione FS - Magenta FS", type: "STAV", waitMinutes: "", stations: [], accessibilityStatus: ""),
+            LineInfo(name: "z559", branches: "Abbiategrasso FS - Magenta FS", type: "STAV", waitMinutes: "", stations: [], accessibilityStatus: ""),
             LineInfo(name: "z560", branches: "Abbiategrasso FS - Corsico - Bisceglie M1", type: "STAV", waitMinutes: "", stations: [], accessibilityStatus: "")
         ]
     }
