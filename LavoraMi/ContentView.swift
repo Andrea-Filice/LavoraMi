@@ -609,38 +609,7 @@ struct MainView: View {
 
     var body: some View {
         NavigationStack{
-            VStack(spacing: 0) {
-                HStack {
-                    Text("Lavori in corso")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                    Spacer()
-                    Button(action: {
-                        viewModel.isLoading = true
-                        viewModel.fetchWorks()
-                        viewModel.fetchVariables()
-                        viewModel.fetchMetroStatus()
-                        viewModel.fetchRequirements{
-                            showMaintenanceMode = viewModel.maintenanceModeEnabled
-                        }
-                    }) {
-                        if(viewModel.isLoading){
-                            ProgressView()
-                                .progressViewStyle(CircularProgressViewStyle())
-                                .scaleEffect(1.0)
-                                .tint(.red)
-                        }
-                        else{
-                            Image(systemName: "arrow.clockwise")
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                        }
-                    }
-                }
-                .padding(.horizontal)
-                .padding(.top, 57)
-                .padding(.bottom, 5)
-            }
+            MainHeaderView(viewModel: viewModel, showMaintenanceMode: $showMaintenanceMode)
             HStack {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.gray)
@@ -1220,6 +1189,50 @@ struct MainView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + pulse.delay) {
                 generator.impactOccurred(intensity: pulse.intensity)
             }
+        }
+    }
+}
+
+struct MainHeaderView: View {
+    @ObservedObject var viewModel: WorkViewModel
+    @Binding var showMaintenanceMode: Bool
+
+    var body: some View {
+        HStack {
+            Text("Lavori in corso")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+            Spacer()
+            Button(action: refresh) {
+                refreshIcon
+            }
+        }
+        .padding(.horizontal)
+        .padding(.top, 57)
+        .padding(.bottom, 5)
+    }
+
+    @ViewBuilder
+    private var refreshIcon: some View {
+        if viewModel.isLoading {
+            ProgressView()
+                .progressViewStyle(CircularProgressViewStyle())
+                .scaleEffect(1.0)
+                .tint(.red)
+        } else {
+            Image(systemName: "arrow.clockwise")
+                .font(.title2)
+                .fontWeight(.semibold)
+        }
+    }
+
+    private func refresh() {
+        viewModel.isLoading = true
+        viewModel.fetchWorks()
+        viewModel.fetchVariables()
+        viewModel.fetchMetroStatus()
+        viewModel.fetchRequirements {
+            showMaintenanceMode = viewModel.maintenanceModeEnabled
         }
     }
 }
