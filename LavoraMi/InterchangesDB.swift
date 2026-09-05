@@ -1432,7 +1432,7 @@ struct InterchangesDB {
         .init(displayName: "Sesto San Giovanni FS M1", lines: ["M1", "NM1", "S7", "S8", "S9", "S11","R13", "R14", "RE8", "700", "702", "712", "727", "729", "z221", "z222", "z225", "z227", "z301"], typeOfInterchange: "train.side.front.car", linesToShow: ["z225", "z227", "z301"]),
         .init(displayName: "Seregno FS", lines: ["S9", "S11", "R15", "RE80", "z228", "z231", "z232", "z233", "z242"], typeOfInterchange: "train.side.front.car", linesToShow: ["z231", "z232", "z233"]),
         .init(displayName: "Milano Famagosta M2", lines: ["M2", "NM2", "46", "59", "71", "74", "95", "98", "z501", "z509", "z510", "z515", "z516"], typeOfInterchange: "tram.fill.tunnel", linesToShow: ["z501", "z509", "z510", "z515", "z516"]),
-        .init(displayName: "Lissone - Muggiò FS", lines: ["S9", "S11", "z227", "z234", "z250"], typeOfInterchange: "train.side.front.car", linesToShow: ["z227", "z234"]),
+        .init(displayName: "Lissone - Muggiò FS", lines: ["S9", "S11", "z227", "z234", "z238", "z250"], typeOfInterchange: "train.side.front.car", linesToShow: ["z227", "z234", "z238"]),
         .init(displayName: "Cologno Nord M2", lines: ["M2", "701", "702", "707", "z203", "z304", "z305", "z307", "z322", "z323"], typeOfInterchange: "tram.fill.tunnel", linesToShow: ["z304", "z305", "z307", "z322", "z323"]),
         .init(displayName: "Cassano D'Adda FS", lines: ["S5", "S6", "R4", "z309", "z405", "z407"], typeOfInterchange: "train.side.front.car", linesToShow: ["z309"]),
         .init(displayName: "Arcore FS", lines: ["S8", "R13", "R14", "RE8", "z208", "z317", "z319"], typeOfInterchange: "train.side.front.car", linesToShow: ["z317", "z319"]),
