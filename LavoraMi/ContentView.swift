@@ -1130,6 +1130,9 @@ struct MainView: View {
                     adMobManager.loadNativeAds(adUnitID: adUnitID)
                 }
             }
+            .onReceive(NotificationCenter.default.publisher(for: .openTrainFilter)) { notification in
+                selectedFilter = .train
+            }
             .refreshable {
                 viewModel.fetchWorks()
                 viewModel.fetchVariables()
@@ -8697,7 +8700,8 @@ func getIconForFilter(for filterName: String) -> String{
 // MARK: DEEP LINK
 extension Notification.Name {
     static let openLetueLinkInfo = Notification.Name("openLetueLinkInfo")
-    static let openLineDetailFromWidget = Notification.Name("openLineDetailFromWidget") // nuovo
+    static let openLineDetailFromWidget = Notification.Name("openLineDetailFromWidget")
+    static let openTrainFilter = Notification.Name("openTrainFilter")
 }
 
 //EXTENSION: Save files also with arrays

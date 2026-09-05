@@ -136,6 +136,10 @@ struct SplashScreenView: View {
             else { return }
             NotificationCenter.default.post(name: .openLineDetailFromWidget, object: nome)
         }
+        
+        if url.host == "train" {
+            NotificationCenter.default.post(name: .openTrainFilter, object: nil)
+        }
     }
 }
 
