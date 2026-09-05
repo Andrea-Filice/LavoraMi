@@ -199,7 +199,7 @@ struct InterchangesDB {
         /// Metro M1
         .init(name: "Sesto 1° Maggio FS", lines: ["M1", "NM1", "S7", "S8", "S9", "S11", "R13", "R14", "RE8", "700", "702", "712", "727", "729", "z221", "z222", "z225", "z227", "z301"], typeOfInterchange: "tram.fill.tunnel", branch: "Main", lineOrder: 19),
         .init(name: "Sesto Rondò", lines: ["M1", "NM1", "700", "701", "708", "713"], typeOfInterchange: "tram.fill.tunnel", branch: "Main", lineOrder: 18),
-        .init(name: "Sesto Marelli", lines: ["M1", "NM1", "51", "81", "87"], typeOfInterchange: "tram.fill.tunnel", branch: "Main", lineOrder: 17),
+        .init(name: "Sesto Marelli", lines: ["M1", "NM1", "51", "53", "81", "87", "700"], typeOfInterchange: "tram.fill.tunnel", branch: "Main", lineOrder: 17),
         .init(name: "Villa S. Giovanni", lines: ["M1", "NM1", "51", "81", "87"], typeOfInterchange: "tram.fill.tunnel", branch: "Main", lineOrder: 16),
         .init(name: "Precotto", lines: ["M1", "NM1", "7", "51", "86", "174"], typeOfInterchange: "tram.fill.tunnel", branch: "Main", lineOrder: 15),
         .init(name: "Gorla", lines: ["M1", "NM1", "44", "174"], typeOfInterchange: "tram.fill.tunnel", branch: "Main", lineOrder: 14),
