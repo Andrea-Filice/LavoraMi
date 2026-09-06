@@ -5012,13 +5012,11 @@ struct LineRow: View {
     let waitMinutes: String
     let accessibilityStatus: String
     let stations: [MetroStation]
-    @State private var supportedLines: [String] = ["1", "2", "3", "4", "5", "7", "9", "10", "12", "14", "15", "16", "19", "24", "27", "31", "33"]
     @ObservedObject var viewModel: WorkViewModel
     var onTap: (() -> Void)? = nil
 
     private var isDetailView: Bool {
-        (typeOfTransport != String(localized: .tram) || supportedLines.contains(line))
-        && typeOfTransport != "Movibus"
+        typeOfTransport != "Movibus"
         && typeOfTransport != "STAV"
         && typeOfTransport != "NET"
         && typeOfTransport != "Autoguidovie"
@@ -6222,7 +6220,6 @@ struct LineDetailView: View {
     @State private var openInfoLineSuspended: Bool = false
     @State private var openPopUpInfoStatus: Bool = false
     @State private var selectedBranch: String? = nil
-    @State private var tramLinesSupported: [String] = ["1", "2", "3", "4", "5", "7", "9", "10", "12", "14", "15", "16", "19", "24", "27", "31", "33"]
     @State private var linesWithBlackText: [String] = ["M3", "M5", "S5", "S6", "S8", "S11", "S12"]
     @State private var showPopUpAccount: Bool = false
     
@@ -6920,8 +6917,8 @@ extension LineDetailView {
                     MKCoordinateRegion(
                         center: centerCoordinate,
                         span: MKCoordinateSpan(
-                            latitudeDelta: (tramLinesSupported.contains(lineName) || typeOfTransport.contains(String(localized: .filobus))) ? 0.02 : ((lineName.starts(with: "M")) ? 0.045 : 0.14),
-                            longitudeDelta: (tramLinesSupported.contains(lineName) || typeOfTransport.contains(String(localized: .filobus))) ? 0.02 : ((lineName.starts(with: "M")) ? 0.045 : 0.145)
+                            latitudeDelta: (typeOfTransport.contains(String(localized: .tram)) || typeOfTransport.contains(String(localized: .filobus))) ? 0.02 : ((lineName.starts(with: "M")) ? 0.045 : 0.14),
+                            longitudeDelta: (typeOfTransport.contains(String(localized: .tram)) || typeOfTransport.contains(String(localized: .filobus))) ? 0.02 : ((lineName.starts(with: "M")) ? 0.045 : 0.145)
                         )
                     )
                 ),
@@ -8565,7 +8562,6 @@ struct DeepLinkLine: Identifiable {
 struct DeepLinkLineDetailWrapper: View {
     let lineName: String
     @ObservedObject var viewModel: WorkViewModel
-    @State private var supportedLines: [String] = ["1", "2", "3", "4", "5", "7", "9", "10", "12", "14", "15", "16", "19", "24", "27", "31", "33"]
     @Environment(\.dismiss) private var dismiss
 
     private var lineInfo: LineInfo? {
@@ -8585,8 +8581,7 @@ struct DeepLinkLineDetailWrapper: View {
                     viewModel: viewModel,
                     stations: info.stations,
                     accessibilityStatus: info.accessibilityStatus,
-                    isDetailed: (info.type != String(localized: .tram) || supportedLines.contains(info.name))
-                    && info.type != "Movibus"
+                    isDetailed: info.type != "Movibus"
                     && info.type != "STAV"
                     && info.type != "NET"
                     && info.type != "Autoguidovie"
