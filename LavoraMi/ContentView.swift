@@ -5012,7 +5012,7 @@ struct LineRow: View {
     let waitMinutes: String
     let accessibilityStatus: String
     let stations: [MetroStation]
-    @State private var supportedLines: [String] = ["1", "2", "3", "4", "5", "7", "9", "10", "14", "15", "16", "19", "24", "27", "31", "33"]
+    @State private var supportedLines: [String] = ["1", "2", "3", "4", "5", "7", "9", "10", "12", "14", "15", "16", "19", "24", "27", "31", "33"]
     @ObservedObject var viewModel: WorkViewModel
     var onTap: (() -> Void)? = nil
 
@@ -5314,7 +5314,7 @@ struct LinesView: View {
             LineInfo(name: "7", branches: "P.Le Lagosta - Q.Re Adriano", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram7, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "9", branches: "Centrale FS M2 M3 - P.Ta Genova M2", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram9, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "10", branches: "P.Za 24 Maggio - V.Le Lunigiana", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram10, accessibilityStatus: String(localized: .lineaNonAccessibile)),
-            LineInfo(name: "12", branches: "P.Za Ovidio - Roserio (Ospedale Sacco)", type: String(localized: .tram), waitMinutes: "5-20 min", stations: [], accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
+            LineInfo(name: "12", branches: "P.Za Ovidio - Roserio (Ospedale Sacco)", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram12, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "14", branches: "Lorenteggio - Cimitero Maggiore", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram14, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "15", branches: "Duomo M1 M3 - Rozzano (Via G. Rossa)", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram15, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "16", branches: "San Siro Stadio M5 - Via Monte Velino", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram16, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
@@ -6222,7 +6222,7 @@ struct LineDetailView: View {
     @State private var openInfoLineSuspended: Bool = false
     @State private var openPopUpInfoStatus: Bool = false
     @State private var selectedBranch: String? = nil
-    @State private var tramLinesSupported: [String] = ["1", "2", "3", "4", "5", "7", "9", "10", "14", "15", "16", "19", "24", "27", "31", "33"]
+    @State private var tramLinesSupported: [String] = ["1", "2", "3", "4", "5", "7", "9", "10", "12", "14", "15", "16", "19", "24", "27", "31", "33"]
     @State private var linesWithBlackText: [String] = ["M3", "M5", "S5", "S6", "S8", "S11", "S12"]
     @State private var showPopUpAccount: Bool = false
     
@@ -8565,7 +8565,7 @@ struct DeepLinkLine: Identifiable {
 struct DeepLinkLineDetailWrapper: View {
     let lineName: String
     @ObservedObject var viewModel: WorkViewModel
-    @State private var supportedLines: [String] = ["1", "2", "3", "4", "5", "7", "9", "10", "14", "15", "16", "19", "24", "27", "31", "33"]
+    @State private var supportedLines: [String] = ["1", "2", "3", "4", "5", "7", "9", "10", "12", "14", "15", "16", "19", "24", "27", "31", "33"]
     @Environment(\.dismiss) private var dismiss
 
     private var lineInfo: LineInfo? {
