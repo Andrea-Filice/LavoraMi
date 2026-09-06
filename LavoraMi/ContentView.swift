@@ -6495,6 +6495,7 @@ extension LineDetailView {
                         .font(.system(size: 40, weight: .bold))
                         .padding(.vertical, 4)
                         .padding(.horizontal, 15)
+                        .fixedSize()
                         .background(
                             RoundedRectangle(cornerRadius: 6)
                                 .fill((typeOfTransport == String(localized: .tram)) ? .orange : getColor(for: lineName))
