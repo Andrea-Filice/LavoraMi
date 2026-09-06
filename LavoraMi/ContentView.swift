@@ -5319,8 +5319,8 @@ struct LinesView: View {
             LineInfo(name: "15", branches: "Duomo M1 M3 - Rozzano (Via G. Rossa)", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram15, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "16", branches: "San Siro Stadio M5 - Via Monte Velino", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram16, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "19", branches: "P.Za Castelli - Lambrate FS M2", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram19, accessibilityStatus: String(localized: .lineaNonAccessibile)),
-            LineInfo(name: "24", branches: "Piazza Fontana - Vigentino", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram24, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
-            LineInfo(name: "27", branches: "V.Le Ungheria - Piazza Fontana", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram27, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
+            LineInfo(name: "24", branches: "P.Za Fontana - Vigentino", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram24, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
+            LineInfo(name: "27", branches: "V.Le Ungheria - P.Za Fontana", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram27, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "31", branches: "Bicocca M5 - Cinisello (1° Maggio)", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram31, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "33", branches: "P.Le Lagosta - Rimembranze di Lambrate", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram33, accessibilityStatus: String(localized: .lineaNonAccessibile)),
         ]
