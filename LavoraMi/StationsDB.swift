@@ -2594,7 +2594,7 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.4842, longitude: 9.19138), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.48386, longitude: 9.18944), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.48408, longitude: 9.18822), branch: "Main"),
-        .init(name: "Milano Porta Garibaldi", coordinate: .init(latitude: 45.48449, longitude: 9.18737), branch: "Main")
+        .init(name: "Milano Porta Garibaldi", coordinate: .init(latitude: 45.48449, longitude: 9.18737), branch: "Main"),
         .init(name: "Milano Villapizzone", coordinate: .init(latitude: 45.50202, longitude: 9.15092), branch: "Main"),
         .init(name: "Milano Certosa", coordinate: .init(latitude: 45.50683, longitude: 9.13593), branch: "Main"),
         .init(name: "Rho FieraMilano", coordinate: .init(latitude: 45.52113, longitude: 9.0885), branch: "Main"),
