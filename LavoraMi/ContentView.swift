@@ -5306,15 +5306,15 @@ struct LinesView: View {
     
     var trams: [LineInfo] {
         [
-            LineInfo(name: "1", branches: "Roserio - Greco", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram1, accessibilityStatus: String(localized: .lineaNonAccessibile)),
+            LineInfo(name: "1", branches: "Roserio (Ospedale Sacco) - Greco", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram1, accessibilityStatus: String(localized: .lineaNonAccessibile)),
             LineInfo(name: "2", branches: "P.Le Negrelli - P.Za Bausan", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram2, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "3", branches: "Duomo M1 M3 - Gratosoglio", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram3, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "4", branches: "Cairoli M1 - Niguarda (Parco Nord)", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram4, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
-            LineInfo(name: "5", branches: "Niguarda (Ospedale) - Ortica", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram5, accessibilityStatus: String(localized: .lineaNonAccessibile)),
+            LineInfo(name: "5", branches: "Niguarda Ospedale - Ortica", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram5, accessibilityStatus: String(localized: .lineaNonAccessibile)),
             LineInfo(name: "7", branches: "P.Le Lagosta - Q.Re Adriano", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram7, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "9", branches: "Centrale FS M2 M3 - P.Ta Genova M2", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram9, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
-            LineInfo(name: "10", branches: "P.Za 24 Maggio - V.Le Lunigiana", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram10, accessibilityStatus: String(localized: .lineaNonAccessibile)),
-            LineInfo(name: "12", branches: "P.Za Ovidio - Roserio (Ospedale Sacco)", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram12, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
+            LineInfo(name: "10", branches: "P.Za XXIV Maggio - V.Le Lunigiana", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram10, accessibilityStatus: String(localized: .lineaNonAccessibile)),
+            LineInfo(name: "12", branches: "V.Le Molise - Roserio (Ospedale Sacco)", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram12, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "14", branches: "Lorenteggio - Cimitero Maggiore", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram14, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "15", branches: "Duomo M1 M3 - Rozzano (Via G. Rossa)", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram15, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
             LineInfo(name: "16", branches: "San Siro Stadio M5 - Via Monte Velino", type: String(localized: .tram), waitMinutes: "5-20 min", stations: StationsDB.tram16, accessibilityStatus: String(localized: .lineaParzialmenteAccessibile)),
