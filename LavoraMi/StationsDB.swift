@@ -1357,9 +1357,7 @@ struct StationsDB {
         .init(name: "Vittuone - Arluno", coordinate: .init(latitude: 45.49093, longitude: 8.94733), branch: "Main"),
         .init(name: "Pregana Milanese", coordinate: .init(latitude: 45.51011, longitude: 9.00279), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.51851, longitude: 9.02764), branch: "Main"),
-        .init(name: "Rho", coordinate: .init(latitude: 45.52411, longitude: 9.04355), branch: "Main")
-        /* MODIFICHE CIRCOLAZIONE: La tratta S6 è limitata da Novara a Rho. NON ELIMINARE
-           Queste modifica è fino all'13 Settembre.
+        .init(name: "Rho", coordinate: .init(latitude: 45.52411, longitude: 9.04355), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.52714, longitude: 9.05292), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.52802, longitude: 9.05644), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.52859, longitude: 9.05897), branch: "Main"),
@@ -1440,7 +1438,7 @@ struct StationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.51275, longitude: 9.5445), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.51391, longitude: 9.57049), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.51436, longitude: 9.57557), branch: "Main"),
-        .init(name: "Treviglio", coordinate: .init(latitude: 45.51531, longitude: 9.58864), branch: "Main")*/
+        .init(name: "Treviglio", coordinate: .init(latitude: 45.51531, longitude: 9.58864), branch: "Main")
     ]
     
     static let stationsS7: [MetroStation] = [
