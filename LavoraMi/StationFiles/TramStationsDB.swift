@@ -3739,7 +3739,6 @@ struct TramStationsDB {
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.42268, longitude: 9.20414), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.42244, longitude: 9.2042), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.42235, longitude: 9.20418), branch: "Main"),
-        .init(name: "NO_DRAW", coordinate: .init(latitude: 45.4226, longitude: 9.20412), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.42217, longitude: 9.20401), branch: "Main"),
         .init(name: "NO_DRAW", coordinate: .init(latitude: 45.42212, longitude: 9.20391), branch: "Main"),
         .init(name: "Vigentino", coordinate: .init(latitude: 45.42196, longitude: 9.20354), branch: "Main"),
