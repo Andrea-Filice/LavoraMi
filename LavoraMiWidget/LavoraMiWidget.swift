@@ -95,9 +95,16 @@ struct LavoraMiWidgetEntryView : View {
                     Image(systemName: entry.linea?.iconTransport ?? "tram.fill")
                         .foregroundColor(.secondary)
                 }
-                Text("\(entry.linea?.longName ?? "") \(entry.linea?.name ?? "")")
-                    .bold()
-                    .font(.system(size: 15))
+                if entry.linea?.name.starts(with: "MXP") ?? false {
+                    Text("\(entry.linea?.longName ?? "")")
+                        .bold()
+                        .font(.system(size: 15))
+                }
+                else {
+                    Text("\(entry.linea?.longName ?? "") \(entry.linea?.name ?? "")")
+                        .bold()
+                        .font(.system(size: 15))
+                }
                 Divider()
                 HStack(spacing: 2) {
                     Label("IN CORSO", systemImage: "exclamationmark.triangle.fill")
