@@ -6561,7 +6561,7 @@ extension LineDetailView {
                             .foregroundStyle((selectedWidgetLine == lineName) ? .yellow : .gray)
                             .scaleEffect(1.5)
                     }
-                    else{
+                    else {
                         Image(systemName: (selectedWidgetLine == lineName) ? "app.badge.checkmark" : "plus.viewfinder")
                             .foregroundStyle((selectedWidgetLine == lineName) ? .yellow : .gray)
                             .scaleEffect(1.5)

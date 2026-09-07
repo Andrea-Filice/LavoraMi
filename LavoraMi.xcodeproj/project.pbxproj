@@ -152,6 +152,7 @@
 				StationFiles/FilobusStationsDB.swift,
 				StationFiles/MalpensaExpressStationsDB.swift,
 				StationFiles/MetroStationsDB.swift,
+				StationFiles/MovibusStationsDB.swift,
 				StationFiles/RegioExpressStationsDB.swift,
 				StationFiles/RegionalStationsDB.swift,
 				StationFiles/SuburbanStationsDB.swift,
