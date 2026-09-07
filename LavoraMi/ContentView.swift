@@ -5016,8 +5016,7 @@ struct LineRow: View {
     var onTap: (() -> Void)? = nil
 
     private var isDetailView: Bool {
-        typeOfTransport != "Movibus"
-        && typeOfTransport != "STAV"
+        typeOfTransport != "STAV"
         && typeOfTransport != "NET"
         && typeOfTransport != "Autoguidovie"
         && typeOfTransport != "STAR Mobility"
@@ -5335,30 +5334,30 @@ struct LinesView: View {
     
     var bus : [LineInfo] {
         [
-            LineInfo(name: "z601", branches: "Legnano - Rho - Molino Dorino M1", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z602", branches: "Legnano - Milano Cadorna FN", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z603", branches: "Nerviano/S.Vittore - Milano Cadorna FN", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z6C3", branches: "Vittore Olona - Cerro Maggiore - Milano Cadorna FN", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z606", branches: "Cerro Maggiore - Rho/Europa", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z611", branches: "Legnano - Canegrate - Parabiago", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z612", branches: "Legnano - Lainate - Arese (Il CENTRO)", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z616", branches: "Pregnana Milanese - Rho", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z617", branches: "Origgio / Lainate - Molino Dorino M1 ", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z618", branches: "Vanzago - Pogliano M. - Rho", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z619", branches: "Lainate - Plesso IST Maggiolini", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z620", branches: "Magenta - Vittuone - Molino Dorino M1", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z621", branches: "Cuggiono - Ossona - Molino Dorino M1", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z622", branches: "Cuggiono - Ossona - Cornaredo", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z625", branches: "Busto Arsizio - Busto Garolfo", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z627", branches: "Castano Primo - Legnano", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z636", branches: "Nosate - Legnano", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z641", branches: "Castano Primo - Magenta", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z642", branches: "Magenta - Legnano", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z643", branches: "Vittuone - Parabiago", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z644", branches: "Arconate - Parabiago", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z646", branches: "Magenta - Castano Primo", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z647", branches: "Cornaredo - Castano Primo", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: ""),
-            LineInfo(name: "z649", branches: "Magenta - Arluno - Molino Dorino M1", type: "Movibus", waitMinutes: "", stations: [], accessibilityStatus: "")
+            LineInfo(name: "z601", branches: "Legnano - Rho - Molino Dorino M1", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ601, accessibilityStatus: ""),
+            LineInfo(name: "z602", branches: "Legnano - Milano Cadorna FN", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ602, accessibilityStatus: ""),
+            LineInfo(name: "z603", branches: "Nerviano/S.Vittore - Milano Cadorna FN", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ603, accessibilityStatus: ""),
+            LineInfo(name: "z6C3", branches: "Vittore Olona - Cerro Maggiore - Milano Cadorna FN", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ6C3, accessibilityStatus: ""),
+            LineInfo(name: "z606", branches: "Cerro Maggiore - Rho/Europa", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ606, accessibilityStatus: ""),
+            LineInfo(name: "z611", branches: "Legnano - Canegrate - Parabiago", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ611, accessibilityStatus: ""),
+            LineInfo(name: "z612", branches: "Legnano - Lainate - Arese (Il CENTRO)", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ612, accessibilityStatus: ""),
+            LineInfo(name: "z616", branches: "Pregnana Milanese - Rho", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ616, accessibilityStatus: ""),
+            LineInfo(name: "z617", branches: "Origgio / Lainate - Molino Dorino M1 ", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ617, accessibilityStatus: ""),
+            LineInfo(name: "z618", branches: "Vanzago - Pogliano M. - Rho", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ618, accessibilityStatus: ""),
+            LineInfo(name: "z619", branches: "Lainate - Plesso IST Maggiolini", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ619, accessibilityStatus: ""),
+            LineInfo(name: "z620", branches: "Magenta - Vittuone - Molino Dorino M1", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ620, accessibilityStatus: ""),
+            LineInfo(name: "z621", branches: "Cuggiono - Ossona - Molino Dorino M1", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ621, accessibilityStatus: ""),
+            LineInfo(name: "z622", branches: "Cuggiono - Ossona - Cornaredo", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ622, accessibilityStatus: ""),
+            LineInfo(name: "z625", branches: "Busto Arsizio - Busto Garolfo", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ625, accessibilityStatus: ""),
+            LineInfo(name: "z627", branches: "Castano Primo - Legnano", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ627, accessibilityStatus: ""),
+            LineInfo(name: "z636", branches: "Nosate - Legnano", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ636, accessibilityStatus: ""),
+            LineInfo(name: "z641", branches: "Castano Primo - Magenta", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ641, accessibilityStatus: ""),
+            LineInfo(name: "z642", branches: "Magenta - Legnano", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ642, accessibilityStatus: ""),
+            LineInfo(name: "z643", branches: "Vittuone - Parabiago", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ643, accessibilityStatus: ""),
+            LineInfo(name: "z644", branches: "Arconate - Parabiago", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ644, accessibilityStatus: ""),
+            LineInfo(name: "z646", branches: "Magenta - Castano Primo", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ646, accessibilityStatus: ""),
+            LineInfo(name: "z647", branches: "Cornaredo - Castano Primo", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ647, accessibilityStatus: ""),
+            LineInfo(name: "z649", branches: "Magenta - Arluno - Molino Dorino M1", type: "Movibus", waitMinutes: "", stations: MovibusStationsDB.movibusZ649, accessibilityStatus: "")
         ]
     }
     
@@ -6220,6 +6219,7 @@ struct LineDetailView: View {
     @State private var openInfoLineSuspended: Bool = false
     @State private var openPopUpInfoStatus: Bool = false
     @State private var selectedBranch: String? = nil
+    @State private var modalitaRitorno: Bool = false
     @State private var linesWithBlackText: [String] = ["M3", "M5", "S5", "S6", "S8", "S11", "S12"]
     @State private var showPopUpAccount: Bool = false
     
@@ -6279,9 +6279,31 @@ struct LineDetailView: View {
     var onAppear: (() -> Void)? = nil
 
     private var mainStations: [MetroStation] {
-        stations.filter { $0.branch == "Main" }
+        modalitaRitorno ? stations.filter { $0.branch.localizedCaseInsensitiveContains("Ritorno") } : stations.filter { $0.branch == "Main" }
     }
-    
+
+    private var isBusLineForRoute: Bool {typeOfTransport == "Movibus"}
+    private var hasRitornoBranch: Bool {stations.contains { $0.branch.localizedCaseInsensitiveContains("Ritorno") }}
+
+    private var stationsForCurrentDirection: [MetroStation] {
+        stations.filter { station in
+            guard station.name != "NO_DRAW" else { return true }
+            let branch = station.branch
+            let branchHasRitorno = branch.localizedCaseInsensitiveContains("Ritorno")
+            let branchIsOnlyRitorno = branch.trimmingCharacters(in: .whitespaces).caseInsensitiveCompare("Ritorno") == .orderedSame
+            return modalitaRitorno ? branchHasRitorno : !branchIsOnlyRitorno
+        }
+    }
+
+    private var direzioneMappaText: String? {
+        guard isBusLineForRoute, hasRitornoBranch else { return nil }
+        let filtrate = stationsForCurrentDirection.filter { $0.name != "NO_DRAW" }
+        guard !filtrate.isEmpty else { return nil }
+        let destinazione = modalitaRitorno ? filtrate.first?.name : filtrate.last?.name
+        guard let destinazione else { return nil }
+        return "Direzione →  \(destinazione)"
+    }
+
     @State private var branchData: [(coords: [CLLocationCoordinate2D], isPlanned: Bool)] = []
     
     private var metroLineIndex: Int? {
@@ -6354,12 +6376,14 @@ struct LineDetailView: View {
     }
 
     private func computeBranchData() -> [(coords: [CLLocationCoordinate2D], isPlanned: Bool)] {
-        let branchGroups = Dictionary(grouping: stations.filter { $0.branch != "Main" }, by: \.branch)
+        let realMainStations = stations.filter { $0.branch == "Main" }
+        let branchGroups = Dictionary(grouping: stations.filter { $0.branch != "Main" && !$0.branch.localizedCaseInsensitiveContains("Ritorno") }, by: \.branch)
+        
         return branchGroups.compactMap { branchName, branchStations -> (coords: [CLLocationCoordinate2D], isPlanned: Bool)? in
             guard !branchStations.isEmpty else { return nil }
 
             let isPlanned = branchName.lowercased().contains("new") || branchName.lowercased().contains("nuova")
-            let searchPool = isPlanned ? stations.filter { $0.branch != branchName } : mainStations
+            let searchPool = isPlanned ? stations.filter { $0.branch != branchName } : realMainStations
             guard !searchPool.isEmpty else { return nil }
 
             func minDist(_ s: MetroStation) -> CLLocationDistance {
@@ -6437,6 +6461,22 @@ struct LineDetailView: View {
     
     private func sortedStops(route: GTFSRoute) -> [(id: String, name: String)] {
         route.stops.map { ($0.key, $0.value.n) }.sorted { $0.name < $1.name }
+    }
+
+    private func selezionaFermataDaMappa(_ stationName: String) {
+        guard let route = routeData,
+              let match = route.stops.first(where: { $0.value.n.caseInsensitiveCompare(stationName) == .orderedSame })
+        else { return }
+
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.impactOccurred()
+
+        selectedStopId = match.key
+        selectedStopName = match.value.n
+
+        withAnimation {
+            selectedTab = .arrivi
+        }
     }
 
     private func loadArrivalsData() {
@@ -6930,17 +6970,20 @@ extension LineDetailView {
                     MapPolyline(coordinates: mainStations.map(\.coordinate))
                         .stroke(lineColor, lineWidth: 5)
 
-                    ForEach(branchData.indices, id: \.self) { i in
-                        if branchData[i].isPlanned {
-                            MapPolyline(coordinates: branchData[i].coords)
-                                .stroke(lineColor, style: StrokeStyle(lineWidth: 4, dash: [6, 6]))
-                        } else {
-                            MapPolyline(coordinates: branchData[i].coords)
-                                .stroke(lineColor, lineWidth: 5)
+                    if !modalitaRitorno {
+                        ForEach(branchData.indices, id: \.self) { i in
+                            if branchData[i].isPlanned {
+                                MapPolyline(coordinates: branchData[i].coords)
+                                    .stroke(lineColor, style: StrokeStyle(lineWidth: 4, dash: [6, 6]))
+                            }
+                            else {
+                                MapPolyline(coordinates: branchData[i].coords)
+                                    .stroke(lineColor, lineWidth: 5)
+                            }
                         }
                     }
 
-                    ForEach(stations) { station in
+                    ForEach(stationsForCurrentDirection) { station in
                         if station.name == "NO_DRAW" {
                             Annotation("", coordinate: station.coordinate) {
                                 EmptyView()
@@ -6963,6 +7006,10 @@ extension LineDetailView {
                                             .font(.system(size: 9, weight: .bold))
                                             .foregroundStyle(.white)
                                     }
+                                }
+                                .contentShape(Circle().inset(by: -8))
+                                .onTapGesture {
+                                    selezionaFermataDaMappa(station.name)
                                 }
                             }
                         }
@@ -7011,6 +7058,42 @@ extension LineDetailView {
                         }
                         .padding(12)
                     }
+                }
+            }
+            .overlay(alignment: .bottomTrailing) {
+                if isBusLineForRoute && hasRitornoBranch {
+                    Button {
+                        let generator = UIImpactFeedbackGenerator(style: .medium)
+                        generator.impactOccurred()
+                        withAnimation {
+                            modalitaRitorno.toggle()
+                        }
+                    } label: {
+                        Image(systemName: "arrow.triangle.2.circlepath")
+                            .font(.system(size: 17, weight: .semibold))
+                            .foregroundStyle(Color.primary)
+                            .frame(width: 45, height: 45)
+                            .background(.ultraThinMaterial, in: Circle())
+                            .overlay(Circle().stroke(.quaternary, lineWidth: 0.5))
+                            .shadow(color: .black.opacity(0.12), radius: 4, x: 0, y: 2)
+                    }
+                    .padding(.trailing, 10)
+                    .padding(.bottom, 66)
+                }
+            }
+            .overlay(alignment: .topLeading) {
+                if let direzioneMappaText {
+                    Text(direzioneMappaText)
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundStyle(Color.primary)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(.ultraThinMaterial, in: Capsule())
+                        .overlay(Capsule().stroke(.quaternary, lineWidth: 0.5))
+                        .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
+                        .padding(.top, 34)
+                        .padding(.leading, 12)
+                        .transition(.opacity)
                 }
             }
         }
@@ -7156,7 +7239,7 @@ extension LineDetailView {
                                 InterchangeView(item: interchange, currentLine: lineName)
                             }
                         }
-                    .padding(.vertical, 8)
+                        .padding(.vertical, 8)
                     }
                 } else {
                     Text("Nessun interscambio con questa linea.")
