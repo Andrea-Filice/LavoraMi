@@ -6301,7 +6301,7 @@ struct LineDetailView: View {
         guard !filtrate.isEmpty else { return nil }
         let destinazione = modalitaRitorno ? filtrate.first?.name : filtrate.last?.name
         guard let destinazione else { return nil }
-        return "Direzione →  \(destinazione)"
+        return "→  \(destinazione)"
     }
 
     @State private var branchData: [(coords: [CLLocationCoordinate2D], isPlanned: Bool)] = []
@@ -6792,7 +6792,7 @@ extension LineDetailView {
                         }
                     }
                 }
-                if isDetailed {
+                if isDetailed && accessibilityStatus != ""{
                     Spacer()
                     Divider()
                         .frame(height: 36)
@@ -6891,7 +6891,7 @@ extension LineDetailView {
                 )
                 .foregroundStyle(selectedTab == .works ? ((!linesWithBlackText.contains(lineName)) ? .white : Color(.systemBackground)) : ((lineName == "S12" && colorScheme == .dark) ? .white : getColor(for: lineName)))
             }
-            if isDetailed {
+            if isDetailed && typeOfTransport != "Movibus" {
                 Button(action: {
                     if feedbacksEnabled { HapticManager.shared.trigger() }
                     withAnimation(.snappy) { selectedTab = .interchanges }
@@ -7069,16 +7069,19 @@ extension LineDetailView {
                             modalitaRitorno.toggle()
                         }
                     } label: {
-                        Image(systemName: "arrow.triangle.2.circlepath")
+                        Image(systemName: "arrow.left.arrow.right")
                             .font(.system(size: 17, weight: .semibold))
                             .foregroundStyle(Color.primary)
                             .frame(width: 45, height: 45)
                             .background(.ultraThinMaterial, in: Circle())
-                            .overlay(Circle().stroke(.quaternary, lineWidth: 0.5))
-                            .shadow(color: .black.opacity(0.12), radius: 4, x: 0, y: 2)
+                            .overlay(
+                                Circle()
+                                    .stroke(Color.white.opacity(0.25), lineWidth: 1)
+                            )
+                            .shadow(color: .black.opacity(0.15), radius: 6, x: 0, y: 3)
                     }
+                    .padding(.bottom, 10)
                     .padding(.trailing, 10)
-                    .padding(.bottom, 66)
                 }
             }
             .overlay(alignment: .topLeading) {
@@ -7091,7 +7094,7 @@ extension LineDetailView {
                         .background(.ultraThinMaterial, in: Capsule())
                         .overlay(Capsule().stroke(.quaternary, lineWidth: 0.5))
                         .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
-                        .padding(.top, 34)
+                        .padding(.top, 15)
                         .padding(.leading, 12)
                         .transition(.opacity)
                 }
@@ -7106,12 +7109,9 @@ extension LineDetailView {
         .padding(.bottom, 10)
         .onAppear {
             locationManager.requestPermission()
-            if branchData.isEmpty {
-                branchData = computeBranchData()
-            }
-            if metroLineIndex != nil {
-                viewModel.fetchMetroStatus()
-            }
+            
+            if branchData.isEmpty {branchData = computeBranchData()}
+            if metroLineIndex != nil {viewModel.fetchMetroStatus()}
         }
     }
     
