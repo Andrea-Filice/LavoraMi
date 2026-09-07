@@ -6278,10 +6278,7 @@ struct LineDetailView: View {
     
     var onAppear: (() -> Void)? = nil
 
-    private var mainStations: [MetroStation] {
-        modalitaRitorno ? stations.filter { $0.branch.localizedCaseInsensitiveContains("Ritorno") } : stations.filter { $0.branch == "Main" }
-    }
-
+    private var mainStations: [MetroStation] {stationsForCurrentDirection}
     private var isBusLineForRoute: Bool {typeOfTransport == "Movibus"}
     private var hasRitornoBranch: Bool {stations.contains { $0.branch.localizedCaseInsensitiveContains("Ritorno") }}
 
