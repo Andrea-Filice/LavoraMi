@@ -8336,9 +8336,15 @@ func getCurrentTransportIcon(for lineLongName: String) -> String{
             return "bus.fill"
         case "STAV":
             return "bus.fill"
+        case "STAR Mobility":
+            return "bus.fill"
+        case "NET":
+            return "bus.fill"
         case "Movibus":
             return "bus.fill"
             
+        case String(localized: .filobus):
+            return "bus.fill"
         case String(localized: .tram):
             return "tram.fill"
         
