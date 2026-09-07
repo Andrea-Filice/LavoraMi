@@ -6284,7 +6284,6 @@ struct LineDetailView: View {
 
     private var stationsForCurrentDirection: [MetroStation] {
         stations.filter { station in
-            guard station.name != "NO_DRAW" else { return true }
             let branch = station.branch
             let branchHasRitorno = branch.localizedCaseInsensitiveContains("Ritorno")
             let branchIsOnlyRitorno = branch.trimmingCharacters(in: .whitespaces).caseInsensitiveCompare("Ritorno") == .orderedSame
@@ -6374,7 +6373,11 @@ struct LineDetailView: View {
 
     private func computeBranchData() -> [(coords: [CLLocationCoordinate2D], isPlanned: Bool)] {
         let realMainStations = stations.filter { $0.branch == "Main" }
-        let branchGroups = Dictionary(grouping: stations.filter { $0.branch != "Main" && !$0.branch.localizedCaseInsensitiveContains("Ritorno") }, by: \.branch)
+        let branchGroups = Dictionary(grouping: stations.filter {
+            $0.branch != "Main"
+            && !$0.branch.localizedCaseInsensitiveContains("Ritorno")
+            && !$0.branch.localizedCaseInsensitiveContains("Main - Ritorno")
+        }, by: \.branch)
         
         return branchGroups.compactMap { branchName, branchStations -> (coords: [CLLocationCoordinate2D], isPlanned: Bool)? in
             guard !branchStations.isEmpty else { return nil }
@@ -7020,6 +7023,9 @@ extension LineDetailView {
             }
             .tint(getColor(for: lineName))
             .clipShape(RoundedRectangle(cornerRadius: 12))
+            .onChange(of: modalitaRitorno) {
+                branchData = computeBranchData()
+            }
             .overlay(alignment: .topLeading) {
                 if let status = metroStatusInfo {
                     if status.text == String(localized: .statoMetroRegolare) || status.text == String(localized: .statoMetroChiusa) {
