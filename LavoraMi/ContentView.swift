@@ -6547,7 +6547,7 @@ extension LineDetailView {
                         DataManager.shared.deleteSavedLine()
                     }
                     else {
-                        DataManager.shared.setSavedLine(SavedLine(id: lineName, name: lineName, longName: typeOfTransport, iconTransport: getCurrentTransportIcon(for: typeOfTransport), worksNow: workNow, worksScheduled: workScheduled))
+                        DataManager.shared.setSavedLine(SavedLine(id: lineName, name: lineName, longName: typeOfTransport, iconTransport: getCurrentTransportIcon(for: typeOfTransport), worksNow: workNow, worksScheduled: workScheduled, isDeviatedLine: (viewModel.suburbanWithInterruptions.contains(lineName) || viewModel.regionalWithInterruptions.contains(lineName))))
                         selectedWidgetLine = lineName
                         
                         if(!alreadySeenPopUp){

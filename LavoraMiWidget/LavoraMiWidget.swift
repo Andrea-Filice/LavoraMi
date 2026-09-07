@@ -18,7 +18,7 @@ struct WorkEntry: TimelineEntry {
 
 struct Provider: TimelineProvider {
     func getSnapshot(in context: Context, completion: @escaping (WorkEntry) -> Void) {
-        let entry = WorkEntry(date: Date(), linea: SavedLine(id: "0", name: "M1", longName: "Metro", iconTransport: "tram.fill.tunnel", worksNow: 0, worksScheduled: 2), stato: "Anteprima")
+        let entry = WorkEntry(date: Date(), linea: SavedLine(id: "0", name: "M1", longName: "Metro", iconTransport: "tram.fill.tunnel", worksNow: 0, worksScheduled: 2, isDeviatedLine: false), stato: "Anteprima")
         completion(entry)
     }
     
@@ -43,7 +43,8 @@ struct Provider: TimelineProvider {
                     longName: line.longName,
                     iconTransport: line.iconTransport,
                     worksNow: counts.0,
-                    worksScheduled: counts.1
+                    worksScheduled: counts.1,
+                    isDeviatedLine: line.isDeviatedLine
                 )
                 
                 let entry = WorkEntry(date: Date(), linea: updatedLine, stato: "def")
@@ -56,7 +57,7 @@ struct Provider: TimelineProvider {
     }
 
     func placeholder(in context: Context) -> WorkEntry {
-        WorkEntry(date: Date(), linea: SavedLine(id: "empty", name: "1", longName: "2", iconTransport: "", worksNow: 0, worksScheduled: 0), stato: "empty")
+        WorkEntry(date: Date(), linea: SavedLine(id: "empty", name: "1", longName: "2", iconTransport: "", worksNow: 0, worksScheduled: 0, isDeviatedLine: false), stato: "empty")
     }
 }
 
@@ -95,15 +96,22 @@ struct LavoraMiWidgetEntryView : View {
                     Image(systemName: entry.linea?.iconTransport ?? "tram.fill")
                         .foregroundColor(.secondary)
                 }
-                if entry.linea?.name.starts(with: "MXP") ?? false {
-                    Text("\(entry.linea?.longName ?? "")")
-                        .bold()
-                        .font(.system(size: 15))
-                }
-                else {
-                    Text("\(entry.linea?.longName ?? "") \(entry.linea?.name ?? "")")
-                        .bold()
-                        .font(.system(size: 15))
+                HStack(spacing: 6) {
+                    if entry.linea?.name.starts(with: "MXP") ?? false {
+                        Text("\(entry.linea?.longName ?? "")")
+                            .bold()
+                            .font(.system(size: 15))
+                    }
+                    else {
+                        Text("\(entry.linea?.longName ?? "") \(entry.linea?.name ?? "")")
+                            .bold()
+                            .font(.system(size: 15))
+                    }
+                    
+                    if entry.linea?.isDeviatedLine ?? false {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .font(.system(size: 15))
+                    }
                 }
                 Divider()
                 HStack(spacing: 2) {
@@ -237,5 +245,5 @@ class WidgetNetworkManager {
 #Preview(as: .systemMedium) {
     LavoraMiWidget()
 } timeline: {
-    WorkEntry(date: Date(), linea: SavedLine(id: "M1", name: "M1", longName: "Metro", iconTransport: "", worksNow: 1, worksScheduled: 2), stato: "empty")
+    WorkEntry(date: Date(), linea: SavedLine(id: "M1", name: "M1", longName: "Metro", iconTransport: "", worksNow: 1, worksScheduled: 2, isDeviatedLine: false), stato: "empty")
 }
