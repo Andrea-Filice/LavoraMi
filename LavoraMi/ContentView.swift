@@ -8070,6 +8070,13 @@ struct InterchangeRow: View {
                                 .scaledToFit()
                                 .frame(width: 22, height: 22)
                                 .foregroundStyle(Color("TextColor"))
+                        } else if interchange.typeOfInterchange == "hospital" {
+                            Image(interchange.typeOfInterchange)
+                                .renderingMode(.template)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 22, height: 22)
+                                .foregroundStyle(Color("TextColor"))
                         } else {
                             Image(systemName: interchange.typeOfInterchange)
                                 .font(.system(size: 20, weight: .bold))
