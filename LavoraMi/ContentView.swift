@@ -8175,13 +8175,6 @@ struct InterchangeView: View {
                                 .padding(.vertical, 4)
                                 .padding(.horizontal, 8)
                                 .background(RoundedRectangle(cornerRadius: 6).fill(getColor(for: line)))
-                        } else if line == "Monumento" {
-                            Text(String(localized: .monumento))
-                                .font(.system(size: 12, weight: .bold))
-                                .foregroundStyle(.black)
-                                .padding(.vertical, 4)
-                                .padding(.horizontal, 8)
-                                .background(RoundedRectangle(cornerRadius: 6).fill(Color(red: 234/255, green: 223/255, blue: 201/255)))
                         } else {
                             Text(line)
                                 .font(.system(size: 12, weight: .bold))
