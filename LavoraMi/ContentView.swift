@@ -8057,9 +8057,12 @@ struct InterchangeRow: View {
             .frame(width: 30)
 
             VStack(alignment: .leading, spacing: 8) {
-                Text(interchange.name.uppercased())
-                    .font(.custom("TitilliumWeb-Bold", size: 20))
-                    .foregroundStyle(Color("TextColor"))
+                BouncingMarqueeText(
+                    text: interchange.name.uppercased(),
+                    font: .custom("TitilliumWeb-Bold", size: 20),
+                    color: Color("TextColor"),
+                    lineHeight: 24
+                )
 
                 if !otherLines.isEmpty {
                     HStack(spacing: 6) {
