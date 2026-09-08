@@ -6294,8 +6294,10 @@ struct LineDetailView: View {
     private var direzioneMappaText: String? {
         guard isBusLineForRoute, hasRitornoBranch else { return nil }
         let filtrate = stationsForCurrentDirection.filter { $0.name != "NO_DRAW" }
+        
         guard !filtrate.isEmpty else { return nil }
         let destinazione = modalitaRitorno ? filtrate.first?.name : filtrate.last?.name
+        
         guard let destinazione else { return nil }
         return "→  \(destinazione)"
     }
