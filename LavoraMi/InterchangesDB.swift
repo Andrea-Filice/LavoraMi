@@ -1404,7 +1404,7 @@ struct InterchangesDB {
     static let tramInterchanges: [InterchangeInfo] = [
         // TRAM LINES
         /// Tram 1
-        .init(name: "Roserio (Ospedale Sacco)", lines: ["1", "12", "560", "566"], typeOfInterchange: "tram.fill", branch: "Main", lineOrder: 0),
+        .init(name: "Roserio (Ospedale Sacco)", lines: ["1", "Ospedale", "12", "560", "566"], typeOfInterchange: "hospital", branch: "Main", lineOrder: 0),
         .init(name: "Via Grassi", lines: ["1", "12"], typeOfInterchange: "tram.fill", branch: "Main", lineOrder: 1),
         .init(name: "Largo Boccioni", lines: ["1", "12", "40", "560"], typeOfInterchange: "tram.fill", branch: "Main", lineOrder: 2),
         .init(name: "Via Mambretti", lines: ["1", "12", "40"], typeOfInterchange: "tram.fill", branch: "Main", lineOrder: 3),
@@ -1518,7 +1518,7 @@ struct InterchangesDB {
         .init(name: "Niguarda Nord", lines: ["4", "42", "51", "52", "83", "161", "166"], typeOfInterchange: "tram.fill", branch: "Main", lineOrder: 2),
         .init(name: "Niguarda Centro", lines: ["4", "51", "166", "172"], typeOfInterchange: "tram.fill", branch: "Main", lineOrder: 3),
         .init(name: "Girola", lines: ["4", "51", "83", "161", "166", "172"], typeOfInterchange: "tram.fill", branch: "Main", lineOrder: 4),
-        .init(name: "Niguarda (Ospedale)", lines: ["4", "5", "51", "83", "161", "166", "172"], typeOfInterchange: "hospital", branch: "Main", lineOrder: 5),
+        .init(name: "Niguarda (Ospedale)", lines: ["4", "Ospedale", "5", "51", "83", "161", "166", "172"], typeOfInterchange: "hospital", branch: "Main", lineOrder: 5),
         .init(name: "Nizza", lines: ["4", "51", "166"], typeOfInterchange: "tram.fill", branch: "Main", lineOrder: 6),
         .init(name: "Valassina", lines: ["4"], typeOfInterchange: "tram.fill", branch: "Main", lineOrder: 7),
         .init(name: "Maciachini M3", lines: ["4", "M3", "NM3", "4", "70"], typeOfInterchange: "tram.fill.tunnel", branch: "Main", lineOrder: 8),

@@ -4977,6 +4977,29 @@
         }
       }
     },
+    "ospedale" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hospital"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hospital"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ospedale"
+          }
+        }
+      }
+    },
     "Parzialmente Accessibile" : {
       "extractionState" : "manual",
       "localizations" : {

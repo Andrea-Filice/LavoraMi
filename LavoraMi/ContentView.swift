@@ -8094,6 +8094,8 @@ struct InterchangeRow: View {
                                         } else if line == "Monumento" {
                                             Text(String(localized: .monumento))
                                                 .foregroundStyle(.black)
+                                        } else if line == "Ospedale" {
+                                            Text(String(localized: .ospedale))
                                         } else {
                                             Text(line)
                                         }
@@ -8417,6 +8419,7 @@ func getColor(for line: String) -> Color {
         case "RV": return .red
         case String(localized: .aereoporto): return .cyan
         case "Monumento": return Color(red: 234/255, green: 223/255, blue: 201/255)
+        case "Ospedale": return Color(red: 224/255, green: 88/255, blue: 79/255)
         case _ where line.contains("R") && !line.contains("RE"): return Color.blue
         case _ where line.contains("RE") && !line.contains("REG"): return Color.red
         case let s where (1...33).contains(Int(s) ?? 0): return .orange
