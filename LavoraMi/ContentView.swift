@@ -6175,7 +6175,7 @@ func getInterchanges(line: String) -> [InterchangeInfo] {
     }
     else if Int(line) != nil {
         if(line.wholeMatch(of: /9[0-3]/) != nil) { return InterchangesDB.getFilobusInterchanges(line: line) }
-        return InterchangesDB.interchangesTrams.filter { $0.lines.contains(line) }
+        return InterchangesDB.getTramInterchanges(line: line)
     }
     else {return []}
 }
@@ -7162,8 +7162,9 @@ extension LineDetailView {
         let isRegional = lineName.starts(with: "R") && !lineName.starts(with: "RE")
         let isRegioExpress = lineName.starts(with: "RE")
         let isFilobus = lineName == "90" || lineName == "91" || lineName == "92" || lineName == "93"
+        let isTram = typeOfTransport.contains(String(localized: .tram))
         
-        let isAvailable = (isMetro || isMalpensaExpress || isSuburban || isTilo || isRegional || isFilobus || isRegioExpress)
+        let isAvailable = (isMetro || isMalpensaExpress || isSuburban || isTilo || isRegional || isFilobus || isTram || isRegioExpress)
         
         let allInterchanges = getInterchanges(line: lineName)
         let mainItems = allInterchanges.filter { $0.branch == "Main" }

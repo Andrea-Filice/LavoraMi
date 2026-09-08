@@ -4182,6 +4182,29 @@
         }
       }
     },
+    "monumento" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monument"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monumento"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monumento"
+          }
+        }
+      }
+    },
     "Mostra banner Scioperi" : {
       "localizations" : {
         "en" : {
