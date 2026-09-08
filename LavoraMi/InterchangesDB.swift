@@ -73,7 +73,7 @@ struct InterchangesDB {
         .init(name: "Lotto M1 M5", lines: ["90", "M1", "NM1", "M5", "48", "49", "68", "78", "91", "98"], typeOfInterchange: "tram.fill.tunnel", branch: "Main", lineOrder: 0),
         .init(name: "Piazzale Zavattari", lines: ["90", "49", "91"], typeOfInterchange: "bus.fill", branch: "Main", lineOrder: 1),
         .init(name: "Viale Murillo Via Ricciarelli", lines: ["90", "91"], typeOfInterchange: "bus.fill", branch: "Main", lineOrder: 2),
-        .init(name: "Piazzale Brescia (Ospedale San Luca)", lines: ["90", "16", "91"], typeOfInterchange: "tram.fill", branch: "Main", lineOrder: 3),
+        .init(name: "Piazzale Brescia (Ospedale San Luca)", lines: ["90", "Ospedale", "16", "91"], typeOfInterchange: "hospital", branch: "Main", lineOrder: 3),
         .init(name: "Piazzale Brescia", lines: ["90", "16", "91"], typeOfInterchange: "tram.fill", branch: "Main", lineOrder: 4),
         .init(name: "Piazza Ghirlandaio", lines: ["90", "63", "80", "91"], typeOfInterchange: "bus.fill", branch: "Main", lineOrder: 5),
         .init(name: "Viale Bezzi Via Marostica", lines: ["90", "91"], typeOfInterchange: "bus.fill", branch: "Main", lineOrder: 6),
@@ -956,7 +956,7 @@ struct InterchangesDB {
 
         /// Regionale R14
         .init(name: "Bergamo", lines: ["R14", "R1", "R2", "R5", "R7", "RE2", "RV", "z301"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 0),
-        .init(name: "Bergamo Ospedale", lines: ["R14"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 1),
+        .init(name: "Bergamo Ospedale", lines: ["R14", "Ospedale"], typeOfInterchange: "hospital", branch: "Main", lineOrder: 1),
         .init(name: "Ponte San Pietro", lines: ["R14", "R7"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 2),
         .init(name: "Terno D'Isola", lines: ["R14"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 3),
         .init(name: "Calusco", lines: ["R14"], typeOfInterchange: "lightrail", branch: "Main", lineOrder: 4),
